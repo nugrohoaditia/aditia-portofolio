@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    label span {
+        @apply mb-2 block text-sm font-extrabold text-slate-700 dark:text-slate-200;
+    }
+
+    input,
+    textarea {
+        @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-marine focus:ring-4 focus:ring-marine/15 dark:border-slate-700 dark:bg-slate-950 dark:text-white;
+    }
+}
+
+@layer components {
+    .section-band {
+        @apply py-20 sm:py-24;
+    }
+
+    .section-heading {
+        @apply mb-9 max-w-3xl;
+    }
+
+    .section-heading p {
+        @apply mb-3 text-sm font-black uppercase tracking-wider text-marine dark:text-mint;
+    }
+
+    .section-heading h2 {
+        @apply text-3xl font-black leading-tight tracking-normal text-ink sm:text-4xl lg:text-5xl dark:text-white;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-whatsapp,
+    .btn-email {
+        @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 font-extrabold transition hover:-translate-y-0.5;
+    }
+
+    .btn-primary {
+        @apply bg-ink text-white hover:bg-marine dark:bg-mint dark:text-slate-950 dark:hover:bg-white;
+    }
+
+    .btn-secondary {
+        @apply border border-slate-300 text-ink hover:border-marine hover:text-marine dark:border-slate-700 dark:text-white dark:hover:border-mint dark:hover:text-mint;
+    }
+
+    .btn-whatsapp {
+        @apply bg-emerald-500 text-white hover:bg-emerald-600;
+    }
+
+    .btn-email {
+        @apply bg-ember text-white hover:bg-orange-600;
+    }
+
+    .nav-link,
+    .mobile-link {
+        @apply transition hover:text-marine dark:hover:text-mint;
+    }
+
+    .info-tile {
+        @apply rounded-lg border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-900;
+    }
+
+    .info-tile span {
+        @apply mb-2 block text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400;
+    }
+
+    .info-tile strong {
+        @apply block leading-7 text-ink dark:text-white;
+    }
+
+    .tag-row {
+        @apply flex flex-wrap gap-2;
+    }
+
+    .tag-row span {
+        @apply rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-600 dark:bg-slate-800 dark:text-slate-300;
+    }
+
+    .timeline-item {
+        @apply relative mb-8;
+    }
+
+    .timeline-item::before {
+        @apply absolute -left-[2.05rem] top-1 h-4 w-4 rounded-full border-4 border-white bg-marine content-[''] dark:border-slate-950 dark:bg-mint;
+    }
+
+    .contact-link {
+        @apply block border-b border-slate-300 pb-3 font-extrabold text-ink transition hover:border-marine hover:text-marine dark:border-slate-700 dark:text-white dark:hover:border-mint dark:hover:text-mint;
+    }
+}

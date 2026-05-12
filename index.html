@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio website for Aditia Nugroho, Software Engineer specializing in React, PHP, and high-traffic web platforms."
+    />
+    <title>Aditia Nugroho | Software Engineer Portfolio</title>
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+    <script>
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              ink: "#0f2744",
+              ocean: "#1d6fb8",
+              skySoft: "#eaf6ff",
+            },
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 20px 60px rgba(15, 39, 68, 0.08)",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-700 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-200">
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
+        <a href="#home" class="text-lg font-extrabold tracking-tight text-ink dark:text-white">Aditia Nugroho</a>
+        <div class="hidden items-center gap-7 text-sm font-semibold text-slate-600 md:flex dark:text-slate-300">
+          <a class="nav-link" href="#about">About Me</a>
+          <a class="nav-link" href="#experience">Experience</a>
+          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#education">Education</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            id="themeToggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            title="Toggle dark mode"
+          >
+            <span id="themeIcon" aria-hidden="true">Moon</span>
+            <span id="themeText">Dark</span>
+          </button>
+          <button
+            id="menuToggle"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-ink md:hidden dark:border-slate-700 dark:text-white"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            aria-label="Toggle mobile menu"
+          >
+            <span class="menu-bars"></span>
+          </button>
+        </div>
+      </nav>
+      <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white px-5 py-4 md:hidden dark:border-slate-800 dark:bg-slate-950">
+        <div class="grid gap-3 text-sm font-semibold text-slate-700 dark:text-slate-200">
+          <a class="mobile-link" href="#about">About Me</a>
+          <a class="mobile-link" href="#experience">Experience</a>
+          <a class="mobile-link" href="#skills">Skills</a>
+          <a class="mobile-link" href="#projects">Projects</a>
+          <a class="mobile-link" href="#education">Education</a>
+          <a class="mobile-link" href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="relative overflow-hidden bg-white pt-28 dark:bg-slate-950 sm:pt-32">
+        <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pb-28">
+          <div class="reveal order-2 lg:order-1">
+            <div class="relative mx-auto max-w-xl">
+              <div class="absolute -left-4 -top-4 h-full w-full rounded-3xl border border-sky-200 dark:border-sky-900"></div>
+              <img
+                src="assets/images/aditia-nugroho-casual.jpg"
+                alt="Aditia Nugroho in a smart casual outfit with Jakarta city skyline"
+                class="relative aspect-[16/10] w-full rounded-3xl object-cover object-center shadow-soft"
+              />
+            </div>
+          </div>
+          <div class="reveal order-1 lg:order-2">
+            <p class="mb-4 inline-flex rounded-full bg-skySoft px-4 py-2 text-sm font-bold text-ocean dark:bg-slate-900 dark:text-sky-300">
+              Frontend Developer at Detikcom
+            </p>
+            <h1 class="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-ink sm:text-5xl lg:text-6xl dark:text-white">
+              Aditia Nugroho
+            </h1>
+            <p class="mt-5 text-xl font-semibold text-ocean dark:text-sky-300">
+              Software Engineer | React &amp; PHP | High-Traffic Web Platforms
+            </p>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+              Software Engineer with 7 years of experience building and maintaining high-traffic digital platforms using React and PHP. Experienced in delivering production-ready features, handling system performance issues, and collaborating across teams to build reliable and scalable applications.
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="#experience" class="btn-primary">View Experience</a>
+              <a href="#contact" class="btn-secondary">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section-wrap bg-sky-50/70 dark:bg-slate-900/45">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+          <div class="section-heading reveal">
+            <p>About Me</p>
+            <h2>Reliable web platforms for media, ERP, and digital products.</h2>
+          </div>
+          <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr]">
+            <div class="reveal rounded-2xl bg-white p-7 shadow-soft dark:bg-slate-900">
+              <p class="text-lg leading-8 text-slate-600 dark:text-slate-300">
+                I am a Software Engineer focused on React, PHP, frontend website development, API integration, and system optimization. My work includes high-traffic media platforms, Oracle EBS integration, reusable frontend/backend modules, unit testing, and production issue handling.
+              </p>
+              <p class="mt-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
+                I currently work at PT. Trans Digital Media (Detikcom) as Web Developer (Frontend Website). Previously, I worked as Junior Consultant Technical ERP at PT. Sigma Cipta Caraka (Telkomsigma), Web Developer at PT. Label Inovasi Indonesia, and Application Developer Intern at PT. IBM Indonesia.
+              </p>
+            </div>
+            <div class="reveal grid gap-4">
+              <div class="info-tile">
+                <span>Current Roles</span>
+                <strong>Web Developer (Frontend Website), PT. Trans Digital Media (Detikcom)</strong>
+              </div>
+              <div class="info-tile">
+                <span>Core Stack</span>
+                <strong>PHP, React JS, JavaScript, SQL, HTML5, CSS3, MySQL, REST API Integration</strong>
+              </div>
+              <div class="info-tile">
+                <span>Focus</span>
+                <strong>High-traffic web platforms, API integration, system optimization, digital transformation</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section-wrap bg-white dark:bg-slate-950">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+          <div class="section-heading reveal">
+            <p>Experience</p>
+            <h2>Professional work history from frontend platforms to ERP integration.</h2>
+          </div>
+          <div class="experience-list reveal">
+            <article class="experience-item">
+              <div class="experience-meta">
+                <span>Nov 2021 - Present</span>
+                <strong>Jakarta, Indonesia</strong>
+              </div>
+              <div class="experience-content">
+                <h3>PT. Trans Digital Media (Detikcom)</h3>
+                <p class="role">Web Developer (Frontend Website)</p>
+                <ul>
+                  <li>Led the implementation of new frontend features across multiple high-traffic news platforms serving millions of monthly users.</li>
+                  <li>Researched and evaluated modern frontend and backend practices to improve performance, maintainability, and engineering workflow.</li>
+                  <li>Designed and maintained reusable modules across frontend and backend layers for scalable feature delivery.</li>
+                  <li>Diagnosed and resolved production issues, improving performance, stability, and user experience.</li>
+                  <li>Implemented unit testing with Jest and PHPUnit to reduce production risk.</li>
+                  <li>Contributed to cnnindonesia.com, cnbcindonesia.com, insertlive.com, beautynesia.id, haibunda.com, cxomedia.id, fyb.detik.com, and rekomendit.detik.com.</li>
+                </ul>
+                <div class="tag-row"><span>PHP</span><span>React JS</span><span>JavaScript</span><span>Git</span><span>AMP</span><span>Jest</span><span>PHPUnit</span><span>Phalcon</span></div>
+              </div>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-meta">
+                <span>Jan 2019 - Nov 2021</span>
+                <strong>Jakarta, Indonesia</strong>
+              </div>
+              <div class="experience-content">
+                <h3>PT. Sigma Cipta Caraka (Telkomsigma)</h3>
+                <p class="role">Junior Consultant Technical ERP</p>
+                <ul>
+                  <li>Developed and customized integrated websites based on client requirements.</li>
+                  <li>Ensured seamless interaction between frontend systems and Oracle databases.</li>
+                  <li>Managed and optimized Oracle E-Business Suite databases for performance and data integrity.</li>
+                  <li>Engineered website and Oracle DB integration for smooth data exchange and real-time synchronization.</li>
+                  <li>Created Oracle SaaS reports to support business decision-making and operational efficiency.</li>
+                </ul>
+                <div class="tag-row"><span>PHP</span><span>PL/SQL</span><span>Oracle EBS</span><span>RTF Report</span><span>TOAD</span></div>
+              </div>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-meta">
+                <span>Nov 2017 - Dec 2018</span>
+                <strong>Jakarta, Indonesia</strong>
+              </div>
+              <div class="experience-content">
+                <h3>PT. Label Inovasi Indonesia (Label Ideas &amp; Co)</h3>
+                <p class="role">Web Developer (Frontend Website)</p>
+                <ul>
+                  <li>Developed frontend websites from concept to completion for functional digital platforms.</li>
+                  <li>Created custom websites based on client needs, focusing on design quality and usability.</li>
+                  <li>Built responsive websites for mobile, tablet, and desktop experiences.</li>
+                  <li>Integrated animation and motion elements to improve visual engagement.</li>
+                  <li>Collaborated with teams to implement CMS solutions and database integrations.</li>
+                </ul>
+                <div class="tag-row"><span>HTML</span><span>CSS</span><span>SCSS</span><span>PHP</span><span>MySQL</span><span>CMS</span><span>CodeIgniter</span></div>
+              </div>
+            </article>
+
+            <article class="experience-item">
+              <div class="experience-meta">
+                <span>May 2017 - Nov 2017</span>
+                <strong>Jakarta, Indonesia</strong>
+              </div>
+              <div class="experience-content">
+                <h3>PT. IBM Indonesia</h3>
+                <p class="role">Application Developer (Internship)</p>
+                <ul>
+                  <li>Developed and enhanced frontend websites with user-friendly interfaces.</li>
+                  <li>Supported backend development by integrating backend functionality with frontend systems.</li>
+                  <li>Developed frontend mobile applications using modern frameworks for responsive performance.</li>
+                  <li>Applied IBM Design Thinking principles to deliver user-centered solutions.</li>
+                </ul>
+                <div class="tag-row"><span>HTML</span><span>CSS</span><span>NodeJS</span><span>PHP</span><span>Laravel</span><span>React Native</span><span>Ionic</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section-wrap">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+          <div class="section-heading reveal">
+            <p>Skills</p>
+            <h2>Technical skills used across frontend, backend, databases, and delivery workflows.</h2>
+          </div>
+          <div class="grid gap-6 lg:grid-cols-3">
+            <article class="skill-card reveal">
+              <h3>Frontend</h3>
+              <div class="skill-list">
+                <div class="skill-item" data-level="92"><span>React JS</span><b>92%</b></div>
+                <div class="skill-item" data-level="90"><span>JavaScript</span><b>90%</b></div>
+                <div class="skill-item" data-level="94"><span>HTML5</span><b>94%</b></div>
+                <div class="skill-item" data-level="90"><span>CSS3</span><b>90%</b></div>
+                <div class="skill-item" data-level="88"><span>SQL</span><b>88%</b></div>
+              </div>
+            </article>
+            <article class="skill-card reveal">
+              <h3>Backend</h3>
+              <div class="skill-list">
+                <div class="skill-item" data-level="88"><span>PHP</span><b>88%</b></div>
+                <div class="skill-item" data-level="84"><span>MySQL</span><b>84%</b></div>
+                <div class="skill-item" data-level="86"><span>REST API</span><b>86%</b></div>
+                <div class="skill-item" data-level="82"><span>Oracle EBS</span><b>82%</b></div>
+                <div class="skill-item" data-level="82"><span>REST API Integration</span><b>82%</b></div>
+              </div>
+            </article>
+            <article class="skill-card reveal">
+              <h3>Tools</h3>
+              <div class="skill-list">
+                <div class="skill-item" data-level="90"><span>Git</span><b>90%</b></div>
+                <div class="skill-item" data-level="78"><span>Jest</span><b>78%</b></div>
+                <div class="skill-item" data-level="76"><span>PHPUnit</span><b>76%</b></div>
+                <div class="skill-item" data-level="84"><span>JIRA</span><b>84%</b></div>
+                <div class="skill-item" data-level="80"><span>SonarQube</span><b>80%</b></div>
+                <div class="skill-item" data-level="78"><span>Kibana / TOAD</span><b>78%</b></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section-wrap bg-sky-50/70 dark:bg-slate-900/45">
+        <div class="mx-auto max-w-7xl px-5 lg:px-8">
+          <div class="section-heading reveal">
+            <p>Projects</p>
+            <h2>Major digital platforms listed in my CV.</h2>
+          </div>
+          <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <article class="project-card reveal">
+              <div class="project-mark">CNN</div>
+              <h3>cnnindonesia.com</h3>
+              <p>High-traffic news platform contribution through frontend feature delivery, reusable modules, production maintenance, and API-backed content experiences.</p>
+              <div class="tag-row"><span>React</span><span>PHP</span><span>JavaScript</span></div>
+              <a href="https://www.cnnindonesia.com" target="_blank" rel="noreferrer">Visit Project</a>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-mark">INS</div>
+              <h3>insertlive.com</h3>
+              <p>Entertainment media platform work covering responsive interfaces, reusable frontend components, CMS-integrated pages, and production issue support.</p>
+              <div class="tag-row"><span>React</span><span>PHP</span><span>REST API</span></div>
+              <a href="https://www.insertlive.com" target="_blank" rel="noreferrer">Visit Project</a>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-mark">BTY</div>
+              <h3>beautynesia.id</h3>
+              <p>Consumer-facing lifestyle platform contribution focused on clean UI patterns, mobile-first pages, content modules, and maintainable frontend behavior.</p>
+              <div class="tag-row"><span>JavaScript</span><span>CSS3</span><span>PHP</span></div>
+              <a href="https://www.beautynesia.id" target="_blank" rel="noreferrer">Visit Project</a>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-mark">WEB</div>
+              <h3>Other Detik Network Platforms</h3>
+              <p>Contributed to cnbcindonesia.com, haibunda.com, cxomedia.id, fyb.detik.com, and rekomendit.detik.com as part of high-traffic digital platform delivery.</p>
+              <div class="tag-row"><span>PHP</span><span>React JS</span><span>AMP</span><span>Jest</span><span>PHPUnit</span></div>
+              <a href="#contact">Discuss Work</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section-wrap">
+        <div class="mx-auto max-w-5xl px-5 lg:px-8">
+          <div class="section-heading reveal">
+            <p>Education</p>
+            <h2>Academic foundation in information systems and computer science.</h2>
+          </div>
+          <div class="relative reveal border-l-2 border-sky-200 pl-7 dark:border-slate-700">
+            <div class="timeline-item">
+              <h3>Master of Management Information Systems</h3>
+              <p>Bina Nusantara University, Jakarta, Indonesia. GPA: 4.00. 2024 - 2025.</p>
+              <p>Focus on digital transformation, system integration, and business strategy.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Bachelor of Computer Science</h3>
+              <p>Bina Nusantara University, Jakarta, Indonesia. GPA: 2.84. 2013 - 2017.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section-wrap bg-white dark:bg-slate-950">
+        <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <div class="reveal">
+            <div class="section-heading">
+              <p>Contact</p>
+              <h2>Open to engineering roles, collaboration, and product work.</h2>
+            </div>
+            <div class="mt-8 grid gap-4">
+              <a class="contact-link" href="mailto:nugrohoaditia46@gmail.com">nugrohoaditia46@gmail.com</a>
+              <a class="contact-link" href="tel:+6281291723823">+62-812-9172-3823</a>
+              <a class="contact-link" href="http://linkedin.com/in/aditianugroho23" target="_blank" rel="noreferrer">linkedin.com/in/aditianugroho23</a>
+            </div>
+          </div>
+          <form class="reveal rounded-2xl bg-white p-6 shadow-soft dark:bg-slate-900" action="mailto:nugrohoaditia46@gmail.com" method="post" enctype="text/plain">
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label>
+                <span>Name</span>
+                <input name="name" type="text" placeholder="Your name" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input name="email" type="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+            <label class="mt-5 block">
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="Tell me about the opportunity or project" required></textarea>
+            </label>
+            <button class="btn-primary mt-6 w-full sm:w-auto" type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <button
+      id="scrollTop"
+      class="fixed bottom-6 right-6 hidden h-12 w-12 rounded-full bg-ink text-white shadow-soft transition hover:-translate-y-1 hover:bg-ocean dark:bg-sky-500 dark:text-slate-950"
+      type="button"
+      aria-label="Scroll to top"
+      title="Scroll to top"
+    >
+      ^
+    </button>
+
+    <footer class="border-t border-slate-200 py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
+      <p>(c) 2026 Aditia Nugroho. Built with HTML, Tailwind CSS, and JavaScript.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
