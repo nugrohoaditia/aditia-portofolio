@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 250" role="img" aria-labelledby="title desc">
+    <title id="title">BINUS University logo</title>
+    <desc id="desc">Simplified BINUS University logo mark and wordmark.</desc>
+    <rect width="640" height="250" fill="transparent"/>
+    <g transform="translate(42 34)">
+        <path d="M14 104C52 37 126 9 188 32c-34 4-66 18-93 40-31 25-50 57-52 87 44 22 106 8 154-34 15-13 28-27 38-42h36c-13 24-32 47-56 67-70 58-162 67-205 19-16-18-15-41 4-65Z" fill="#9a9a9a"/>
+        <path d="M109 109c0-34 27-61 61-61s61 27 61 61-27 61-61 61-61-27-61-61Z" fill="#f7931e"/>
+        <path d="M131 80c0-9 8-17 17-17s17 8 17 17-8 17-17 17-17-8-17-17Z" fill="#fff"/>
+        <path d="M215 76h110v8H215zm-116 28h76v8H99zm104 53h132v8H203z" fill="#231f20"/>
+        <path d="M205 18h7v88h-7zm0 142h7v55h-7z" fill="#231f20"/>
+        <path d="M206 0a9 9 0 1 1 0 18 9 9 0 0 1 0-18Zm0 213a9 9 0 1 1 0 18 9 9 0 0 1 0-18Zm-96 96a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z" fill="#ed1c24" transform="translate(-110 -94)"/>
+    </g>
+    <text x="250" y="130" fill="#231f20" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="900">BINUS</text>
+    <text x="252" y="200" fill="#009bd8" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="900">UNIVERSITY</text>
+</svg>

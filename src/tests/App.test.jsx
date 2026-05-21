@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 import Header from "../components/Header";
+import Projects from "../components/Projects";
+import { projects } from "../data";
 
 test("renders all primary portfolio sections", () => {
     render(<App />);
@@ -10,10 +12,10 @@ test("renders all primary portfolio sections", () => {
     expect(screen.getByText("Software Engineer | React & PHP | High-Traffic Web Platforms")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /reliable web platforms/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /professional work history/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /technical skills/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /practical stack/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /major digital platforms/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /academic foundation/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /open to engineering roles/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /reach me directly/i })).toBeInTheDocument();
 });
 
 test("renders CV-backed experience and project content", () => {
@@ -24,6 +26,16 @@ test("renders CV-backed experience and project content", () => {
     expect(screen.getByText("cnnindonesia.com")).toBeInTheDocument();
     expect(screen.getByText("insertlive.com")).toBeInTheDocument();
     expect(screen.getByText("Master of Management Information Systems")).toBeInTheDocument();
+});
+
+test("renders project image when a project image path is supplied", () => {
+    projects[0].image = "/assets/images/projects/cnnindonesia.png";
+
+    render(<Projects />);
+
+    expect(screen.getByAltText("cnnindonesia.com logo")).toHaveAttribute("src", "/assets/images/projects/cnnindonesia.png");
+
+    delete projects[0].image;
 });
 
 test("opens and closes the mobile navigation menu", async () => {

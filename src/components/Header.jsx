@@ -59,28 +59,13 @@ function Header({ theme, onToggleTheme }) {
                 )}
             </header>
 
-            <section id="home" className="relative overflow-hidden bg-white pt-28 dark:bg-slate-950 sm:pt-32">
-                <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:pb-28">
+            <section id="home" className="relative overflow-hidden border-b border-slate-200 bg-white pt-28 dark:border-slate-800 dark:bg-slate-950 sm:pt-32">
+                <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 md:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pb-24">
                     <motion.div
-                        className="order-2 lg:order-1"
+                        className="order-2 md:order-1"
                         initial={{ opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.55 }}
-                    >
-                        <div className="relative mx-auto max-w-xl">
-                            <div className="absolute -left-4 -top-4 h-full w-full rounded-2xl border border-mint/60 dark:border-marine" />
-                            <img
-                                src={profile.image}
-                                alt="Aditia Nugroho in a smart casual outfit with Jakarta city skyline"
-                                className="relative aspect-[16/10] w-full rounded-2xl object-cover object-center shadow-soft"
-                            />
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="order-1 lg:order-2"
-                        initial={{ opacity: 0, y: 24 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.55, delay: 0.1 }}
                     >
                         <p className="mb-4 inline-flex rounded-full bg-mint/15 px-4 py-2 text-sm font-extrabold text-marine dark:bg-marine/25 dark:text-mint">
                             Frontend Developer at Detikcom
@@ -90,6 +75,11 @@ function Header({ theme, onToggleTheme }) {
                         </h1>
                         <p className="mt-5 text-xl font-bold text-marine dark:text-mint">{profile.subtitle}</p>
                         <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">{profile.summary}</p>
+                        <div className="mt-8 grid gap-3 text-sm font-bold text-slate-600 sm:grid-cols-3 dark:text-slate-300">
+                            <span className="metric-line">7 years experience</span>
+                            <span className="metric-line">High-traffic media</span>
+                            <span className="metric-line">React + PHP</span>
+                        </div>
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                             <a href="#experience" className="btn-primary">
                                 View Experience
@@ -98,6 +88,23 @@ function Header({ theme, onToggleTheme }) {
                                 <FontAwesomeIcon icon={faDownload} />
                                 Download Resume
                             </a>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        className="order-1 md:order-2"
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.55, delay: 0.1 }}
+                    >
+                        <div className="relative mx-auto max-w-md md:max-w-xl">
+                            <img
+                                src={profile.image}
+                                alt="Aditia Nugroho in a smart casual outfit with Jakarta city skyline"
+                                className="aspect-[4/3] w-full rounded-lg object-cover object-center shadow-soft"
+                            />
+                            <div className="absolute bottom-4 left-4 right-4 rounded-lg border border-white/40 bg-white/90 px-4 py-3 text-sm font-bold text-ink shadow-soft backdrop-blur dark:border-slate-700/70 dark:bg-slate-950/85 dark:text-white">
+                                Building web platforms where traffic, speed, and reliability matter.
+                            </div>
                         </div>
                     </motion.div>
                 </div>

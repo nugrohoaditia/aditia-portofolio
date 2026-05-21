@@ -4,15 +4,17 @@ import { education } from "../data";
 function Education() {
     return (
         <Section id="education" eyebrow="Education" title="Academic foundation in information systems and computer science.">
-            <div className="grid gap-5 lg:grid-cols-[16rem_1fr]">
-                <div className="flex items-center justify-center rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
-                    <div className="text-center">
-                        <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-mint/20 text-2xl font-black text-ink dark:bg-marine/30 dark:text-mint">
-                            BINUS
-                        </div>
-                        <p className="mt-4 text-sm font-extrabold uppercase text-slate-500 dark:text-slate-400">Bina Nusantara University</p>
-                    </div>
-                </div>
+            <div className="grid gap-6 lg:grid-cols-[18rem_1fr]">
+                <aside className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+                    <img
+                        className="mx-auto h-auto w-full max-w-[14rem] dark:rounded-md dark:bg-white dark:p-3"
+                        src={education[0].logo}
+                        alt="Bina Nusantara University logo"
+                    />
+                    <p className="mt-5 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                        BINUS is the academic base behind my computer science and management information systems background.
+                    </p>
+                </aside>
                 <div className="relative border-l-2 border-mint/70 pl-7 dark:border-marine">
                     {education.map((item) => (
                         <article className="timeline-item" key={item.degree}>

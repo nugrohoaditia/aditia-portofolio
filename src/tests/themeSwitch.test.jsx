@@ -2,8 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 import DarkModeToggle from "../components/DarkModeToggle";
-import { getNextTheme, calculateAverageSkillLevel } from "../utils";
-import { skillGroups } from "../data";
+import { getNextTheme } from "../utils";
 
 beforeEach(() => {
     localStorage.clear();
@@ -57,6 +56,3 @@ test("app reads the saved dark theme on startup", () => {
     expect(screen.getByText("Light")).toBeInTheDocument();
 });
 
-test("average skill score is calculated from skill data", () => {
-    expect(calculateAverageSkillLevel(skillGroups)).toBe(85);
-});

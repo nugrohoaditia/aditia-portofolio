@@ -8,7 +8,8 @@ export const profile = {
     whatsapp: "6281291723823",
     linkedin: "https://linkedin.com/in/aditianugroho23",
     resumeUrl: "/assets/V4_CV_pict_Aditia Nugroho's Resume_web developer.pdf",
-    image: "/assets/images/aditia-nugroho-casual.jpg"
+    image: "/assets/images/aditia-nugroho-casual.jpg",
+    binusLogo: "/assets/images/binus-university-logo.svg"
 };
 
 export const experiences = [
@@ -74,33 +75,47 @@ export const experiences = [
 
 export const skillGroups = [
     {
-        title: "Programming Languages",
+        title: "Frontend Delivery",
+        summary: "Daily work building production UI for content-heavy, high-traffic media platforms.",
         skills: [
-            { name: "PHP", level: 88, icon: "PHP" },
-            { name: "JavaScript", level: 90, icon: "JS" },
-            { name: "SQL", level: 86, icon: "SQL" },
-            { name: "HTML5", level: 94, icon: "H5" },
-            { name: "CSS3", level: 90, icon: "C3" }
+            "ReactJS",
+            "JavaScript",
+            "HTML5",
+            "CSS3",
+            "SCSS",
+            "AMP",
+            "Responsive UI",
+            "React Native"
         ]
     },
     {
-        title: "Frameworks & Platforms",
+        title: "Backend & Integration",
+        summary: "Experience connecting web platforms with APIs, CMS workflows, and enterprise databases.",
         skills: [
-            { name: "ReactJS", level: 92, icon: "RE" },
-            { name: "Laravel", level: 80, icon: "LA" },
-            { name: "Phalcon", level: 78, icon: "PH" },
-            { name: "REST API Integration", level: 86, icon: "API" },
-            { name: "MySQL", level: 84, icon: "DB" }
+            "PHP",
+            "Laravel",
+            "Phalcon",
+            "CodeIgniter",
+            "MySQL",
+            "SQL",
+            "PL/SQL",
+            "REST API Integration",
+            "Oracle EBS"
         ]
     },
     {
-        title: "Engineering Tools",
+        title: "Quality & Workflow",
+        summary: "Tools used around testing, release confidence, production issue tracking, and team delivery.",
         skills: [
-            { name: "Git", level: 90, icon: "GT" },
-            { name: "Jest", level: 78, icon: "JT" },
-            { name: "PHPUnit", level: 76, icon: "PU" },
-            { name: "JIRA", level: 84, icon: "JR" },
-            { name: "SonarQube", level: 80, icon: "SQ" }
+            "Git",
+            "Jest",
+            "PHPUnit",
+            "JIRA",
+            "SonarQube",
+            "Kibana",
+            "TOAD",
+            "CMS",
+            "IBM Design Thinking"
         ]
     }
 ];
@@ -109,38 +124,62 @@ export const projects = [
     {
         name: "cnnindonesia.com",
         badge: "CNN",
+        // image: "/assets/images/projects/cnnindonesia.webp",
         url: "https://www.cnnindonesia.com",
         description:
             "High-traffic news platform work covering frontend feature delivery, reusable modules, production maintenance, and API-backed content experiences.",
-        technologies: ["React", "PHP", "JavaScript"],
+        technologies: ["React", "PHP", "JavaScript", "AMP"],
+        role: "Frontend feature delivery and platform maintenance"
+    },
+    {
+        name: "cnbcindonesia.com",
+        badge: "CNBC",
+        // image: "/assets/images/projects/cnbcindonesia.png",
+        url: "https://www.cnbcindonesia.com",
+        description:
+            "Business and market news platform contribution across responsive content pages, frontend delivery, reusable modules, and production support.",
+        technologies: ["React", "PHP", "JavaScript", "AMP"],
+        role: "Frontend implementation and platform maintenance"
+    },
+    {
+        name: "haibunda.com",
+        badge: "HB",
+        // image: "/assets/images/projects/haibunda.png",
+        url: "https://www.haibunda.com",
+        description:
+            "Parenting and family media platform work focused on mobile-first content experiences, reusable UI patterns, and CMS-backed pages.",
+        technologies: ["React", "PHP", "JavaScript", "AMP"],
         role: "Frontend feature delivery and platform maintenance"
     },
     {
         name: "insertlive.com",
-        badge: "INS",
+        badge: "IN",
+        // image: "/assets/images/projects/insertlive.png",
         url: "https://www.insertlive.com",
         description:
             "Entertainment media platform work across responsive interfaces, reusable frontend components, CMS-integrated pages, and production issue support.",
-        technologies: ["React", "PHP", "REST API"],
-        role: "Responsive UI and content module development"
+        technologies: ["React", "PHP", "JavaScript", "AMP"],
+        role: "Frontend feature delivery and platform maintenance"
     },
     {
         name: "beautynesia.id",
-        badge: "BTY",
+        badge: "BN",
+        // image: "/assets/images/projects/beautynesia.png",
         url: "https://www.beautynesia.id",
         description:
             "Lifestyle platform contribution focused on clean UI patterns, mobile-first pages, content modules, and maintainable frontend behavior.",
-        technologies: ["JavaScript", "CSS3", "PHP"],
-        role: "Mobile-first frontend implementation"
+        technologies: ["React", "PHP", "JavaScript", "AMP"],
+        role: "Frontend feature delivery and platform maintenance"
     },
     {
         name: "Detik Network Platforms",
-        badge: "DTC",
+        badge: "Detikcom",
+        image: "/assets/images/projects/detikcom.png",
         url: "https://www.detik.com",
         description:
             "Contributions to cnbcindonesia.com, haibunda.com, cxomedia.id, fyb.detik.com, and rekomendit.detik.com.",
-        technologies: ["PHP", "ReactJS", "AMP", "Jest", "PHPUnit"],
-        role: "Cross-platform feature delivery"
+        technologies: ["PHP", "ReactJS", "JavaScript", "AMP", "Jest", "PHPUnit"],
+        role: "Cross-platform feature delivery and platform maintenance"
     }
 ];
 
@@ -150,13 +189,15 @@ export const education = [
         institution: "Bina Nusantara University",
         period: "2024 - 2025",
         gpa: "4.00",
-        focus: "Digital transformation, system integration, and business strategy"
+        focus: "Digital transformation, system integration, and business strategy",
+        logo: "/assets/images/Logo_Binus_University.jpg"
     },
     {
         degree: "Bachelor of Computer Science",
         institution: "Bina Nusantara University",
         period: "2013 - 2017",
         gpa: "2.84",
-        focus: "Computer Science and software development foundations"
+        focus: "Computer Science and software development foundations",
+        logo: "/assets/images/Logo_Binus_University.jpg"
     }
 ];
