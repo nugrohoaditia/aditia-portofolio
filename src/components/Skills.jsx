@@ -1,11 +1,10 @@
 import Section from "./Section";
-import { skillGroups } from "../data";
 
-function Skills() {
+function Skills({ content }) {
     return (
-        <Section id="skills" eyebrow="Skills" title="A practical stack shaped by production work, not percentage bars.">
+        <Section id="skills" eyebrow={content.eyebrow} title={content.title}>
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {skillGroups.map((group) => (
+                {content.groups.map((group) => (
                     <article className="skill-panel" key={group.title}>
                         <h3>{group.title}</h3>
                         <p>{group.summary}</p>

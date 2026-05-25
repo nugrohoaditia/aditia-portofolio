@@ -5,17 +5,16 @@ import { faBars, faDownload, faXmark } from "@fortawesome/free-solid-svg-icons";
 import DarkModeToggle from "./DarkModeToggle";
 import { profile } from "../data";
 
-const links = [
-    { id: "about", label: "About Me" },
-    { id: "experience", label: "Experience" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "education", label: "Education" },
-    { id: "contact", label: "Contact" }
-];
-
-function Header({ theme, onToggleTheme }) {
+function Header({
+    content,
+    language,
+    onToggleLanguage,
+    theme,
+    onToggleTheme
+}) {
     const [isMenuOpen, setMenuOpen] = useState(false);
+    const links = content.nav;
+    const hero = content.hero;
 
     const closeMenu = () => setMenuOpen(false);
 
@@ -34,6 +33,16 @@ function Header({ theme, onToggleTheme }) {
                         ))}
                     </div>
                     <div className="flex items-center gap-2">
+                        <button
+                            type="button"
+                            className="language-toggle"
+                            aria-label="Toggle language"
+                            aria-pressed={language === "id"}
+                            onClick={onToggleLanguage}
+                        >
+                            <span className={language === "en" ? "is-active" : ""}>EN</span>
+                            <span className={language === "id" ? "is-active" : ""}>ID</span>
+                        </button>
                         <DarkModeToggle theme={theme} onToggle={onToggleTheme} />
                         <button
                             type="button"
@@ -68,25 +77,25 @@ function Header({ theme, onToggleTheme }) {
                         transition={{ duration: 0.55 }}
                     >
                         <p className="mb-4 inline-flex rounded-full bg-mint/15 px-4 py-2 text-sm font-extrabold text-marine dark:bg-marine/25 dark:text-mint">
-                            Frontend Developer at Detikcom
+                            {hero.badge}
                         </p>
                         <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-normal text-ink sm:text-5xl lg:text-6xl dark:text-white">
                             {profile.name}
                         </h1>
-                        <p className="mt-5 text-xl font-bold text-marine dark:text-mint">{profile.subtitle}</p>
-                        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">{profile.summary}</p>
+                        <p className="mt-5 text-xl font-bold text-marine dark:text-mint">{hero.subtitle}</p>
+                        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">{hero.summary}</p>
                         <div className="mt-8 grid gap-3 text-sm font-bold text-slate-600 sm:grid-cols-3 dark:text-slate-300">
-                            <span className="metric-line">7 years experience</span>
-                            <span className="metric-line">High-traffic media</span>
-                            <span className="metric-line">React + PHP</span>
+                            {hero.metrics.map((metric) => (
+                                <span className="metric-line" key={metric}>{metric}</span>
+                            ))}
                         </div>
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                             <a href="#experience" className="btn-primary">
-                                View Experience
+                                {hero.primaryAction}
                             </a>
                             <a href={profile.resumeUrl} download className="btn-secondary">
                                 <FontAwesomeIcon icon={faDownload} />
-                                Download Resume
+                                {hero.resumeAction}
                             </a>
                         </div>
                     </motion.div>
@@ -99,11 +108,11 @@ function Header({ theme, onToggleTheme }) {
                         <div className="relative mx-auto max-w-md md:max-w-xl">
                             <img
                                 src={profile.image}
-                                alt="Aditia Nugroho in a smart casual outfit with Jakarta city skyline"
+                                alt={hero.imageAlt}
                                 className="aspect-[4/3] w-full rounded-lg object-cover object-center shadow-soft"
                             />
                             <div className="absolute bottom-4 left-4 right-4 rounded-lg border border-white/40 bg-white/90 px-4 py-3 text-sm font-bold text-ink shadow-soft backdrop-blur dark:border-slate-700/70 dark:bg-slate-950/85 dark:text-white">
-                                Building web platforms where traffic, speed, and reliability matter.
+                                {hero.imageCaption}
                             </div>
                         </div>
                     </motion.div>

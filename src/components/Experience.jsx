@@ -1,11 +1,10 @@
 import Section from "./Section";
-import { experiences } from "../data";
 
-function Experience() {
+function Experience({ content }) {
     return (
-        <Section id="experience" eyebrow="Experience" title="Professional work history from frontend platforms to ERP integration.">
+        <Section id="experience" eyebrow={content.eyebrow} title={content.title}>
             <div className="grid gap-5">
-                {experiences.map((experience) => (
+                {content.items.map((experience) => (
                     <article className="grid gap-6 rounded-lg border border-slate-200 bg-white p-6 shadow-soft md:grid-cols-[14rem_1fr] dark:border-slate-800 dark:bg-slate-900" key={experience.company}>
                         <div className="border-b border-slate-200 pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-6 dark:border-slate-800">
                             <span className="block text-sm font-black text-marine dark:text-mint">{experience.period}</span>

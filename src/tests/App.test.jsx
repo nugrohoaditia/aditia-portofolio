@@ -3,14 +3,19 @@ import userEvent from "@testing-library/user-event";
 import App from "../App";
 import Header from "../components/Header";
 import Projects from "../components/Projects";
-import { projects } from "../data";
+import { projects, siteContent } from "../data";
+
+beforeEach(() => {
+    localStorage.clear();
+    document.documentElement.lang = "";
+});
 
 test("renders all primary portfolio sections", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: "Aditia Nugroho" })).toBeInTheDocument();
     expect(screen.getByText("Software Engineer | React & PHP | High-Traffic Web Platforms")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /reliable web platforms/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /reliable web engineering/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /professional work history/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /practical stack/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /major digital platforms/i })).toBeInTheDocument();
@@ -33,7 +38,7 @@ test("renders project image when a project image path is supplied", () => {
 
     projects[0].image = "/assets/images/projects/cnnindonesia.png";
 
-    render(<Projects />);
+    render(<Projects content={siteContent.en.projects} />);
 
     expect(screen.getByAltText("cnnindonesia.com logo")).toHaveAttribute("src", "/assets/images/projects/cnnindonesia.png");
 
@@ -45,7 +50,7 @@ test("renders project badge fallback when no project image is supplied", () => {
 
     delete projects[0].image;
 
-    render(<Projects />);
+    render(<Projects content={siteContent.en.projects} />);
 
     expect(screen.getByText("CNN")).toBeInTheDocument();
 
@@ -55,14 +60,26 @@ test("renders project badge fallback when no project image is supplied", () => {
 test("opens and closes the mobile navigation menu", async () => {
     const user = userEvent.setup();
     const onToggleTheme = jest.fn();
+    const onToggleLanguage = jest.fn();
 
-    render(<Header theme="light" onToggleTheme={onToggleTheme} />);
+    render(
+        <Header
+            content={siteContent.en}
+            language="en"
+            onToggleLanguage={onToggleLanguage}
+            theme="light"
+            onToggleTheme={onToggleTheme}
+        />
+    );
 
     const menuButton = screen.getByRole("button", { name: /toggle mobile menu/i });
     await user.click(menuButton);
 
     expect(menuButton).toHaveAttribute("aria-expanded", "true");
     expect(screen.getAllByText("Projects")).toHaveLength(2);
+
+    await user.click(screen.getByRole("button", { name: /toggle language/i }));
+    expect(onToggleLanguage).toHaveBeenCalledTimes(1);
 
     await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
     expect(onToggleTheme).toHaveBeenCalledTimes(1);
@@ -72,4 +89,37 @@ test("opens and closes the mobile navigation menu", async () => {
     expect(menuButton).toHaveAttribute("aria-expanded", "false");
 
     await user.click(screen.getByRole("link", { name: "Aditia Nugroho" }));
+});
+
+test("switches portfolio copy between English and Indonesian", async () => {
+    const user = userEvent.setup();
+
+    render(<App />);
+
+    const languageToggle = screen.getByRole("button", { name: /toggle language/i });
+    expect(languageToggle).toHaveAttribute("aria-pressed", "false");
+    expect(document.documentElement.lang).toBe("en");
+
+    await user.click(languageToggle);
+
+    expect(languageToggle).toHaveAttribute("aria-pressed", "true");
+    expect(document.documentElement.lang).toBe("id");
+    expect(localStorage.getItem("language")).toBe("id");
+    expect(screen.getByRole("heading", { name: /rekayasa web/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /lihat pengalaman/i })).toBeInTheDocument();
+
+    await user.click(languageToggle);
+
+    expect(languageToggle).toHaveAttribute("aria-pressed", "false");
+    expect(document.documentElement.lang).toBe("en");
+    expect(localStorage.getItem("language")).toBe("en");
+});
+
+test("reads saved Indonesian language preference on startup", () => {
+    localStorage.setItem("language", "id");
+
+    render(<App />);
+
+    expect(document.documentElement.lang).toBe("id");
+    expect(screen.getByRole("heading", { name: /rekayasa web/i })).toBeInTheDocument();
 });

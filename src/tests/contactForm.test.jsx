@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import ContactForm from "../components/ContactForm";
+import { siteContent } from "../data";
 
 test("renders direct contact actions without an input form", () => {
-    render(<ContactForm />);
+    render(<ContactForm content={siteContent.en.contact} />);
 
     expect(screen.getByRole("link", { name: /whatsapp/i })).toHaveAttribute("href", "https://wa.me/6281291723823");
     expect(screen.getByRole("link", { name: /email/i })).toHaveAttribute("href", "mailto:nugrohoaditia46@gmail.com");

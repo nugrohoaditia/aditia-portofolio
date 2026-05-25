@@ -207,3 +207,317 @@ export const education = [
         logo: "/assets/images/Logo_Binus_University.jpg"
     }
 ];
+
+export const siteContent = {
+    en: {
+        languageLabel: "Language",
+        nav: [
+            { id: "about", label: "About" },
+            { id: "experience", label: "Experience" },
+            { id: "skills", label: "Skills" },
+            { id: "projects", label: "Projects" },
+            { id: "education", label: "Education" },
+            { id: "contact", label: "Contact" }
+        ],
+        hero: {
+            badge: "Frontend Developer at Detikcom",
+            subtitle: "Software Engineer | React & PHP | High-Traffic Web Platforms",
+            summary:
+                "Software Engineer with 7 years of experience building and maintaining high-traffic digital platforms using React and PHP. I work on production-ready features, performance improvements, API integration, and reliable web experiences for large-scale environments.",
+            metrics: ["7 years experience", "High-traffic media", "React + PHP"],
+            primaryAction: "View Experience",
+            resumeAction: "Download Resume",
+            imageAlt: "Aditia Nugroho in a smart casual outfit with Jakarta city skyline",
+            imageCaption: "Building web platforms where traffic, speed, and reliability matter."
+        },
+        about: {
+            eyebrow: "About",
+            title: "Reliable web engineering for media platforms, ERP integration, and digital products.",
+            resumeAction: "Download Resume",
+            paragraphs: [
+                "I am a Software Engineer focused on frontend website development, React, PHP, API integration, and system optimization. My work spans high-traffic media platforms, Oracle EBS integration, reusable modules, unit testing, and production issue handling.",
+                "At PT. Trans Digital Media (Detikcom), I help deliver and maintain frontend features for major digital platforms. I work closely with product, QA, backend, and design teams to keep releases practical, stable, and ready for real users."
+            ],
+            tiles: [
+                {
+                    label: "Current Role",
+                    value: "Web Developer (Frontend Website), PT. Trans Digital Media (Detikcom)"
+                },
+                {
+                    label: "Core Stack",
+                    value: "PHP, React JS, JavaScript, SQL, HTML5, CSS3, MySQL, REST API Integration"
+                },
+                {
+                    label: "Focus",
+                    value: "High-traffic platforms, API integration, system optimization, and digital transformation"
+                }
+            ]
+        },
+        experience: {
+            eyebrow: "Experience",
+            title: "Professional work history across frontend platforms, ERP systems, and web delivery.",
+            items: experiences
+        },
+        skills: {
+            eyebrow: "Skills",
+            title: "A practical stack shaped by production work and cross-team delivery.",
+            groups: skillGroups
+        },
+        projects: {
+            eyebrow: "Projects",
+            title: "Major digital platforms reflected in my CV.",
+            visitAction: "Visit Project",
+            items: projects
+        },
+        education: {
+            eyebrow: "Education",
+            title: "Academic foundation in information systems and computer science.",
+            aside:
+                "BINUS is the academic base behind my computer science and management information systems background.",
+            gpaLabel: "GPA",
+            items: education
+        },
+        contact: {
+            eyebrow: "Contact",
+            title: "Reach me directly.",
+            description:
+                "The fastest way to reach me is through WhatsApp or email. I am open to software engineering roles, product collaboration, and high-traffic web platform work."
+        },
+        footer: "(c) 2026 Aditia Nugroho - Software Engineer."
+    },
+    id: {
+        languageLabel: "Bahasa",
+        nav: [
+            { id: "about", label: "Tentang" },
+            { id: "experience", label: "Pengalaman" },
+            { id: "skills", label: "Keahlian" },
+            { id: "projects", label: "Proyek" },
+            { id: "education", label: "Pendidikan" },
+            { id: "contact", label: "Kontak" }
+        ],
+        hero: {
+            badge: "Frontend Developer di Detikcom",
+            subtitle: "Software Engineer | React & PHP | Platform Web High-Traffic",
+            summary:
+                "Software Engineer dengan 7 tahun pengalaman membangun dan menjaga platform digital berskala besar menggunakan React dan PHP. Saya terbiasa mengerjakan fitur siap produksi, peningkatan performa, integrasi API, serta pengalaman web yang stabil untuk lingkungan dengan trafik tinggi.",
+            metrics: ["7 tahun pengalaman", "Media high-traffic", "React + PHP"],
+            primaryAction: "Lihat Pengalaman",
+            resumeAction: "Unduh CV",
+            imageAlt: "Aditia Nugroho dengan pakaian smart casual dan latar kota Jakarta",
+            imageCaption: "Membangun platform web yang mengutamakan trafik, kecepatan, dan reliabilitas."
+        },
+        about: {
+            eyebrow: "Tentang",
+            title: "Rekayasa web yang andal untuk platform media, integrasi ERP, dan produk digital.",
+            resumeAction: "Unduh CV",
+            paragraphs: [
+                "Saya adalah Software Engineer yang berfokus pada pengembangan frontend website, React, PHP, integrasi API, dan optimasi sistem. Pengalaman saya mencakup platform media dengan trafik tinggi, integrasi Oracle EBS, modul reusable, unit testing, serta penanganan isu produksi.",
+                "Di PT. Trans Digital Media (Detikcom), saya membantu merilis dan memelihara fitur frontend untuk berbagai platform digital besar. Saya bekerja dekat dengan tim produk, QA, backend, dan desain agar setiap rilis tetap praktis, stabil, dan siap digunakan oleh pengguna nyata."
+            ],
+            tiles: [
+                {
+                    label: "Posisi Saat Ini",
+                    value: "Web Developer (Frontend Website), PT. Trans Digital Media (Detikcom)"
+                },
+                {
+                    label: "Stack Utama",
+                    value: "PHP, React JS, JavaScript, SQL, HTML5, CSS3, MySQL, REST API Integration"
+                },
+                {
+                    label: "Fokus",
+                    value: "Platform high-traffic, integrasi API, optimasi sistem, dan transformasi digital"
+                }
+            ]
+        },
+        experience: {
+            eyebrow: "Pengalaman",
+            title: "Riwayat kerja di platform frontend, sistem ERP, dan pengembangan website.",
+            items: [
+                {
+                    period: "Nov 2021 - Sekarang",
+                    company: "PT. Trans Digital Media (Detikcom)",
+                    title: "Web Developer (Frontend Website)",
+                    location: "Jakarta, Indonesia",
+                    description:
+                        "Membangun dan memelihara fitur frontend untuk platform berita dan lifestyle dengan trafik tinggi di ekosistem Detik Network.",
+                    responsibilities: [
+                        "Memimpin implementasi fitur frontend di beberapa platform berita high-traffic yang melayani jutaan pengguna bulanan.",
+                        "Mengevaluasi praktik frontend dan backend modern untuk meningkatkan performa, maintainability, dan alur kerja engineering.",
+                        "Mendesain serta memelihara modul reusable di layer frontend dan backend untuk mendukung pengembangan fitur yang skalabel.",
+                        "Mendiagnosis dan menyelesaikan isu produksi pada sistem high-traffic agar performa, stabilitas, dan pengalaman pengguna tetap terjaga.",
+                        "Menerapkan unit testing dengan Jest dan PHPUnit untuk meningkatkan reliabilitas kode dan mengurangi risiko produksi.",
+                        "Berkolaborasi dengan tim backend, QA, produk, dan desain untuk menjaga kualitas fitur serta ketepatan delivery."
+                    ],
+                    technologies: ["ReactJS", "PHP", "JavaScript", "Jest", "PHPUnit", "Phalcon", "Git", "AMP"]
+                },
+                {
+                    period: "Jan 2019 - Nov 2021",
+                    company: "PT. Sigma Cipta Caraka (Telkomsigma)",
+                    title: "Junior Consultant Technical ERP",
+                    location: "Jakarta, Indonesia",
+                    description:
+                        "Mengembangkan website terintegrasi dan solusi Oracle E-Business Suite untuk kebutuhan workflow, data, dan reporting enterprise.",
+                    responsibilities: [
+                        "Mengembangkan dan menyesuaikan website terintegrasi berdasarkan kebutuhan klien.",
+                        "Menghubungkan sistem frontend dengan Oracle Database untuk pertukaran data dan sinkronisasi yang lebih lancar.",
+                        "Mengelola serta mengoptimalkan Oracle E-Business Suite agar performa dan integritas data tetap terjaga.",
+                        "Membuat report Oracle SaaS untuk mendukung pengambilan keputusan dan efisiensi operasional."
+                    ],
+                    technologies: ["PHP", "PL/SQL", "Oracle EBS", "RTF Report", "TOAD"]
+                },
+                {
+                    period: "Nov 2017 - Des 2018",
+                    company: "PT. Label Inovasi Indonesia",
+                    title: "Web Developer (Frontend Website)",
+                    location: "Jakarta, Indonesia",
+                    description:
+                        "Membangun website klien dari konsep hingga rilis, dengan perhatian pada tampilan, responsivitas, CMS, dan integrasi database.",
+                    responsibilities: [
+                        "Mengembangkan website frontend dari konsep hingga selesai untuk menghasilkan platform digital yang fungsional dan menarik.",
+                        "Membuat website custom sesuai kebutuhan klien dengan kualitas desain dan usability yang baik.",
+                        "Membangun website responsif untuk mobile, tablet, dan desktop.",
+                        "Mengintegrasikan animasi, elemen motion, CMS, dan database untuk mendukung pengalaman pengguna."
+                    ],
+                    technologies: ["HTML5", "CSS3", "SCSS", "PHP", "MySQL", "CMS", "CodeIgniter"]
+                },
+                {
+                    period: "Mei 2017 - Nov 2017",
+                    company: "PT. IBM Indonesia",
+                    title: "Application Developer Intern",
+                    location: "Jakarta, Indonesia",
+                    description:
+                        "Mendukung pengembangan frontend dan backend sambil menerapkan prinsip IBM Design Thinking untuk solusi yang berpusat pada pengguna.",
+                    responsibilities: [
+                        "Mengembangkan dan meningkatkan tampilan website agar lebih ramah pengguna.",
+                        "Mendukung kebutuhan backend dengan mengintegrasikan fungsi backend ke sistem frontend.",
+                        "Membangun pengalaman mobile frontend menggunakan framework modern.",
+                        "Menerapkan prinsip IBM Design Thinking agar solusi selaras dengan kebutuhan klien."
+                    ],
+                    technologies: ["HTML5", "CSS3", "NodeJS", "PHP", "Laravel", "React Native", "Ionic"]
+                }
+            ]
+        },
+        skills: {
+            eyebrow: "Keahlian",
+            title: "Stack praktis yang terbentuk dari pekerjaan produksi dan kolaborasi lintas tim.",
+            groups: [
+                {
+                    title: "Frontend Delivery",
+                    summary:
+                        "Pengalaman harian membangun UI produksi untuk platform konten yang padat, cepat, dan memiliki trafik tinggi.",
+                    skills: [
+                        "ReactJS",
+                        "JavaScript",
+                        "HTML5",
+                        "CSS3",
+                        "SCSS",
+                        "AMP",
+                        "Responsive UI",
+                        "React Native"
+                    ]
+                },
+                {
+                    title: "Backend & Integration",
+                    summary:
+                        "Terbiasa menghubungkan platform web dengan API, CMS, database enterprise, dan kebutuhan integrasi sistem.",
+                    skills: [
+                        "PHP",
+                        "Laravel",
+                        "Phalcon",
+                        "CodeIgniter",
+                        "MySQL",
+                        "SQL",
+                        "PL/SQL",
+                        "REST API Integration",
+                        "Oracle EBS"
+                    ]
+                },
+                {
+                    title: "Quality & Workflow",
+                    summary:
+                        "Tools dan praktik yang digunakan untuk menjaga kualitas rilis, tracking isu produksi, dan delivery tim.",
+                    skills: [
+                        "Git",
+                        "Jest",
+                        "PHPUnit",
+                        "JIRA",
+                        "SonarQube",
+                        "Kibana",
+                        "TOAD",
+                        "CMS",
+                        "IBM Design Thinking"
+                    ]
+                }
+            ]
+        },
+        projects: {
+            eyebrow: "Proyek",
+            title: "Platform digital besar yang tercantum dalam CV saya.",
+            visitAction: "Kunjungi Proyek",
+            items: [
+                {
+                    ...projects[0],
+                    description:
+                        "Kontribusi pada platform berita high-traffic melalui pengembangan fitur frontend, modul reusable, maintenance produksi, dan pengalaman konten berbasis API.",
+                    role: "Pengembangan fitur frontend dan maintenance platform"
+                },
+                {
+                    ...projects[1],
+                    description:
+                        "Kontribusi pada platform berita bisnis dan market, mencakup halaman konten responsif, implementasi frontend, modul reusable, dan dukungan produksi.",
+                    role: "Implementasi frontend dan maintenance platform"
+                },
+                {
+                    ...projects[2],
+                    description:
+                        "Pekerjaan pada platform parenting dan keluarga dengan fokus pada pengalaman konten mobile-first, pola UI reusable, dan halaman berbasis CMS.",
+                    role: "Pengembangan fitur frontend dan maintenance platform"
+                },
+                {
+                    ...projects[3],
+                    description:
+                        "Pekerjaan pada platform entertainment melalui interface responsif, komponen frontend reusable, halaman terintegrasi CMS, dan dukungan isu produksi.",
+                    role: "Pengembangan fitur frontend dan maintenance platform"
+                },
+                {
+                    ...projects[4],
+                    description:
+                        "Kontribusi pada platform lifestyle dengan fokus pada pola UI yang bersih, halaman mobile-first, modul konten, dan perilaku frontend yang mudah dipelihara.",
+                    role: "Pengembangan fitur frontend dan maintenance platform"
+                },
+                {
+                    ...projects[5],
+                    description:
+                        "Kontribusi lintas platform untuk cnbcindonesia.com, haibunda.com, cxomedia.id, fyb.detik.com, dan rekomendit.detik.com.",
+                    role: "Pengembangan fitur lintas platform dan maintenance"
+                }
+            ]
+        },
+        education: {
+            eyebrow: "Pendidikan",
+            title: "Fondasi akademik di bidang sistem informasi dan ilmu komputer.",
+            aside:
+                "BINUS menjadi dasar akademik untuk latar belakang saya di computer science dan management information systems.",
+            gpaLabel: "IPK",
+            items: [
+                {
+                    ...education[0],
+                    degree: "Magister Manajemen Sistem Informasi",
+                    focus: "Fokus pada transformasi digital, integrasi sistem, dan strategi bisnis"
+                },
+                {
+                    ...education[1],
+                    degree: "Sarjana Ilmu Komputer",
+                    focus: "Fondasi ilmu komputer dan pengembangan perangkat lunak"
+                }
+            ]
+        },
+        contact: {
+            eyebrow: "Kontak",
+            title: "Hubungi saya langsung.",
+            description:
+                "Cara tercepat untuk menghubungi saya adalah melalui WhatsApp atau email. Saya terbuka untuk peran software engineering, kolaborasi produk, dan pekerjaan terkait platform web high-traffic."
+        },
+        footer: "(c) 2026 Aditia Nugroho - Software Engineer."
+    }
+};

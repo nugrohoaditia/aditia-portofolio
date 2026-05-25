@@ -66,6 +66,18 @@
         @apply transition hover:text-marine dark:hover:text-mint;
     }
 
+    .language-toggle {
+        @apply inline-flex h-11 items-center rounded-full border border-slate-300 bg-white p-1 text-xs font-black text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-marine dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400;
+    }
+
+    .language-toggle span {
+        @apply rounded-full px-2.5 py-1.5 transition;
+    }
+
+    .language-toggle .is-active {
+        @apply bg-ink text-white dark:bg-mint dark:text-slate-950;
+    }
+
     .info-tile {
         @apply rounded-lg border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-900;
     }
