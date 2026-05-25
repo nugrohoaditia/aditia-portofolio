@@ -29,13 +29,27 @@ test("renders CV-backed experience and project content", () => {
 });
 
 test("renders project image when a project image path is supplied", () => {
+    const originalImage = projects[0].image;
+
     projects[0].image = "/assets/images/projects/cnnindonesia.png";
 
     render(<Projects />);
 
     expect(screen.getByAltText("cnnindonesia.com logo")).toHaveAttribute("src", "/assets/images/projects/cnnindonesia.png");
 
+    projects[0].image = originalImage;
+});
+
+test("renders project badge fallback when no project image is supplied", () => {
+    const originalImage = projects[0].image;
+
     delete projects[0].image;
+
+    render(<Projects />);
+
+    expect(screen.getByText("CNN")).toBeInTheDocument();
+
+    projects[0].image = originalImage;
 });
 
 test("opens and closes the mobile navigation menu", async () => {

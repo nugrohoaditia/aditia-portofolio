@@ -98,6 +98,30 @@
         @apply rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-extrabold text-slate-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200;
     }
 
+    .project-card {
+        @apply flex min-h-[24rem] flex-col gap-4 rounded-lg border border-slate-200 bg-white p-5 shadow-soft sm:p-6 dark:border-slate-800 dark:bg-slate-900;
+    }
+
+    .project-logo-frame {
+        @apply flex h-24 w-full items-center justify-center rounded-lg border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-slate-950 sm:h-28 sm:px-6;
+    }
+
+    .project-logo-image {
+        @apply max-h-full object-contain;
+    }
+
+    .project-logo-image-compact {
+        @apply w-auto max-w-24;
+    }
+
+    .project-logo-image-wide {
+        @apply w-full max-w-[13rem] sm:max-w-[15rem];
+    }
+
+    .project-logo-badge {
+        @apply flex h-16 w-16 items-center justify-center rounded-lg bg-mint/20 text-xl font-black text-ink dark:bg-marine/30 dark:text-mint;
+    }
+
     .tag-row {
         @apply flex flex-wrap gap-2;
     }
