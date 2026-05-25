@@ -78,10 +78,11 @@ test("opens and closes the mobile navigation menu", async () => {
     expect(menuButton).toHaveAttribute("aria-expanded", "true");
     expect(screen.getAllByText("Projects")).toHaveLength(2);
 
-    await user.click(screen.getByRole("button", { name: /toggle language/i }));
+    await user.click(screen.getByRole("button", { name: /toggle mobile language/i }));
     expect(onToggleLanguage).toHaveBeenCalledTimes(1);
 
-    await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
+    await user.click(menuButton);
+    await user.click(screen.getByRole("button", { name: /toggle mobile dark mode/i }));
     expect(onToggleTheme).toHaveBeenCalledTimes(1);
 
     await user.click(screen.getAllByText("Contact")[1]);
@@ -89,6 +90,26 @@ test("opens and closes the mobile navigation menu", async () => {
     expect(menuButton).toHaveAttribute("aria-expanded", "false");
 
     await user.click(screen.getByRole("link", { name: "Aditia Nugroho" }));
+});
+
+test("renders Indonesian mobile menu controls", async () => {
+    const user = userEvent.setup();
+
+    render(
+        <Header
+            content={siteContent.id}
+            language="id"
+            onToggleLanguage={jest.fn()}
+            theme="dark"
+            onToggleTheme={jest.fn()}
+        />
+    );
+
+    await user.click(screen.getByRole("button", { name: /toggle mobile menu/i }));
+
+    expect(screen.getByRole("button", { name: /toggle mobile language/i })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: /toggle mobile dark mode/i })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getAllByText("Proyek")).toHaveLength(2);
 });
 
 test("switches portfolio copy between English and Indonesian", async () => {
