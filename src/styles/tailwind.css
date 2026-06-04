@@ -82,24 +82,16 @@
         @apply inline-flex h-11 min-w-11 items-center justify-center rounded-full px-2 transition hover:-translate-y-0.5;
     }
 
-    .language-switch {
-        @apply hidden h-11 items-center rounded-full border border-slate-300 bg-white p-1 text-xs font-black shadow-sm sm:inline-flex dark:border-slate-700 dark:bg-slate-900;
-    }
-
-    .language-option {
-        @apply h-8 rounded-full px-3 text-slate-500 transition hover:text-marine dark:text-slate-300 dark:hover:text-mint;
-    }
-
-    .language-option.is-active {
-        @apply bg-ink text-white dark:bg-mint dark:text-slate-950;
-    }
-
     .mobile-link {
         @apply transition hover:text-marine dark:hover:text-mint;
     }
 
     .mobile-link.is-active {
         @apply font-black text-marine dark:text-mint;
+    }
+
+    .mobile-menu-control {
+        @apply flex min-w-0 items-center justify-center;
     }
 
     .info-tile {

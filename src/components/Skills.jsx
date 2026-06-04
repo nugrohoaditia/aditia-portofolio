@@ -1,9 +1,9 @@
 import Section from "./Section";
 import { skillGroups } from "../data";
 
-function Skills() {
+function Skills({ copy }) {
     return (
-        <Section id="skills" eyebrow="Skills" title="A practical stack shaped by production work, not percentage bars.">
+        <Section id="skills" eyebrow={copy.eyebrow} title={copy.title}>
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {skillGroups.map((group) => (
                     <article className="skill-panel" key={group.title}>

@@ -1,9 +1,9 @@
 import Section from "./Section";
 import { education } from "../data";
 
-function Education() {
+function Education({ copy }) {
     return (
-        <Section id="education" eyebrow="Education" title="Academic foundation in information systems and computer science.">
+        <Section id="education" eyebrow={copy.eyebrow} title={copy.title}>
             <div className="grid gap-6 lg:grid-cols-[18rem_1fr]">
                 <aside className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
                     <img
@@ -12,7 +12,7 @@ function Education() {
                         alt="Bina Nusantara University logo"
                     />
                     <p className="mt-5 text-sm leading-6 text-slate-600 dark:text-slate-300">
-                        BINUS is the academic base behind my computer science and management information systems background.
+                        {copy.note}
                     </p>
                 </aside>
                 <div className="relative border-l-2 border-mint/70 pl-7 dark:border-marine">

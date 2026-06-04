@@ -14,17 +14,11 @@ const links = [
     { id: "contact", label: "Contact" }
 ];
 
-function Header({ theme, onToggleTheme }) {
+function Header({ copy, language, theme, onToggleTheme }) {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState(links[0].id);
-    const [language, setLanguage] = useState(() => localStorage.getItem("language") || "EN");
 
     const closeMenu = () => setMenuOpen(false);
-
-    useEffect(() => {
-        document.documentElement.lang = language.toLowerCase();
-        localStorage.setItem("language", language);
-    }, [language]);
 
     useEffect(() => {
         const updateActiveSection = () => {
@@ -67,26 +61,12 @@ function Header({ theme, onToggleTheme }) {
                                 href={`#${link.id}`}
                                 key={link.id}
                             >
-                                {link.label}
+                                {copy.nav[link.id]}
                             </a>
                         ))}
                     </div>
                     <div className="flex items-center gap-2">
-                        <div className="language-switch" aria-label="Language switch">
-                            {["EN", "ID"].map((option) => (
-                                <button
-                                    className={`language-option ${language === option ? "is-active" : ""}`}
-                                    type="button"
-                                    aria-label={`Switch language to ${option === "EN" ? "English" : "Indonesian"}`}
-                                    aria-pressed={language === option}
-                                    key={option}
-                                    onClick={() => setLanguage(option)}
-                                >
-                                    {option}
-                                </button>
-                            ))}
-                        </div>
-                        <DarkModeToggle theme={theme} onToggle={onToggleTheme} />
+                        <DarkModeToggle className="hidden md:inline-flex" theme={theme} onToggle={onToggleTheme} />
                         <button
                             type="button"
                             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-ink transition hover:border-marine hover:text-marine md:hidden dark:border-slate-700 dark:text-white"
@@ -108,9 +88,14 @@ function Header({ theme, onToggleTheme }) {
                                     key={link.id}
                                     onClick={closeMenu}
                                 >
-                                    {link.label}
+                                    {copy.nav[link.id]}
                                 </a>
                             ))}
+                        </div>
+                        <div className="mt-5 border-t border-slate-200 pt-4 dark:border-slate-800">
+                            <div className="mobile-menu-control">
+                                <DarkModeToggle className="w-full px-3" theme={theme} onToggle={onToggleTheme} />
+                            </div>
                         </div>
                     </div>
                 )}
@@ -125,7 +110,7 @@ function Header({ theme, onToggleTheme }) {
                         transition={{ duration: 0.55 }}
                     >
                         <p className="mb-4 inline-flex rounded-full bg-mint/15 px-4 py-2 text-sm font-extrabold text-marine dark:bg-marine/25 dark:text-mint">
-                            Frontend Developer at Detikcom
+                            {copy.hero.badge}
                         </p>
                         <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-normal text-ink sm:text-5xl lg:text-6xl dark:text-white">
                             {profile.name}
@@ -133,17 +118,17 @@ function Header({ theme, onToggleTheme }) {
                         <p className="mt-5 text-xl font-bold text-marine dark:text-mint">{profile.subtitle}</p>
                         <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">{profile.summary}</p>
                         <div className="mt-8 grid gap-3 text-sm font-bold text-slate-600 sm:grid-cols-3 dark:text-slate-300">
-                            <span className="metric-line">7 years experience</span>
-                            <span className="metric-line">High-traffic media</span>
-                            <span className="metric-line">React + PHP</span>
+                            {copy.hero.metrics.map((metric) => (
+                                <span className="metric-line" key={metric}>{metric}</span>
+                            ))}
                         </div>
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                             <a href="#experience" className="btn-primary">
-                                View Experience
+                                {copy.hero.experienceButton}
                             </a>
                             <a href={profile.resumeUrl} download className="btn-secondary">
                                 <FontAwesomeIcon icon={faDownload} />
-                                Download Resume
+                                {copy.hero.resumeButton}
                             </a>
                         </div>
                     </motion.div>
@@ -160,7 +145,7 @@ function Header({ theme, onToggleTheme }) {
                                 className="aspect-[4/3] w-full rounded-lg object-cover object-center shadow-soft"
                             />
                             <div className="absolute bottom-4 left-4 right-4 rounded-lg border border-white/40 bg-white/90 px-4 py-3 text-sm font-bold text-ink shadow-soft backdrop-blur dark:border-slate-700/70 dark:bg-slate-950/85 dark:text-white">
-                                Building web platforms where traffic, speed, and reliability matter.
+                                {copy.hero.imageNote}
                             </div>
                         </div>
                     </motion.div>

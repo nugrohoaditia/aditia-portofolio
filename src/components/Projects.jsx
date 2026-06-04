@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import Section from "./Section";
 import { projects } from "../data";
 
-function Projects() {
+function Projects({ copy }) {
     return (
-        <Section id="projects" eyebrow="Projects" title="Major digital platforms listed in my CV." tone="muted">
+        <Section id="projects" eyebrow={copy.eyebrow} title={copy.title} tone="muted">
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {projects.map((project) => (
                     <motion.article
@@ -35,7 +35,7 @@ function Projects() {
                             ))}
                         </div>
                         <a className="mt-auto font-extrabold text-marine hover:underline dark:text-mint" href={project.url} target="_blank" rel="noreferrer">
-                            Visit Project
+                            {copy.visit}
                         </a>
                     </motion.article>
                 ))}

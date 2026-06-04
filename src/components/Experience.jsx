@@ -1,9 +1,9 @@
 import Section from "./Section";
 import { experiences } from "../data";
 
-function Experience() {
+function Experience({ copy }) {
     return (
-        <Section id="experience" eyebrow="Experience" title="Professional work history from frontend platforms to ERP integration.">
+        <Section id="experience" eyebrow={copy.eyebrow} title={copy.title}>
             <div className="grid gap-5">
                 {experiences.map((experience) => (
                     <article className="grid gap-6 rounded-lg border border-slate-200 bg-white p-6 shadow-soft md:grid-cols-[14rem_1fr] dark:border-slate-800 dark:bg-slate-900" key={experience.company}>
