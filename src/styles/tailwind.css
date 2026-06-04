@@ -134,6 +134,10 @@
         @apply rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-extrabold text-slate-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200;
     }
 
+    .project-logo-frame {
+        @apply flex h-24 w-full items-center justify-center rounded-lg border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-white;
+    }
+
     .tag-row {
         @apply flex flex-wrap gap-2;
     }

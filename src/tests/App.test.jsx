@@ -29,13 +29,20 @@ test("renders CV-backed experience and project content", () => {
 });
 
 test("renders project image when a project image path is supplied", () => {
-    projects[0].image = "/assets/images/projects/cnnindonesia.png";
-
     render(<Projects />);
 
     expect(screen.getByAltText("cnnindonesia.com logo")).toHaveAttribute("src", "/assets/images/projects/cnnindonesia.png");
+});
 
+test("renders project badge fallback when image is not supplied", () => {
+    const storedImage = projects[0].image;
     delete projects[0].image;
+
+    render(<Projects />);
+
+    expect(screen.getByText("CNN")).toBeInTheDocument();
+
+    projects[0].image = storedImage;
 });
 
 test("opens and closes the mobile navigation menu", async () => {

@@ -13,17 +13,19 @@ function Projects() {
                         whileHover={{ y: -8 }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     >
-                        {project.image ? (
-                            <img
-                                className="h-20 w-full rounded-lg object-contain object-left"
-                                src={project.image}
-                                alt={`${project.name} logo`}
-                            />
-                        ) : (
-                            <div className="flex h-20 items-center justify-center rounded-lg bg-mint/20 text-2xl font-black text-ink dark:bg-marine/30 dark:text-mint">
-                                {project.badge}
-                            </div>
-                        )}
+                        <div className="project-logo-frame">
+                            {project.image ? (
+                                <img
+                                    className="max-h-16 w-auto max-w-full object-contain"
+                                    src={project.image}
+                                    alt={`${project.name} logo`}
+                                />
+                            ) : (
+                                <span className="text-2xl font-black text-ink dark:text-mint">
+                                    {project.badge}
+                                </span>
+                            )}
+                        </div>
                         <h3 className="text-xl font-black text-ink dark:text-white">{project.name}</h3>
                         <p className="leading-7 text-slate-600 dark:text-slate-300">{project.description}</p>
                         <p className="text-sm font-bold text-slate-500 dark:text-slate-400">{project.role}</p>

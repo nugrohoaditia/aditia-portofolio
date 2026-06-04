@@ -35,7 +35,7 @@ function About() {
                     </div>
                     <div className="info-tile">
                         <span>Core Stack</span>
-                        <strong>PHP, React JS, JavaScript, SQL, HTML5, CSS3, MySQL, REST API Integration</strong>
+                        <strong>PHP, React JS, JavaScript, GIT, HTML5, CSS3, MySQL, REST API Integration</strong>
                     </div>
                     <div className="info-tile">
                         <span>Focus</span>

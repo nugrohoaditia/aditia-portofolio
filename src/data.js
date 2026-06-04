@@ -126,7 +126,7 @@ export const projects = [
     {
         name: "cnnindonesia.com",
         badge: "CNN",
-        // image: "/assets/images/projects/cnnindonesia.webp",
+        image: "/assets/images/projects/cnnindonesia.png",
         url: "https://www.cnnindonesia.com",
         description:
             "High-traffic news platform work covering frontend feature delivery, reusable modules, production maintenance, and API-backed content experiences.",
@@ -136,7 +136,7 @@ export const projects = [
     {
         name: "cnbcindonesia.com",
         badge: "CNBC",
-        // image: "/assets/images/projects/cnbcindonesia.png",
+        image: "/assets/images/projects/cnbcindonesia.png",
         url: "https://www.cnbcindonesia.com",
         description:
             "Business and market news platform contribution across responsive content pages, frontend delivery, reusable modules, and production support.",
@@ -146,7 +146,7 @@ export const projects = [
     {
         name: "haibunda.com",
         badge: "HB",
-        // image: "/assets/images/projects/haibunda.png",
+        image: "/assets/images/projects/haibunda.webp",
         url: "https://www.haibunda.com",
         description:
             "Parenting and family media platform work focused on mobile-first content experiences, reusable UI patterns, and CMS-backed pages.",
@@ -156,7 +156,7 @@ export const projects = [
     {
         name: "insertlive.com",
         badge: "IN",
-        // image: "/assets/images/projects/insertlive.png",
+        image: "/assets/images/projects/insertlive.webp",
         url: "https://www.insertlive.com",
         description:
             "Entertainment media platform work across responsive interfaces, reusable frontend components, CMS-integrated pages, and production issue support.",
@@ -166,7 +166,7 @@ export const projects = [
     {
         name: "beautynesia.id",
         badge: "BN",
-        // image: "/assets/images/projects/beautynesia.png",
+        image: "/assets/images/projects/beautynesia.png",
         url: "https://www.beautynesia.id",
         description:
             "Lifestyle platform contribution focused on clean UI patterns, mobile-first pages, content modules, and maintainable frontend behavior.",
