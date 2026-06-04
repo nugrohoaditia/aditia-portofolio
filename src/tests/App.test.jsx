@@ -44,6 +44,9 @@ test("opens and closes the mobile navigation menu", async () => {
 
     render(<Header theme="light" onToggleTheme={onToggleTheme} />);
 
+    expect(screen.getByAltText("Aditia Nugroho logo")).toHaveAttribute("src", "/assets/images/logo_trans.png");
+    expect(screen.getByRole("button", { name: /switch language to english/i })).toHaveAttribute("aria-pressed", "true");
+
     const menuButton = screen.getByRole("button", { name: /toggle mobile menu/i });
     await user.click(menuButton);
 
@@ -57,5 +60,15 @@ test("opens and closes the mobile navigation menu", async () => {
 
     expect(menuButton).toHaveAttribute("aria-expanded", "false");
 
-    await user.click(screen.getByRole("link", { name: "Aditia Nugroho" }));
+    await user.click(screen.getByRole("button", { name: /switch language to indonesian/i }));
+    expect(document.documentElement).toHaveAttribute("lang", "id");
+    expect(localStorage.getItem("language")).toBe("ID");
+
+    await user.click(screen.getByRole("link", { name: /back to home/i }));
+});
+
+test("renders dark logo when dark theme is active", () => {
+    render(<Header theme="dark" onToggleTheme={jest.fn()} />);
+
+    expect(screen.getByAltText("Aditia Nugroho logo")).toHaveAttribute("src", "/assets/images/logo.png");
 });

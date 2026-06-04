@@ -9,6 +9,8 @@ export const profile = {
     linkedin: "https://linkedin.com/in/aditianugroho23",
     resumeUrl: "/assets/V4_CV_pict_Aditia Nugroho's Resume_web developer.pdf",
     image: "/assets/images/aditia-nugroho-casual.jpg",
+    logo: "/assets/images/logo_trans.png",
+    darkLogo: "/assets/images/logo.png",
     binusLogo: "/assets/images/binus-university-logo.svg"
 };
 

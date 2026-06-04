@@ -17,8 +17,14 @@ const links = [
 function Header({ theme, onToggleTheme }) {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState(links[0].id);
+    const [language, setLanguage] = useState(() => localStorage.getItem("language") || "EN");
 
     const closeMenu = () => setMenuOpen(false);
+
+    useEffect(() => {
+        document.documentElement.lang = language.toLowerCase();
+        localStorage.setItem("language", language);
+    }, [language]);
 
     useEffect(() => {
         const updateActiveSection = () => {
@@ -47,8 +53,12 @@ function Header({ theme, onToggleTheme }) {
         <>
             <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
                 <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
-                    <a href="#home" className="text-lg font-black tracking-tight text-ink dark:text-white" onClick={closeMenu}>
-                        {profile.name}
+                    <a href="#home" className="brand-logo-link" aria-label="Back to home" onClick={closeMenu}>
+                        <img
+                            className="h-10 w-auto object-contain"
+                            src={theme === "dark" ? profile.darkLogo : profile.logo}
+                            alt="Aditia Nugroho logo"
+                        />
                     </a>
                     <div className="hidden items-center gap-7 text-sm font-bold text-slate-600 md:flex dark:text-slate-300">
                         {links.map((link) => (
@@ -62,6 +72,20 @@ function Header({ theme, onToggleTheme }) {
                         ))}
                     </div>
                     <div className="flex items-center gap-2">
+                        <div className="language-switch" aria-label="Language switch">
+                            {["EN", "ID"].map((option) => (
+                                <button
+                                    className={`language-option ${language === option ? "is-active" : ""}`}
+                                    type="button"
+                                    aria-label={`Switch language to ${option === "EN" ? "English" : "Indonesian"}`}
+                                    aria-pressed={language === option}
+                                    key={option}
+                                    onClick={() => setLanguage(option)}
+                                >
+                                    {option}
+                                </button>
+                            ))}
+                        </div>
                         <DarkModeToggle theme={theme} onToggle={onToggleTheme} />
                         <button
                             type="button"
