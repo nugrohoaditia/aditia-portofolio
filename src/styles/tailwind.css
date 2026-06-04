@@ -61,9 +61,29 @@
         @apply bg-ember text-white hover:bg-orange-600;
     }
 
-    .nav-link,
+    .nav-link {
+        @apply relative pb-1 font-bold transition hover:text-marine dark:hover:text-mint;
+    }
+
+    .nav-link::after {
+        @apply absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-marine transition-transform duration-300 content-[''] dark:bg-mint;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.is-active::after {
+        @apply scale-x-100;
+    }
+
+    .nav-link.is-active {
+        @apply font-black text-ink dark:text-white;
+    }
+
     .mobile-link {
         @apply transition hover:text-marine dark:hover:text-mint;
+    }
+
+    .mobile-link.is-active {
+        @apply font-black text-marine dark:text-mint;
     }
 
     .info-tile {

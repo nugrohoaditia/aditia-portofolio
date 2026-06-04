@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faDownload, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -16,8 +16,32 @@ const links = [
 
 function Header({ theme, onToggleTheme }) {
     const [isMenuOpen, setMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState(links[0].id);
 
     const closeMenu = () => setMenuOpen(false);
+
+    useEffect(() => {
+        const updateActiveSection = () => {
+            let currentSection = links[0].id;
+
+            links.forEach((link) => {
+                const section = document.getElementById(link.id);
+
+                if (section && section.getBoundingClientRect().top <= 120) {
+                    currentSection = link.id;
+                }
+            });
+
+            setActiveSection(currentSection);
+        };
+
+        updateActiveSection();
+        window.addEventListener("scroll", updateActiveSection, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", updateActiveSection);
+        };
+    }, []);
 
     return (
         <>
@@ -28,7 +52,11 @@ function Header({ theme, onToggleTheme }) {
                     </a>
                     <div className="hidden items-center gap-7 text-sm font-bold text-slate-600 md:flex dark:text-slate-300">
                         {links.map((link) => (
-                            <a className="nav-link" href={`#${link.id}`} key={link.id}>
+                            <a
+                                className={`nav-link ${activeSection === link.id ? "is-active" : ""}`}
+                                href={`#${link.id}`}
+                                key={link.id}
+                            >
                                 {link.label}
                             </a>
                         ))}
@@ -50,7 +78,12 @@ function Header({ theme, onToggleTheme }) {
                     <div className="border-t border-slate-200 bg-white px-5 py-4 md:hidden dark:border-slate-800 dark:bg-slate-950">
                         <div className="grid gap-3 text-sm font-bold text-slate-700 dark:text-slate-200">
                             {links.map((link) => (
-                                <a className="mobile-link" href={`#${link.id}`} key={link.id} onClick={closeMenu}>
+                                <a
+                                    className={`mobile-link ${activeSection === link.id ? "is-active" : ""}`}
+                                    href={`#${link.id}`}
+                                    key={link.id}
+                                    onClick={closeMenu}
+                                >
                                     {link.label}
                                 </a>
                             ))}
