@@ -7,7 +7,7 @@ export const profile = {
     phone: "+62-812-9172-3823",
     whatsapp: "6281291723823",
     linkedin: "https://linkedin.com/in/aditianugroho23",
-    resumeUrl: "/assets/V4_CV_pict_Aditia Nugroho's Resume_web developer.pdf",
+    resumeUrl: "/assets/CV_pict_Aditia Nugroho.pdf",
     image: "/assets/images/aditia-nugroho-casual.jpg",
     logo: "/assets/images/logo_trans.png",
     darkLogo: "/assets/images/logo.png",
