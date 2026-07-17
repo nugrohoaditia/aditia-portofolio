@@ -9,6 +9,7 @@ import Education from "./components/Education";
 import ContactForm from "./components/ContactForm";
 import AppHub from "./components/AppHub";
 import AnimatedPage from "./app/animated/AnimatedPage";
+import { APP_ROUTES } from "./app/data/portfolioApps";
 import { translations } from "./i18n";
 import { getNextTheme } from "./utils";
 
@@ -21,11 +22,11 @@ function getInitialLanguage() {
 }
 
 function isAppRoute() {
-    return window.location.pathname === "/app" || window.location.pathname.startsWith("/app/");
+    return window.location.pathname === APP_ROUTES.root || window.location.pathname.startsWith(`${APP_ROUTES.root}/`);
 }
 
 function isAnimatedRoute() {
-    return window.location.pathname === "/app/animated";
+    return window.location.pathname === APP_ROUTES.animated;
 }
 
 function App() {

@@ -147,7 +147,7 @@
     }
 
     .app-preview-card {
-        @apply block rounded-lg border border-slate-200 bg-white p-4 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-marine hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:hover:border-mint;
+        @apply block rounded-lg border border-slate-200 bg-white p-4 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-marine hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-marine dark:border-slate-800 dark:bg-slate-900 dark:hover:border-mint dark:focus-visible:outline-mint;
     }
 
     .app-preview-visual {
@@ -222,6 +222,50 @@
 
     .app-preview-photo span {
         @apply block h-4/5 w-3/5 rounded-t-full bg-gradient-to-b from-sky-500 to-slate-800;
+    }
+
+    .app-preview-visual--empty {
+        @apply flex items-center justify-center;
+    }
+
+    .app-preview-visual--empty span {
+        @apply h-16 w-16 rounded-full border border-white/20 bg-white/20;
+    }
+
+    .app-status-badge {
+        @apply inline-flex min-h-8 shrink-0 items-center gap-2 rounded-full border px-3 py-1 text-xs font-black;
+    }
+
+    .app-status-badge__dot {
+        @apply h-2 w-2 rounded-full;
+    }
+
+    .app-status-badge--ready {
+        @apply border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-400/10 dark:text-emerald-200;
+    }
+
+    .app-status-badge--ready .app-status-badge__dot {
+        @apply bg-emerald-500 dark:bg-emerald-300;
+    }
+
+    .app-status-badge--beta,
+    .app-status-badge--in-development {
+        @apply border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-400/30 dark:bg-amber-400/10 dark:text-amber-200;
+    }
+
+    .app-status-badge--beta .app-status-badge__dot,
+    .app-status-badge--in-development .app-status-badge__dot {
+        @apply bg-amber-500 dark:bg-amber-300;
+    }
+
+    .app-status-badge--concept,
+    .app-status-badge--archived {
+        @apply border-slate-300 bg-slate-50 text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300;
+    }
+
+    .app-status-badge--concept .app-status-badge__dot,
+    .app-status-badge--archived .app-status-badge__dot {
+        @apply bg-slate-500 dark:bg-slate-300;
     }
 
     .app-card-arrow {

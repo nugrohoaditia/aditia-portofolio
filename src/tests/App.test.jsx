@@ -71,13 +71,23 @@ test("renders the private app route shell without exposing portfolio sections", 
     expect(screen.getByRole("link", { name: "< Home" })).toHaveAttribute("href", "/");
     expect(screen.getByLabelText("Experimental apps grid")).toHaveClass("app-grid");
     expect(screen.getByRole("heading", { name: "App playground" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /animated portfolio/i })).toHaveAttribute("href", "/app/animated");
+    const animatedCard = screen.getByRole("link", { name: /animated portfolio/i });
+    expect(animatedCard).toHaveAttribute("href", "/app/animated");
+    expect(screen.getByText("Portfolio Experience")).toBeInTheDocument();
+    expect(screen.getByText("Ready")).toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: "Aditia Nugroho" })).not.toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
 
     expect(document.documentElement).toHaveClass("dark");
     expect(localStorage.getItem("theme")).toBe("dark");
+
+    animatedCard.focus();
+    await user.keyboard("{Enter}");
+
+    await waitFor(() => {
+        expect(screen.getByRole("main", { name: /animated portfolio experience/i })).toBeInTheDocument();
+    });
 });
 
 test("updates the rendered shell when browser history moves into an app child route", async () => {
