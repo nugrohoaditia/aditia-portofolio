@@ -46,6 +46,7 @@
     "jest": {
         "collectCoverageFrom": [
             "src/**/*.{js,jsx}",
+            "!src/app/animated/**",
             "!src/index.jsx",
             "!src/reportWebVitals.js"
         ],

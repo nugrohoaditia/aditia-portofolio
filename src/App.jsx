@@ -7,6 +7,8 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Education from "./components/Education";
 import ContactForm from "./components/ContactForm";
+import AppHub from "./components/AppHub";
+import AnimatedPage from "./app/animated/AnimatedPage";
 import { translations } from "./i18n";
 import { getNextTheme } from "./utils";
 
@@ -18,9 +20,19 @@ function getInitialLanguage() {
     return localStorage.getItem("language") === "ID" ? "ID" : "EN";
 }
 
+function isAppRoute() {
+    return window.location.pathname === "/app" || window.location.pathname.startsWith("/app/");
+}
+
+function isAnimatedRoute() {
+    return window.location.pathname === "/app/animated";
+}
+
 function App() {
     const [theme, setTheme] = useState(getInitialTheme);
     const [language, setLanguage] = useState(getInitialLanguage);
+    const [isAppPage, setIsAppPage] = useState(isAppRoute);
+    const [isAnimatedPage, setIsAnimatedPage] = useState(isAnimatedRoute);
     const copy = translations[language];
 
     useEffect(() => {
@@ -33,6 +45,19 @@ function App() {
         localStorage.setItem("language", language);
     }, [language]);
 
+    useEffect(() => {
+        const updateRoute = () => {
+            setIsAnimatedPage(isAnimatedRoute());
+            setIsAppPage(isAppRoute());
+        };
+
+        window.addEventListener("popstate", updateRoute);
+
+        return () => {
+            window.removeEventListener("popstate", updateRoute);
+        };
+    }, []);
+
     const toggleTheme = () => {
         setTheme((current) => getNextTheme(current));
     };
@@ -40,6 +65,24 @@ function App() {
     const toggleLanguage = () => {
         setLanguage((current) => (current === "EN" ? "ID" : "EN"));
     };
+
+    if (isAnimatedPage) {
+        return (
+            <>
+                <AnimatedPage theme={theme} onToggleTheme={toggleTheme} />
+                <Analytics />
+            </>
+        );
+    }
+
+    if (isAppPage) {
+        return (
+            <>
+                <AppHub theme={theme} onToggleTheme={toggleTheme} />
+                <Analytics />
+            </>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-white text-slate-700 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-200">

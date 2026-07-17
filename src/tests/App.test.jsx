@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 import Header from "../components/Header";
@@ -9,6 +9,21 @@ import { translations } from "../i18n";
 beforeEach(() => {
     localStorage.clear();
     document.documentElement.lang = "en";
+    window.history.pushState({}, "", "/");
+    window.matchMedia = jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn()
+    }));
+    Object.defineProperty(navigator, "clipboard", {
+        configurable: true,
+        value: {
+            writeText: jest.fn().mockResolvedValue()
+        }
+    });
 });
 
 function HeaderHarness({ theme = "light", onToggleTheme = jest.fn() }) {
@@ -44,6 +59,83 @@ test("renders CV-backed experience and project content", () => {
     expect(screen.getByText("cnnindonesia.com")).toBeInTheDocument();
     expect(screen.getByText("insertlive.com")).toBeInTheDocument();
     expect(screen.getByText("Master of Management Information Systems")).toBeInTheDocument();
+});
+
+test("renders the private app route shell without exposing portfolio sections", async () => {
+    const user = userEvent.setup();
+    window.history.pushState({}, "", "/app");
+
+    render(<App />);
+
+    expect(screen.getByRole("navigation", { name: /app navigation/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "< Home" })).toHaveAttribute("href", "/");
+    expect(screen.getByLabelText("Experimental apps grid")).toHaveClass("app-grid");
+    expect(screen.getByRole("heading", { name: "App playground" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /animated portfolio/i })).toHaveAttribute("href", "/app/animated");
+    expect(screen.queryByRole("heading", { name: "Aditia Nugroho" })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
+
+    expect(document.documentElement).toHaveClass("dark");
+    expect(localStorage.getItem("theme")).toBe("dark");
+});
+
+test("updates the rendered shell when browser history moves into an app child route", async () => {
+    const { unmount } = render(<App />);
+
+    expect(screen.getByRole("heading", { name: "Aditia Nugroho" })).toBeInTheDocument();
+
+    act(() => {
+        window.history.pushState({}, "", "/app/demo");
+        window.dispatchEvent(new PopStateEvent("popstate"));
+    });
+
+    await waitFor(() => {
+        expect(screen.getByRole("navigation", { name: /app navigation/i })).toBeInTheDocument();
+    });
+
+    unmount();
+});
+
+test("renders the animated portfolio route with metadata and key sections", async () => {
+    window.history.pushState({}, "", "/app/animated");
+
+    render(<App />);
+
+    expect(document.title).toBe("Animated | Aditia Nugroho");
+    expect(document.head.querySelector('meta[name="description"]')).toHaveAttribute(
+        "content",
+        expect.stringContaining("Animated portfolio experience")
+    );
+    expect(screen.getByRole("main", { name: /animated portfolio experience/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Aditia Nugroho" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /experience across media platforms/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /cinematic gallery/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /stack shaped by production work/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "< Home" })).toHaveAttribute("href", "/app");
+
+    await userEvent.click(screen.getByRole("button", { name: /copy email/i }));
+
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith("nugrohoaditia46@gmail.com");
+    expect(screen.getByRole("button", { name: /email copied/i })).toBeInTheDocument();
+});
+
+test("animated route supports mobile menu, escape close, and theme switching", async () => {
+    const user = userEvent.setup();
+    window.history.pushState({}, "", "/app/animated");
+
+    render(<App />);
+
+    const menuButton = screen.getByRole("button", { name: /open animated page menu/i });
+    await user.click(menuButton);
+
+    expect(screen.getByRole("dialog", { name: /animated section menu/i })).toBeInTheDocument();
+
+    await user.keyboard("{Escape}");
+    expect(screen.queryByRole("dialog", { name: /animated section menu/i })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
+    expect(document.documentElement).toHaveClass("dark");
 });
 
 test("renders project image when a project image path is supplied", () => {
