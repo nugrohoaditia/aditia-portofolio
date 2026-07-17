@@ -1,10 +1,11 @@
 import Section from "./Section";
+import { skillGroups } from "../data";
 
-function Skills({ content }) {
+function Skills({ copy }) {
     return (
-        <Section id="skills" eyebrow={content.eyebrow} title={content.title}>
+        <Section id="skills" eyebrow={copy.eyebrow} title={copy.title}>
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {content.groups.map((group) => (
+                {skillGroups.map((group) => (
                     <article className="skill-panel" key={group.title}>
                         <h3>{group.title}</h3>
                         <p>{group.summary}</p>

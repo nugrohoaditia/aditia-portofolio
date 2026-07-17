@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/Header";
 import About from "./components/About";
 import Experience from "./components/Experience";
@@ -6,21 +7,21 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Education from "./components/Education";
 import ContactForm from "./components/ContactForm";
+import { translations } from "./i18n";
 import { getNextTheme } from "./utils";
-import { siteContent } from "./data";
 
 function getInitialTheme() {
     return localStorage.getItem("theme") || "light";
 }
 
 function getInitialLanguage() {
-    return localStorage.getItem("language") === "id" ? "id" : "en";
+    return localStorage.getItem("language") === "ID" ? "ID" : "EN";
 }
 
 function App() {
     const [theme, setTheme] = useState(getInitialTheme);
     const [language, setLanguage] = useState(getInitialLanguage);
-    const content = siteContent[language];
+    const copy = translations[language];
 
     useEffect(() => {
         document.documentElement.classList.toggle("dark", theme === "dark");
@@ -28,7 +29,7 @@ function App() {
     }, [theme]);
 
     useEffect(() => {
-        document.documentElement.lang = language;
+        document.documentElement.lang = language.toLowerCase();
         localStorage.setItem("language", language);
     }, [language]);
 
@@ -37,29 +38,30 @@ function App() {
     };
 
     const toggleLanguage = () => {
-        setLanguage((current) => (current === "en" ? "id" : "en"));
+        setLanguage((current) => (current === "EN" ? "ID" : "EN"));
     };
 
     return (
         <div className="min-h-screen bg-white text-slate-700 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-200">
             <Header
-                content={content}
+                copy={copy}
                 language={language}
                 onToggleLanguage={toggleLanguage}
                 theme={theme}
                 onToggleTheme={toggleTheme}
             />
             <main>
-                <About content={content.about} />
-                <Experience content={content.experience} />
-                <Skills content={content.skills} />
-                <Projects content={content.projects} />
-                <Education content={content.education} />
-                <ContactForm content={content.contact} />
+                <About copy={copy.about} />
+                <Experience copy={copy.experience} />
+                <Skills copy={copy.skills} />
+                <Projects copy={copy.projects} />
+                <Education copy={copy.education} />
+                <ContactForm copy={copy.contact} />
             </main>
             <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
-                <p>{content.footer}</p>
+                <p>{copy.footer}</p>
             </footer>
+            <Analytics />
         </div>
     );
 }
