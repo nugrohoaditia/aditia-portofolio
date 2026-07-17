@@ -1,13 +1,13 @@
 export const profile = {
     name: "Aditia Nugroho",
-    subtitle: "Software Engineer | React & PHP | High-Traffic Web Platforms",
+    subtitle: "Software Engineer | React & PHP | Web Platform Development",
     summary:
-        "Software Engineer with 7 years of experience building and maintaining high-traffic digital platforms using React and PHP. Experienced in delivering production-ready features, handling system performance issues, and collaborating across teams to build reliable and scalable applications.",
+        "Software Engineer with 7 years of experience building and maintaining web platforms using React, PHP, and JavaScript. I focus on practical feature delivery, API integration, performance fixes, and day-to-day production support.",
     email: "nugrohoaditia46@gmail.com",
     phone: "+62-812-9172-3823",
     whatsapp: "6281291723823",
     linkedin: "https://linkedin.com/in/aditianugroho23",
-    resumeUrl: "/assets/V4_CV_pict_Aditia Nugroho's Resume_web developer.pdf",
+    resumeUrl: "/assets/CV_Aditia_Nugroho_software_engineer.pdf",
     image: "/assets/images/aditia-nugroho-casual.jpg",
     binusLogo: "/assets/images/binus-university-logo.svg"
 };
@@ -19,12 +19,12 @@ export const experiences = [
         title: "Web Developer (Frontend Website)",
         location: "Jakarta, Indonesia",
         description:
-            "Building production features and maintaining high-traffic news and lifestyle platforms across the Detik network.",
+            "Building and maintaining frontend features for news and lifestyle platforms across the Detik network.",
         responsibilities: [
-            "Led implementation of frontend features across high-traffic news platforms serving millions of monthly users.",
-            "Designed reusable frontend and backend modules for scalable feature delivery.",
-            "Handled production issues, system optimization, performance fixes, and user experience improvements.",
-            "Implemented unit tests with Jest and PHPUnit to reduce release risk."
+            "Implemented frontend features for Detik network media platforms.",
+            "Created reusable frontend and backend modules to support repeated feature work.",
+            "Handled production issues, performance fixes, and user experience improvements.",
+            "Wrote unit tests with Jest and PHPUnit to support safer releases."
         ],
         technologies: ["ReactJS", "PHP", "JavaScript", "Jest", "PHPUnit", "Phalcon", "Git", "AMP"]
     },
@@ -34,7 +34,7 @@ export const experiences = [
         title: "Junior Consultant Technical ERP",
         location: "Jakarta, Indonesia",
         description:
-            "Delivered web and Oracle E-Business Suite integrations for enterprise client workflows and reporting needs.",
+            "Delivered web and Oracle E-Business Suite integrations for enterprise workflows and reporting.",
         responsibilities: [
             "Developed and customized integrated websites based on client requirements.",
             "Connected frontend systems with Oracle databases for data exchange and synchronization.",
@@ -49,7 +49,7 @@ export const experiences = [
         title: "Web Developer (Frontend Website)",
         location: "Jakarta, Indonesia",
         description:
-            "Created responsive client websites from concept to completion with CMS and database integrations.",
+            "Created responsive client websites with CMS and database integrations.",
         responsibilities: [
             "Built responsive websites for mobile, tablet, and desktop experiences.",
             "Integrated animation and motion elements to improve visual engagement.",
@@ -76,7 +76,7 @@ export const experiences = [
 export const skillGroups = [
     {
         title: "Frontend Delivery",
-        summary: "Daily work building production UI for content-heavy, high-traffic media platforms.",
+        summary: "Daily work building production UI for content-heavy media platforms.",
         skills: [
             "ReactJS",
             "JavaScript",
@@ -105,7 +105,7 @@ export const skillGroups = [
     },
     {
         title: "Quality & Workflow",
-        summary: "Tools used around testing, release confidence, production issue tracking, and team delivery.",
+        summary: "Tools used for testing, release support, production issue tracking, and team delivery.",
         skills: [
             "Git",
             "Jest",
@@ -128,7 +128,7 @@ export const projects = [
         logoWidth: "compact",
         url: "https://www.cnnindonesia.com",
         description:
-            "High-traffic news platform work covering frontend feature delivery, reusable modules, production maintenance, and API-backed content experiences.",
+            "News platform work covering frontend feature delivery, reusable modules, production maintenance, and API-backed content pages.",
         technologies: ["React", "PHP", "JavaScript", "AMP"],
         role: "Frontend feature delivery and platform maintenance"
     },
@@ -139,7 +139,7 @@ export const projects = [
         logoWidth: "wide",
         url: "https://www.cnbcindonesia.com",
         description:
-            "Business and market news platform contribution across responsive content pages, frontend delivery, reusable modules, and production support.",
+            "Business and market news platform work across responsive content pages, frontend delivery, reusable modules, and production support.",
         technologies: ["React", "PHP", "JavaScript", "AMP"],
         role: "Frontend implementation and platform maintenance"
     },
@@ -150,7 +150,7 @@ export const projects = [
         logoWidth: "wide",
         url: "https://www.haibunda.com",
         description:
-            "Parenting and family media platform work focused on mobile-first content experiences, reusable UI patterns, and CMS-backed pages.",
+            "Parenting and family media platform work focused on mobile-first content pages, reusable UI patterns, and CMS-backed delivery.",
         technologies: ["React", "PHP", "JavaScript", "AMP"],
         role: "Frontend feature delivery and platform maintenance"
     },
@@ -161,7 +161,7 @@ export const projects = [
         logoWidth: "wide",
         url: "https://www.insertlive.com",
         description:
-            "Entertainment media platform work across responsive interfaces, reusable frontend components, CMS-integrated pages, and production issue support.",
+            "Entertainment media platform work across responsive interfaces, reusable frontend components, CMS-integrated pages, and production support.",
         technologies: ["React", "PHP", "JavaScript", "AMP"],
         role: "Frontend feature delivery and platform maintenance"
     },
@@ -172,7 +172,7 @@ export const projects = [
         logoWidth: "wide",
         url: "https://www.beautynesia.id",
         description:
-            "Lifestyle platform contribution focused on clean UI patterns, mobile-first pages, content modules, and maintainable frontend behavior.",
+            "Lifestyle platform work focused on clean UI patterns, mobile-first pages, content modules, and maintainable frontend behavior.",
         technologies: ["React", "PHP", "JavaScript", "AMP"],
         role: "Frontend feature delivery and platform maintenance"
     },
@@ -221,22 +221,22 @@ export const siteContent = {
         ],
         hero: {
             badge: "Frontend Developer at Detikcom",
-            subtitle: "Software Engineer | React & PHP | High-Traffic Web Platforms",
+            subtitle: "Software Engineer | React & PHP | Web Platform Development",
             summary:
-                "Software Engineer with 7 years of experience building and maintaining high-traffic digital platforms using React and PHP. I work on production-ready features, performance improvements, API integration, and reliable web experiences for large-scale environments.",
-            metrics: ["7 years experience", "High-traffic media", "React + PHP"],
+                "Software Engineer with 7 years of experience building and maintaining web platforms with React, PHP, and JavaScript. I work on production features, API integration, performance fixes, and reliable frontend delivery for media and enterprise projects.",
+            metrics: ["7 years experience", "Media platforms", "React + PHP"],
             primaryAction: "View Experience",
             resumeAction: "Download Resume",
             imageAlt: "Aditia Nugroho in a smart casual outfit with Jakarta city skyline",
-            imageCaption: "Building web platforms where traffic, speed, and reliability matter."
+            imageCaption: "Building practical web features with attention to speed, reliability, and maintainability."
         },
         about: {
             eyebrow: "About",
-            title: "Reliable web engineering for media platforms, ERP integration, and digital products.",
+            title: "Web development experience across media platforms, ERP integration, and digital products.",
             resumeAction: "Download Resume",
             paragraphs: [
-                "I am a Software Engineer focused on frontend website development, React, PHP, API integration, and system optimization. My work spans high-traffic media platforms, Oracle EBS integration, reusable modules, unit testing, and production issue handling.",
-                "At PT. Trans Digital Media (Detikcom), I help deliver and maintain frontend features for major digital platforms. I work closely with product, QA, backend, and design teams to keep releases practical, stable, and ready for real users."
+                "I am a Software Engineer focused on frontend website development, React, PHP, API integration, and system optimization. My work includes media platforms, Oracle EBS integration, reusable modules, unit testing, and production issue handling.",
+                "At PT. Trans Digital Media (Detikcom), I help deliver and maintain frontend features for digital media products. I work with product, QA, backend, and design teams to keep releases clear, stable, and useful for users."
             ],
             tiles: [
                 {
@@ -249,31 +249,31 @@ export const siteContent = {
                 },
                 {
                     label: "Focus",
-                    value: "High-traffic platforms, API integration, system optimization, and digital transformation"
+                    value: "Media platforms, API integration, system optimization, and maintainable web delivery"
                 }
             ]
         },
         experience: {
             eyebrow: "Experience",
-            title: "Professional work history across frontend platforms, ERP systems, and web delivery.",
+            title: "Work history across frontend platforms, ERP systems, and web delivery.",
             items: experiences
         },
         skills: {
             eyebrow: "Skills",
-            title: "A practical stack shaped by production work and cross-team delivery.",
+            title: "A practical stack shaped by production work and team delivery.",
             groups: skillGroups
         },
         projects: {
             eyebrow: "Projects",
-            title: "Major digital platforms reflected in my CV.",
+            title: "Selected platforms and products from my work experience.",
             visitAction: "Visit Project",
             items: projects
         },
         education: {
             eyebrow: "Education",
-            title: "Academic foundation in information systems and computer science.",
+            title: "Education in information systems and computer science.",
             aside:
-                "BINUS is the academic base behind my computer science and management information systems background.",
+                "BINUS is where I built my academic foundation in computer science and management information systems.",
             gpaLabel: "GPA",
             items: education
         },
@@ -281,7 +281,7 @@ export const siteContent = {
             eyebrow: "Contact",
             title: "Reach me directly.",
             description:
-                "The fastest way to reach me is through WhatsApp or email. I am open to software engineering roles, product collaboration, and high-traffic web platform work."
+                "The fastest way to reach me is through WhatsApp or email. I am open to software engineering roles, product collaboration, and web platform work."
         },
         footer: "(c) 2026 Aditia Nugroho - Software Engineer."
     },
@@ -297,22 +297,22 @@ export const siteContent = {
         ],
         hero: {
             badge: "Frontend Developer di Detikcom",
-            subtitle: "Software Engineer | React & PHP | Platform Web High-Traffic",
+            subtitle: "Software Engineer | React & PHP | Pengembangan Platform Web",
             summary:
-                "Software Engineer dengan 7 tahun pengalaman membangun dan menjaga platform digital berskala besar menggunakan React dan PHP. Saya terbiasa mengerjakan fitur siap produksi, peningkatan performa, integrasi API, serta pengalaman web yang stabil untuk lingkungan dengan trafik tinggi.",
-            metrics: ["7 tahun pengalaman", "Media high-traffic", "React + PHP"],
+                "Software Engineer dengan 7 tahun pengalaman membangun dan memelihara platform web menggunakan React, PHP, dan JavaScript. Saya terbiasa mengerjakan fitur produksi, integrasi API, perbaikan performa, dan dukungan teknis untuk produk media maupun enterprise.",
+            metrics: ["7 tahun pengalaman", "Platform media", "React + PHP"],
             primaryAction: "Lihat Pengalaman",
             resumeAction: "Unduh CV",
             imageAlt: "Aditia Nugroho dengan pakaian smart casual dan latar kota Jakarta",
-            imageCaption: "Membangun platform web yang mengutamakan trafik, kecepatan, dan reliabilitas."
+            imageCaption: "Membangun fitur web yang praktis, cepat, andal, dan mudah dipelihara."
         },
         about: {
             eyebrow: "Tentang",
-            title: "Rekayasa web yang andal untuk platform media, integrasi ERP, dan produk digital.",
+            title: "Pengalaman web development untuk platform media, integrasi ERP, dan produk digital.",
             resumeAction: "Unduh CV",
             paragraphs: [
-                "Saya adalah Software Engineer yang berfokus pada pengembangan frontend website, React, PHP, integrasi API, dan optimasi sistem. Pengalaman saya mencakup platform media dengan trafik tinggi, integrasi Oracle EBS, modul reusable, unit testing, serta penanganan isu produksi.",
-                "Di PT. Trans Digital Media (Detikcom), saya membantu merilis dan memelihara fitur frontend untuk berbagai platform digital besar. Saya bekerja dekat dengan tim produk, QA, backend, dan desain agar setiap rilis tetap praktis, stabil, dan siap digunakan oleh pengguna nyata."
+                "Saya adalah Software Engineer yang berfokus pada pengembangan frontend website, React, PHP, integrasi API, dan optimasi sistem. Pengalaman saya mencakup platform media, integrasi Oracle EBS, modul reusable, unit testing, serta penanganan isu produksi.",
+                "Di PT. Trans Digital Media (Detikcom), saya membantu merilis dan memelihara fitur frontend untuk beberapa produk digital. Saya bekerja bersama tim produk, QA, backend, dan desain agar rilis tetap jelas, stabil, dan sesuai kebutuhan pengguna."
             ],
             tiles: [
                 {
@@ -325,13 +325,13 @@ export const siteContent = {
                 },
                 {
                     label: "Fokus",
-                    value: "Platform high-traffic, integrasi API, optimasi sistem, dan transformasi digital"
+                    value: "Platform media, integrasi API, optimasi sistem, dan pengembangan web yang mudah dipelihara"
                 }
             ]
         },
         experience: {
             eyebrow: "Pengalaman",
-            title: "Riwayat kerja di platform frontend, sistem ERP, dan pengembangan website.",
+            title: "Riwayat kerja di frontend platform, sistem ERP, dan pengembangan website.",
             items: [
                 {
                     period: "Nov 2021 - Sekarang",
@@ -339,14 +339,13 @@ export const siteContent = {
                     title: "Web Developer (Frontend Website)",
                     location: "Jakarta, Indonesia",
                     description:
-                        "Membangun dan memelihara fitur frontend untuk platform berita dan lifestyle dengan trafik tinggi di ekosistem Detik Network.",
+                        "Membangun dan memelihara fitur frontend untuk platform berita dan lifestyle di ekosistem Detik Network.",
                     responsibilities: [
-                        "Memimpin implementasi fitur frontend di beberapa platform berita high-traffic yang melayani jutaan pengguna bulanan.",
-                        "Mengevaluasi praktik frontend dan backend modern untuk meningkatkan performa, maintainability, dan alur kerja engineering.",
-                        "Mendesain serta memelihara modul reusable di layer frontend dan backend untuk mendukung pengembangan fitur yang skalabel.",
-                        "Mendiagnosis dan menyelesaikan isu produksi pada sistem high-traffic agar performa, stabilitas, dan pengalaman pengguna tetap terjaga.",
-                        "Menerapkan unit testing dengan Jest dan PHPUnit untuk meningkatkan reliabilitas kode dan mengurangi risiko produksi.",
-                        "Berkolaborasi dengan tim backend, QA, produk, dan desain untuk menjaga kualitas fitur serta ketepatan delivery."
+                        "Mengimplementasikan fitur frontend untuk beberapa platform media di Detik Network.",
+                        "Membuat modul frontend dan backend yang reusable untuk mendukung kebutuhan fitur berulang.",
+                        "Menangani isu produksi, perbaikan performa, dan peningkatan pengalaman pengguna.",
+                        "Menerapkan unit testing dengan Jest dan PHPUnit untuk mendukung rilis yang lebih aman.",
+                        "Berkolaborasi dengan tim backend, QA, produk, dan desain untuk menjaga kualitas delivery."
                     ],
                     technologies: ["ReactJS", "PHP", "JavaScript", "Jest", "PHPUnit", "Phalcon", "Git", "AMP"]
                 },
@@ -360,8 +359,8 @@ export const siteContent = {
                     responsibilities: [
                         "Mengembangkan dan menyesuaikan website terintegrasi berdasarkan kebutuhan klien.",
                         "Menghubungkan sistem frontend dengan Oracle Database untuk pertukaran data dan sinkronisasi yang lebih lancar.",
-                        "Mengelola serta mengoptimalkan Oracle E-Business Suite agar performa dan integritas data tetap terjaga.",
-                        "Membuat report Oracle SaaS untuk mendukung pengambilan keputusan dan efisiensi operasional."
+                        "Membantu optimasi Oracle E-Business Suite agar performa dan integritas data tetap terjaga.",
+                        "Membuat report Oracle SaaS untuk mendukung kebutuhan operasional dan pengambilan keputusan."
                     ],
                     technologies: ["PHP", "PL/SQL", "Oracle EBS", "RTF Report", "TOAD"]
                 },
@@ -371,12 +370,12 @@ export const siteContent = {
                     title: "Web Developer (Frontend Website)",
                     location: "Jakarta, Indonesia",
                     description:
-                        "Membangun website klien dari konsep hingga rilis, dengan perhatian pada tampilan, responsivitas, CMS, dan integrasi database.",
+                        "Membangun website klien dari konsep hingga rilis, termasuk tampilan, responsivitas, CMS, dan integrasi database.",
                     responsibilities: [
-                        "Mengembangkan website frontend dari konsep hingga selesai untuk menghasilkan platform digital yang fungsional dan menarik.",
-                        "Membuat website custom sesuai kebutuhan klien dengan kualitas desain dan usability yang baik.",
+                        "Mengembangkan website frontend dari konsep hingga selesai.",
+                        "Membuat website custom sesuai kebutuhan klien dengan perhatian pada desain dan usability.",
                         "Membangun website responsif untuk mobile, tablet, dan desktop.",
-                        "Mengintegrasikan animasi, elemen motion, CMS, dan database untuk mendukung pengalaman pengguna."
+                        "Mengintegrasikan animasi, CMS, dan database sesuai kebutuhan proyek."
                     ],
                     technologies: ["HTML5", "CSS3", "SCSS", "PHP", "MySQL", "CMS", "CodeIgniter"]
                 },
@@ -399,12 +398,12 @@ export const siteContent = {
         },
         skills: {
             eyebrow: "Keahlian",
-            title: "Stack praktis yang terbentuk dari pekerjaan produksi dan kolaborasi lintas tim.",
+            title: "Stack praktis dari pekerjaan produksi dan kolaborasi tim.",
             groups: [
                 {
                     title: "Frontend Delivery",
                     summary:
-                        "Pengalaman harian membangun UI produksi untuk platform konten yang padat, cepat, dan memiliki trafik tinggi.",
+                        "Pengalaman harian membangun UI produksi untuk platform konten dan media.",
                     skills: [
                         "ReactJS",
                         "JavaScript",
@@ -419,7 +418,7 @@ export const siteContent = {
                 {
                     title: "Backend & Integration",
                     summary:
-                        "Terbiasa menghubungkan platform web dengan API, CMS, database enterprise, dan kebutuhan integrasi sistem.",
+                        "Terbiasa menghubungkan platform web dengan API, CMS, database enterprise, dan integrasi sistem.",
                     skills: [
                         "PHP",
                         "Laravel",
@@ -435,7 +434,7 @@ export const siteContent = {
                 {
                     title: "Quality & Workflow",
                     summary:
-                        "Tools dan praktik yang digunakan untuk menjaga kualitas rilis, tracking isu produksi, dan delivery tim.",
+                        "Tools dan praktik yang digunakan untuk testing, tracking isu produksi, dan delivery tim.",
                     skills: [
                         "Git",
                         "Jest",
@@ -452,13 +451,13 @@ export const siteContent = {
         },
         projects: {
             eyebrow: "Proyek",
-            title: "Platform digital besar yang tercantum dalam CV saya.",
+            title: "Beberapa platform dan produk dari pengalaman kerja saya.",
             visitAction: "Kunjungi Proyek",
             items: [
                 {
                     ...projects[0],
                     description:
-                        "Kontribusi pada platform berita high-traffic melalui pengembangan fitur frontend, modul reusable, maintenance produksi, dan pengalaman konten berbasis API.",
+                        "Kontribusi pada platform berita melalui pengembangan fitur frontend, modul reusable, maintenance produksi, dan halaman konten berbasis API.",
                     role: "Pengembangan fitur frontend dan maintenance platform"
                 },
                 {
@@ -470,7 +469,7 @@ export const siteContent = {
                 {
                     ...projects[2],
                     description:
-                        "Pekerjaan pada platform parenting dan keluarga dengan fokus pada pengalaman konten mobile-first, pola UI reusable, dan halaman berbasis CMS.",
+                        "Pekerjaan pada platform parenting dan keluarga dengan fokus pada halaman mobile-first, pola UI reusable, dan halaman berbasis CMS.",
                     role: "Pengembangan fitur frontend dan maintenance platform"
                 },
                 {
@@ -495,9 +494,9 @@ export const siteContent = {
         },
         education: {
             eyebrow: "Pendidikan",
-            title: "Fondasi akademik di bidang sistem informasi dan ilmu komputer.",
+            title: "Pendidikan di bidang sistem informasi dan ilmu komputer.",
             aside:
-                "BINUS menjadi dasar akademik untuk latar belakang saya di computer science dan management information systems.",
+                "BINUS menjadi dasar akademik saya di computer science dan management information systems.",
             gpaLabel: "IPK",
             items: [
                 {
@@ -516,7 +515,7 @@ export const siteContent = {
             eyebrow: "Kontak",
             title: "Hubungi saya langsung.",
             description:
-                "Cara tercepat untuk menghubungi saya adalah melalui WhatsApp atau email. Saya terbuka untuk peran software engineering, kolaborasi produk, dan pekerjaan terkait platform web high-traffic."
+                "Cara tercepat untuk menghubungi saya adalah melalui WhatsApp atau email. Saya terbuka untuk peran software engineering, kolaborasi produk, dan pekerjaan terkait platform web."
         },
         footer: "(c) 2026 Aditia Nugroho - Software Engineer."
     }

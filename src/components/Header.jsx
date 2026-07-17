@@ -40,8 +40,9 @@ function Header({
                         <button
                             type="button"
                             className="language-toggle"
-                            aria-label="Toggle language"
+                            aria-label={`${content.languageLabel}: switch between English and Indonesian`}
                             aria-pressed={language === "id"}
+                            title={`${content.languageLabel}: EN / ID`}
                             onClick={onToggleLanguage}
                         >
                             <span className={language === "en" ? "is-active" : ""}>EN</span>
@@ -74,8 +75,9 @@ function Header({
                             <button
                                 type="button"
                                 className="language-toggle w-full justify-center"
-                                aria-label="Toggle mobile language"
+                                aria-label={`${content.languageLabel}: switch between English and Indonesian`}
                                 aria-pressed={language === "id"}
+                                title={`${content.languageLabel}: EN / ID`}
                                 onClick={toggleLanguageFromMenu}
                             >
                                 <span className={language === "en" ? "is-active" : ""}>EN</span>

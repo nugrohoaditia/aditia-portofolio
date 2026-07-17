@@ -14,12 +14,12 @@ test("renders all primary portfolio sections", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: "Aditia Nugroho" })).toBeInTheDocument();
-    expect(screen.getByText("Software Engineer | React & PHP | High-Traffic Web Platforms")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /reliable web engineering/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /professional work history/i })).toBeInTheDocument();
+    expect(screen.getByText("Software Engineer | React & PHP | Web Platform Development")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /web development experience/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /work history/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /practical stack/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /major digital platforms/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /academic foundation/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /selected platforms/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /education in information systems/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /reach me directly/i })).toBeInTheDocument();
 });
 
@@ -78,7 +78,7 @@ test("opens and closes the mobile navigation menu", async () => {
     expect(menuButton).toHaveAttribute("aria-expanded", "true");
     expect(screen.getAllByText("Projects")).toHaveLength(2);
 
-    await user.click(screen.getByRole("button", { name: /toggle mobile language/i }));
+    await user.click(screen.getAllByRole("button", { name: /switch between english and indonesian/i })[1]);
     expect(onToggleLanguage).toHaveBeenCalledTimes(1);
 
     await user.click(menuButton);
@@ -107,7 +107,7 @@ test("renders Indonesian mobile menu controls", async () => {
 
     await user.click(screen.getByRole("button", { name: /toggle mobile menu/i }));
 
-    expect(screen.getByRole("button", { name: /toggle mobile language/i })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getAllByRole("button", { name: /switch between english and indonesian/i })[1]).toHaveAttribute("aria-pressed", "true");
     expect(screen.getByRole("button", { name: /toggle mobile dark mode/i })).toHaveAttribute("aria-pressed", "true");
     expect(screen.getAllByText("Proyek")).toHaveLength(2);
 });
@@ -117,7 +117,7 @@ test("switches portfolio copy between English and Indonesian", async () => {
 
     render(<App />);
 
-    const languageToggle = screen.getByRole("button", { name: /toggle language/i });
+    const languageToggle = screen.getByRole("button", { name: /switch between english and indonesian/i });
     expect(languageToggle).toHaveAttribute("aria-pressed", "false");
     expect(document.documentElement.lang).toBe("en");
 
@@ -126,7 +126,7 @@ test("switches portfolio copy between English and Indonesian", async () => {
     expect(languageToggle).toHaveAttribute("aria-pressed", "true");
     expect(document.documentElement.lang).toBe("id");
     expect(localStorage.getItem("language")).toBe("id");
-    expect(screen.getByRole("heading", { name: /rekayasa web/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /pengalaman web development/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /lihat pengalaman/i })).toBeInTheDocument();
 
     await user.click(languageToggle);
@@ -142,5 +142,5 @@ test("reads saved Indonesian language preference on startup", () => {
     render(<App />);
 
     expect(document.documentElement.lang).toBe("id");
-    expect(screen.getByRole("heading", { name: /rekayasa web/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /pengalaman web development/i })).toBeInTheDocument();
 });
