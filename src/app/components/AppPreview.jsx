@@ -1,14 +1,55 @@
-function AppPreview({ type }) {
+function AppPreview({ type, variant = "standard" }) {
+    const className = `app-preview-visual ${variant === "featured" ? "app-preview-visual--featured" : ""}`.trim();
+
+    if (type === "newsroom-dashboard") {
+        return (
+            <div className={`${className} app-preview-visual--newsroom`} aria-hidden="true">
+                <div className="app-newsroom-preview-shell">
+                    <div className="app-newsroom-preview-sidebar">
+                        <span />
+                        <i />
+                        <i />
+                        <i />
+                    </div>
+                    <div className="app-newsroom-preview-main">
+                        <div className="app-newsroom-preview-header">
+                            <span />
+                            <strong />
+                        </div>
+                        <div className="app-newsroom-preview-metrics">
+                            <i />
+                            <i />
+                            <i />
+                        </div>
+                        <div className="app-newsroom-preview-content">
+                            <div className="app-newsroom-preview-chart">
+                                <svg viewBox="0 0 160 70" focusable="false">
+                                    <polyline points="4,58 32,44 58,49 84,28 116,34 152,12" />
+                                    <circle cx="152" cy="12" r="4" />
+                                </svg>
+                            </div>
+                            <div className="app-newsroom-preview-pipeline">
+                                <span />
+                                <span />
+                                <span />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     if (type !== "cinematic-portfolio") {
         return (
-            <div className="app-preview-visual app-preview-visual--empty" aria-hidden="true">
+            <div className={`${className} app-preview-visual--empty`} aria-hidden="true">
                 <span />
             </div>
         );
     }
 
     return (
-        <div className="app-preview-visual" aria-hidden="true">
+        <div className={className} aria-hidden="true">
             <div className="app-preview-topbar">
                 <span />
                 <span />

@@ -30,7 +30,7 @@ function setMetaTag(name, content, attribute = "name") {
     tag.setAttribute("content", content);
 }
 
-function AnimatedPage({ theme, onToggleTheme }) {
+function AnimatedPage() {
     const [isLoading, setLoading] = useState(true);
     const [progress, setProgress] = useState(0);
     const sectionIds = useMemo(() => animatedSections.map((section) => section.id), []);
@@ -46,7 +46,7 @@ function AnimatedPage({ theme, onToggleTheme }) {
         setMetaTag("description", description);
         setMetaTag("og:title", "Animated | Aditia Nugroho", "property");
         setMetaTag("og:description", description, "property");
-        setMetaTag("theme-color", "#061018");
+        setMetaTag("theme-color", "#132322");
 
         return () => {
             document.title = previousTitle;
@@ -83,8 +83,6 @@ function AnimatedPage({ theme, onToggleTheme }) {
                 <AnimatedNavbar
                     activeSection={activeSection}
                     sections={animatedSections}
-                    theme={theme}
-                    onToggleTheme={onToggleTheme}
                 />
                 <main aria-label={`${animatedProfile.pageTitle} portfolio experience`}>
                     <HeroSection />

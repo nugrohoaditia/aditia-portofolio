@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import DarkModeToggle from "../../../components/DarkModeToggle";
 
-function AnimatedNavbar({ activeSection, sections, theme, onToggleTheme }) {
+function AnimatedNavbar({ activeSection, sections }) {
     const [isMenuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -40,7 +39,6 @@ function AnimatedNavbar({ activeSection, sections, theme, onToggleTheme }) {
                 ))}
             </nav>
             <div className="animated-nav__actions">
-                <DarkModeToggle className="animated-theme-toggle" theme={theme} onToggle={onToggleTheme} />
                 <button
                     className="animated-menu-button"
                     type="button"

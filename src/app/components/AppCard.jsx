@@ -35,13 +35,13 @@ function AppCard({ app, onNavigate }) {
             <p className="mt-4 min-h-[4.5rem] leading-7 text-slate-600 dark:text-slate-300">{app.description}</p>
 
             <div className="tag-row mt-5" aria-label={`${app.title} technologies`}>
-                {app.technologies.map((technology) => (
+                {app.technologies.slice(0, 5).map((technology) => (
                     <span key={technology}>{technology}</span>
                 ))}
             </div>
 
             <div className="mt-6 flex items-center justify-between border-t border-slate-200 pt-4 dark:border-slate-800">
-                <span className="text-sm font-black text-ink dark:text-white">Open app</span>
+                <span className="text-sm font-black text-ink dark:text-white">{app.actionLabel || "Open app"}</span>
                 <span className="app-card-arrow" aria-hidden="true">
                     -&gt;
                 </span>

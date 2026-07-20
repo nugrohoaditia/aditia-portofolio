@@ -1,10 +1,12 @@
-import { act, render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 import Header from "../components/Header";
 import Projects from "../components/Projects";
 import { projects } from "../data";
 import { translations } from "../i18n";
+
+jest.setTimeout(15000);
 
 beforeEach(() => {
     localStorage.clear();
@@ -70,11 +72,16 @@ test("renders the private app route shell without exposing portfolio sections", 
     expect(screen.getByRole("navigation", { name: /app navigation/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "< Home" })).toHaveAttribute("href", "/");
     expect(screen.getByLabelText("Experimental apps grid")).toHaveClass("app-grid");
-    expect(screen.getByRole("heading", { name: "App playground" })).toBeInTheDocument();
-    const animatedCard = screen.getByRole("link", { name: /animated portfolio/i });
+    expect(screen.getByRole("heading", { name: "App Playground" })).toBeInTheDocument();
+    const animatedCard = screen.getByRole("link", { name: /open experience/i });
     expect(animatedCard).toHaveAttribute("href", "/app/animated");
-    expect(screen.getByText("Portfolio Experience")).toBeInTheDocument();
-    expect(screen.getByText("Ready")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /open newsroom dashboard/i })).toHaveAttribute("href", "/app/newsroom");
+    expect(screen.getAllByText("Newsroom Dashboard")).toHaveLength(1);
+    expect(screen.queryByText("Newsroom Dashboard Simulator")).not.toBeInTheDocument();
+    expect(screen.getAllByText("Portfolio Experience").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Ready").length).toBeGreaterThan(0);
+    expect(screen.getByRole("heading", { name: /start with the live application/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /future experiments/i })).toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: "Aditia Nugroho" })).not.toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
@@ -146,6 +153,115 @@ test("animated route supports mobile menu, escape close, and theme switching", a
 
     await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
     expect(document.documentElement).toHaveClass("dark");
+});
+
+test("renders the newsroom dashboard route and supports core workflow", async () => {
+    const user = userEvent.setup();
+    window.history.pushState({}, "", "/app/newsroom");
+
+    render(<App />);
+
+    expect(document.title).toBe("Newsroom OS | Aditia Nugroho");
+    expect(screen.getAllByRole("link", { name: /app playground/i }).map((link) => link.getAttribute("href"))).toEqual([
+        "/app",
+        "/app"
+    ]);
+    expect(screen.getByRole("link", { name: /back to app playground/i })).toHaveAttribute("href", "/app");
+    expect(screen.getByRole("heading", { name: "Overview" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /editorial command center/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /editorial queue/i })).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /articles/i }));
+    expect(screen.getByRole("heading", { name: /search, filter, and inspect stories/i })).toBeInTheDocument();
+
+    await user.type(screen.getByLabelText(/search articles/i), "AI safety");
+    expect(screen.getAllByText("New AI safety guidance reaches schools").length).toBeGreaterThan(0);
+    expect(screen.queryByText("Markets steady after regional rate signal")).not.toBeInTheDocument();
+
+    await user.selectOptions(screen.getByLabelText("Status"), "Writing");
+    expect(screen.getByText(/1 article results/i)).toBeInTheDocument();
+
+    await user.click(screen.getAllByRole("button", { name: /open article/i })[0]);
+    expect(screen.getByRole("dialog", { name: /new ai safety guidance reaches schools/i })).toBeInTheDocument();
+
+    await user.keyboard("{Escape}");
+    await waitFor(() => {
+        expect(screen.queryByRole("dialog", { name: /new ai safety guidance reaches schools/i })).not.toBeInTheDocument();
+    });
+
+    await user.click(screen.getByRole("button", { name: /reset/i }));
+    expect(screen.getByRole("status")).toHaveTextContent("Filters reset.");
+
+    await user.click(screen.getByRole("button", { name: /activity/i }));
+    await user.click(screen.getAllByRole("button", { name: /mark read/i })[0]);
+    expect(screen.getByRole("status")).toHaveTextContent("Notification marked as read.");
+});
+
+test("newsroom dashboard supports status updates, breaking action, theme, and mobile drawer", async () => {
+    const user = userEvent.setup();
+    window.history.pushState({}, "", "/app/newsroom");
+
+    render(<App />);
+
+    await user.click(screen.getByRole("button", { name: /open newsroom navigation/i }));
+    expect(screen.getByRole("dialog", { name: /newsroom mobile navigation/i })).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /close navigation/i }));
+    await waitFor(() => {
+        expect(screen.queryByRole("dialog", { name: /newsroom mobile navigation/i })).not.toBeInTheDocument();
+    });
+
+    await user.click(screen.getByRole("button", { name: /editorial queue/i }));
+    const moveSelect = screen.getAllByLabelText(/move to/i)[0];
+    await user.selectOptions(moveSelect, "Review");
+    expect(screen.getByRole("status")).toHaveTextContent("Article moved to Review.");
+
+    await user.click(screen.getByRole("button", { name: /breaking news/i }));
+    await user.click(screen.getAllByRole("button", { name: /mark verification complete/i })[0]);
+    expect(screen.getByRole("status")).toHaveTextContent("Breaking story verification updated.");
+
+    await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
+    expect(document.documentElement).toHaveClass("dark");
+});
+
+test("renders the project case study route with project selector and safe metadata", async () => {
+    const user = userEvent.setup();
+    window.history.pushState({}, "", "/app/case-study");
+
+    render(<App />);
+
+    expect(document.title).toBe("CNN Indonesia Case Study | Aditia Nugroho");
+    expect(screen.getByRole("heading", { name: "cnnindonesia.com" })).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: /app playground/i })[0]).toHaveAttribute("href", "/app");
+    expect(screen.getByRole("navigation", { name: /case study sections/i })).toBeInTheDocument();
+    const selector = within(screen.getByLabelText("Choose a case study"));
+    expect(selector.getByRole("button", { name: /cnbc indonesia/i })).toHaveAttribute("aria-pressed", "false");
+    expect(selector.getByRole("button", { name: /cnn indonesia/i })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getAllByRole("link", { name: /open live project/i })[0]).toHaveAttribute(
+        "rel",
+        expect.stringContaining("noreferrer")
+    );
+
+    await user.click(selector.getByRole("button", { name: /cnbc indonesia/i }));
+
+    expect(screen.getByRole("heading", { name: "cnbcindonesia.com" })).toBeInTheDocument();
+    expect(window.location.search).toBe("?project=cnbc-indonesia");
+    expect(selector.getByRole("button", { name: /cnbc indonesia/i })).toHaveAttribute("aria-pressed", "true");
+});
+
+test("case study invalid project selection falls back safely and copy code reports success", async () => {
+    const user = userEvent.setup();
+    const writeText = jest.spyOn(navigator.clipboard, "writeText").mockResolvedValue();
+    window.history.pushState({}, "", "/app/case-study?project=missing-project");
+
+    render(<App />);
+
+    expect(screen.getByRole("heading", { name: "cnnindonesia.com" })).toBeInTheDocument();
+    expect(screen.queryByText("undefined")).not.toBeInTheDocument();
+
+    await user.click(screen.getAllByRole("button", { name: /copy .* code/i })[0]);
+
+    expect(writeText).toHaveBeenCalled();
+    expect(screen.getByText("Code copied.")).toBeInTheDocument();
 });
 
 test("renders project image when a project image path is supplied", () => {

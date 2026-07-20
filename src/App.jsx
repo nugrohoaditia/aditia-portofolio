@@ -9,6 +9,8 @@ import Education from "./components/Education";
 import ContactForm from "./components/ContactForm";
 import AppHub from "./components/AppHub";
 import AnimatedPage from "./app/animated/AnimatedPage";
+import NewsroomPage from "./app/newsroom/NewsroomPage";
+import CaseStudyPage from "./app/case-study/CaseStudyPage";
 import { APP_ROUTES } from "./app/data/portfolioApps";
 import { translations } from "./i18n";
 import { getNextTheme } from "./utils";
@@ -29,11 +31,21 @@ function isAnimatedRoute() {
     return window.location.pathname === APP_ROUTES.animated;
 }
 
+function isNewsroomRoute() {
+    return window.location.pathname === APP_ROUTES.newsroom;
+}
+
+function isCaseStudyRoute() {
+    return window.location.pathname === APP_ROUTES.caseStudy;
+}
+
 function App() {
     const [theme, setTheme] = useState(getInitialTheme);
     const [language, setLanguage] = useState(getInitialLanguage);
     const [isAppPage, setIsAppPage] = useState(isAppRoute);
     const [isAnimatedPage, setIsAnimatedPage] = useState(isAnimatedRoute);
+    const [isNewsroomPage, setIsNewsroomPage] = useState(isNewsroomRoute);
+    const [isCaseStudyPage, setIsCaseStudyPage] = useState(isCaseStudyRoute);
     const copy = translations[language];
 
     useEffect(() => {
@@ -49,6 +61,8 @@ function App() {
     useEffect(() => {
         const updateRoute = () => {
             setIsAnimatedPage(isAnimatedRoute());
+            setIsNewsroomPage(isNewsroomRoute());
+            setIsCaseStudyPage(isCaseStudyRoute());
             setIsAppPage(isAppRoute());
         };
 
@@ -66,6 +80,24 @@ function App() {
     const toggleLanguage = () => {
         setLanguage((current) => (current === "EN" ? "ID" : "EN"));
     };
+
+    if (isNewsroomPage) {
+        return (
+            <>
+                <NewsroomPage theme={theme} onToggleTheme={toggleTheme} />
+                <Analytics />
+            </>
+        );
+    }
+
+    if (isCaseStudyPage) {
+        return (
+            <>
+                <CaseStudyPage theme={theme} onToggleTheme={toggleTheme} />
+                <Analytics />
+            </>
+        );
+    }
 
     if (isAnimatedPage) {
         return (

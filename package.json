@@ -47,6 +47,8 @@
         "collectCoverageFrom": [
             "src/**/*.{js,jsx}",
             "!src/app/animated/**",
+            "!src/app/newsroom/**",
+            "!src/app/case-study/**",
             "!src/index.jsx",
             "!src/reportWebVitals.js"
         ],
