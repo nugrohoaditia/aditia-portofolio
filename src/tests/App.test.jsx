@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import App from "../App";
 import Header from "../components/Header";
 import Projects from "../components/Projects";
-import { projects } from "../data";
+import { getResumeUrl, projects } from "../data";
 import { translations } from "../i18n";
 
 jest.setTimeout(15000);
@@ -44,12 +44,12 @@ test("renders all primary portfolio sections", () => {
     render(<App />);
 
     expect(screen.getByRole("heading", { name: "Aditia Nugroho" })).toBeInTheDocument();
-    expect(screen.getByText("Software Engineer | React & PHP | Web Platform Development")).toBeInTheDocument();
+    expect(screen.getByText("Senior Software Engineer | React & PHP | High-Traffic Web Platforms")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /web development experience/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /work history/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /practical stack/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /selected platforms/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /education in information systems/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /education in management information systems/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /reach me directly/i })).toBeInTheDocument();
 });
 
@@ -61,6 +61,8 @@ test("renders CV-backed experience and project content", () => {
     expect(screen.getByText("cnnindonesia.com")).toBeInTheDocument();
     expect(screen.getByText("insertlive.com")).toBeInTheDocument();
     expect(screen.getByText("Master of Management Information Systems")).toBeInTheDocument();
+    expect(screen.getByText(/460\+ development tickets/i)).toBeInTheDocument();
+    expect(screen.getByText(/Vertical Video component/i)).toBeInTheDocument();
 });
 
 test("renders the private app route shell without exposing portfolio sections", async () => {
@@ -337,6 +339,8 @@ test("switches portfolio copy between English and Indonesian", async () => {
     expect(localStorage.getItem("language")).toBe("ID");
     expect(screen.getByRole("heading", { name: /pengalaman web development/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /lihat pengalaman/i })).toBeInTheDocument();
+    expect(screen.getByText(/Merampungkan 460\+ tiket development/i)).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: /unduh cv/i })[0]).toHaveAttribute("href", getResumeUrl("ID"));
 });
 
 test("app reads the saved Indonesian language preference", () => {

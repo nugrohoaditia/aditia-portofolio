@@ -10,11 +10,11 @@ export const translations = {
             contact: "Contact"
         },
         hero: {
-            badge: "Frontend Developer at Detikcom",
-            subtitle: "Software Engineer | React & PHP | Web Platform Development",
+            badge: "Senior Software Engineer at Detikcom",
+            subtitle: "Senior Software Engineer | React & PHP | High-Traffic Web Platforms",
             summary:
-                "Software Engineer with 7 years of experience building and maintaining web platforms with React, PHP, and JavaScript. I work on production features, API integration, performance fixes, and reliable frontend delivery for media and enterprise projects.",
-            metrics: ["7 years experience", "Media platforms", "React + PHP"],
+                "Senior Software Engineer with 8+ years of experience building, maintaining, and scaling high-traffic web platforms with React, PHP, and JavaScript. I work on reliable product delivery, clean code, system reliability, API integration, and frontend architecture for media and enterprise projects.",
+            metrics: ["8+ years experience", "8+ media platforms", "React + PHP"],
             experienceButton: "View Experience",
             resumeButton: "Download Resume",
             imageAlt: "Aditia Nugroho in a smart casual outfit with Jakarta city skyline",
@@ -22,15 +22,15 @@ export const translations = {
         },
         about: {
             eyebrow: "About",
-            title: "Web development experience across media platforms, ERP integration, and digital products.",
+            title: "Web development experience across high-traffic media platforms, ERP integration, and digital products.",
             paragraphs: [
-                "I am a Software Engineer focused on frontend website development, React, PHP, API integration, and system optimization. My work includes media platforms, Oracle EBS integration, reusable modules, unit testing, and production issue handling.",
-                "At PT. Trans Digital Media (Detikcom), I help deliver and maintain frontend features for digital media products. I work with product, QA, backend, and design teams to keep releases clear, stable, and useful for users."
+                "I am a Senior Software Engineer focused on frontend web development, React, PHP, API integration, system reliability, and maintainable architecture. My work includes high-traffic media platforms, Oracle EBS integration, reusable components, unit testing, production monitoring, and clean code improvements.",
+                "At PT. Trans Digital Media (Detikcom), I help deliver and maintain frontend features for digital media products used by millions of users. I work with product, QA, backend, and design teams to keep releases clear, stable, and useful for users."
             ],
             tiles: [
-                ["Current Role", "Web Developer (Frontend Website), PT. Trans Digital Media (Detikcom)"],
-                ["Core Stack", "PHP, React JS, JavaScript, Git, HTML5, CSS3, MySQL, REST API Integration"],
-                ["Focus", "Media platforms, API integration, system optimization, and maintainable web delivery"]
+                ["Current Role", "Software Engineer (Frontend Web), PT. Trans Digital Media (Detikcom)"],
+                ["Core Stack", "PHP, React JS, JavaScript, Git, AMP, Jest, PHPUnit, Kibana, SonarQube"],
+                ["Focus", "High-traffic media platforms, API integration, system reliability, clean code, and maintainable web delivery"]
             ],
             resumeButton: "Download Resume"
         },
@@ -40,7 +40,7 @@ export const translations = {
         },
         skills: {
             eyebrow: "Skills",
-            title: "A practical stack shaped by production work and team delivery."
+            title: "A practical stack shaped by production work, system reliability, and team delivery."
         },
         projects: {
             eyebrow: "Projects",
@@ -49,15 +49,15 @@ export const translations = {
         },
         education: {
             eyebrow: "Education",
-            title: "Education in information systems and computer science.",
-            note: "BINUS is where I built my academic foundation in computer science and management information systems."
+            title: "Education in management information systems and computer science.",
+            note: "BINUS is where I built my academic foundation in computer science, management information systems, digital transformation, system integration, and business strategy."
         },
         contact: {
             eyebrow: "Contact",
             title: "Reach me directly.",
-            intro: "The fastest way to reach me is through WhatsApp or email. I am open to software engineering roles, product collaboration, and web platform work."
+            intro: "The fastest way to reach me is through WhatsApp or email. I am open to Senior Software Engineer, Technical Lead, product collaboration, and web platform work."
         },
-        footer: "(c) 2026 Aditia Nugroho - Software Engineer."
+        footer: "(c) 2026 Aditia Nugroho - Senior Software Engineer."
     },
     ID: {
         languageLabel: "Bahasa",
@@ -70,11 +70,11 @@ export const translations = {
             contact: "Kontak"
         },
         hero: {
-            badge: "Frontend Developer di Detikcom",
-            subtitle: "Software Engineer | React & PHP | Pengembangan Platform Web",
+            badge: "Senior Software Engineer di Detikcom",
+            subtitle: "Senior Software Engineer | React & PHP | Platform Web Bertrafik Tinggi",
             summary:
-                "Software Engineer dengan 7 tahun pengalaman membangun dan memelihara platform web menggunakan React, PHP, dan JavaScript. Saya terbiasa mengerjakan fitur produksi, integrasi API, perbaikan performa, dan dukungan teknis untuk produk media maupun enterprise.",
-            metrics: ["7 tahun pengalaman", "Platform media", "React + PHP"],
+                "Senior Software Engineer dengan pengalaman 8+ tahun dalam membangun, memelihara, dan melakukan scaling pada platform web bertrafik tinggi menggunakan React, PHP, dan JavaScript. Saya terbiasa mengerjakan product delivery yang andal, clean code, system reliability, integrasi API, dan arsitektur frontend untuk proyek media maupun enterprise.",
+            metrics: ["8+ tahun pengalaman", "8+ platform media", "React + PHP"],
             experienceButton: "Lihat Pengalaman",
             resumeButton: "Unduh CV",
             imageAlt: "Aditia Nugroho dengan pakaian smart casual dan latar kota Jakarta",
@@ -82,15 +82,15 @@ export const translations = {
         },
         about: {
             eyebrow: "Tentang",
-            title: "Pengalaman web development untuk platform media, integrasi ERP, dan produk digital.",
+            title: "Pengalaman web development untuk platform media bertrafik tinggi, integrasi ERP, dan produk digital.",
             paragraphs: [
-                "Saya adalah Software Engineer yang berfokus pada pengembangan frontend website, React, PHP, integrasi API, dan optimasi sistem. Pengalaman saya mencakup platform media, integrasi Oracle EBS, modul reusable, unit testing, serta penanganan isu produksi.",
-                "Di PT. Trans Digital Media (Detikcom), saya membantu merilis dan memelihara fitur frontend untuk beberapa produk digital. Saya bekerja bersama tim produk, QA, backend, dan desain agar rilis tetap jelas, stabil, dan sesuai kebutuhan pengguna."
+                "Saya adalah Senior Software Engineer yang berfokus pada frontend web development, React, PHP, integrasi API, system reliability, dan arsitektur yang maintainable. Pengalaman saya mencakup platform media bertrafik tinggi, integrasi Oracle EBS, reusable component, unit testing, production monitoring, dan peningkatan clean code.",
+                "Di PT. Trans Digital Media (Detikcom), saya membantu merilis dan memelihara fitur frontend untuk produk digital yang digunakan jutaan pengguna. Saya bekerja bersama tim produk, QA, backend, dan desain agar rilis tetap jelas, stabil, dan sesuai kebutuhan pengguna."
             ],
             tiles: [
-                ["Posisi Saat Ini", "Web Developer (Frontend Website), PT. Trans Digital Media (Detikcom)"],
-                ["Stack Utama", "PHP, React JS, JavaScript, Git, HTML5, CSS3, MySQL, REST API Integration"],
-                ["Fokus", "Platform media, integrasi API, optimasi sistem, dan pengembangan web yang mudah dipelihara"]
+                ["Posisi Saat Ini", "Software Engineer (Frontend Web), PT. Trans Digital Media (Detikcom)"],
+                ["Stack Utama", "PHP, React JS, JavaScript, Git, AMP, Jest, PHPUnit, Kibana, SonarQube"],
+                ["Fokus", "Platform media bertrafik tinggi, integrasi API, system reliability, clean code, dan pengembangan web yang maintainable"]
             ],
             resumeButton: "Unduh CV"
         },
@@ -100,7 +100,7 @@ export const translations = {
         },
         skills: {
             eyebrow: "Keahlian",
-            title: "Stack praktis dari pekerjaan produksi dan kolaborasi tim."
+            title: "Stack praktis dari pekerjaan produksi, system reliability, dan delivery tim."
         },
         projects: {
             eyebrow: "Proyek",
@@ -109,14 +109,14 @@ export const translations = {
         },
         education: {
             eyebrow: "Pendidikan",
-            title: "Pendidikan di bidang sistem informasi dan ilmu komputer.",
-            note: "BINUS menjadi dasar akademik saya di computer science dan management information systems."
+            title: "Pendidikan di bidang sistem informasi manajemen dan ilmu komputer.",
+            note: "BINUS menjadi dasar akademik saya di bidang computer science, sistem informasi manajemen, transformasi digital, integrasi sistem, dan strategi bisnis."
         },
         contact: {
             eyebrow: "Kontak",
             title: "Hubungi saya langsung.",
-            intro: "Cara tercepat untuk menghubungi saya adalah melalui WhatsApp atau email. Saya terbuka untuk peran software engineering, kolaborasi produk, dan pekerjaan terkait platform web."
+            intro: "Cara tercepat untuk menghubungi saya adalah melalui WhatsApp atau email. Saya terbuka untuk peran Senior Software Engineer, Technical Lead, kolaborasi produk, dan pekerjaan terkait platform web."
         },
-        footer: "(c) 2026 Aditia Nugroho - Software Engineer."
+        footer: "(c) 2026 Aditia Nugroho - Senior Software Engineer."
     }
 };

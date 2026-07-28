@@ -12,6 +12,7 @@ import AnimatedPage from "./app/animated/AnimatedPage";
 import NewsroomPage from "./app/newsroom/NewsroomPage";
 import CaseStudyPage from "./app/case-study/CaseStudyPage";
 import { APP_ROUTES } from "./app/data/portfolioApps";
+import { localizedPortfolioContent } from "./data";
 import { translations } from "./i18n";
 import { getNextTheme } from "./utils";
 
@@ -47,6 +48,7 @@ function App() {
     const [isNewsroomPage, setIsNewsroomPage] = useState(isNewsroomRoute);
     const [isCaseStudyPage, setIsCaseStudyPage] = useState(isCaseStudyRoute);
     const copy = translations[language];
+    const content = localizedPortfolioContent[language];
 
     useEffect(() => {
         document.documentElement.classList.toggle("dark", theme === "dark");
@@ -127,11 +129,11 @@ function App() {
                 onToggleTheme={toggleTheme}
             />
             <main>
-                <About copy={copy.about} />
-                <Experience copy={copy.experience} />
-                <Skills copy={copy.skills} />
-                <Projects copy={copy.projects} />
-                <Education copy={copy.education} />
+                <About copy={copy.about} language={language} />
+                <Experience copy={copy.experience} items={content.experiences} />
+                <Skills copy={copy.skills} items={content.skillGroups} />
+                <Projects copy={copy.projects} items={content.projects} />
+                <Education copy={copy.education} items={content.education} />
                 <ContactForm copy={copy.contact} />
             </main>
             <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">

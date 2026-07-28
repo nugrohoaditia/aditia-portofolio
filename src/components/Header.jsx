@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faDownload, faXmark } from "@fortawesome/free-solid-svg-icons";
 import DarkModeToggle from "./DarkModeToggle";
-import { profile } from "../data";
+import { getResumeUrl, profile } from "../data";
 
 const links = [
     { id: "about", label: "About Me" },
@@ -154,7 +154,7 @@ function Header({ copy, language, onToggleLanguage, theme, onToggleTheme }) {
                             <a href="#experience" className="btn-primary">
                                 {copy.hero.experienceButton}
                             </a>
-                            <a href={profile.resumeUrl} download className="btn-secondary">
+                            <a href={getResumeUrl(language)} download className="btn-secondary">
                                 <FontAwesomeIcon icon={faDownload} />
                                 {copy.hero.resumeButton}
                             </a>

@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import Section from "./Section";
 import { projects } from "../data";
 
-function Projects({ copy }) {
+function Projects({ copy, items = projects }) {
     return (
         <Section id="projects" eyebrow={copy.eyebrow} title={copy.title} tone="muted">
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {projects.map((project) => (
+                {items.map((project) => (
                     <motion.article
                         className="flex min-h-[24rem] flex-col gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900"
                         key={project.name}

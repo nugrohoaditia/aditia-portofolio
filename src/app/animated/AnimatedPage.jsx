@@ -30,7 +30,7 @@ function setMetaTag(name, content, attribute = "name") {
     tag.setAttribute("content", content);
 }
 
-function AnimatedPage() {
+function AnimatedPage({ theme, onToggleTheme }) {
     const [isLoading, setLoading] = useState(true);
     const [progress, setProgress] = useState(0);
     const sectionIds = useMemo(() => animatedSections.map((section) => section.id), []);
@@ -40,7 +40,7 @@ function AnimatedPage() {
     useEffect(() => {
         const previousTitle = document.title;
         const description =
-            "Animated portfolio experience for Aditia Nugroho, Software Engineer focused on React, PHP, and web platform development.";
+            "Animated portfolio experience for Aditia Nugroho, Senior Software Engineer focused on React, PHP, and high-traffic web platform development.";
 
         document.title = "Animated | Aditia Nugroho";
         setMetaTag("description", description);
@@ -83,6 +83,8 @@ function AnimatedPage() {
                 <AnimatedNavbar
                     activeSection={activeSection}
                     sections={animatedSections}
+                    theme={theme}
+                    onToggleTheme={onToggleTheme}
                 />
                 <main aria-label={`${animatedProfile.pageTitle} portfolio experience`}>
                     <HeroSection />

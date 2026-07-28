@@ -1,14 +1,12 @@
 import Section from "./Section";
-import { education } from "../data";
-
-function Education({ copy }) {
+function Education({ copy, items }) {
     return (
         <Section id="education" eyebrow={copy.eyebrow} title={copy.title}>
             <div className="grid gap-6 lg:grid-cols-[18rem_1fr]">
                 <aside className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
                     <img
                         className="mx-auto h-auto w-full max-w-[14rem] dark:rounded-md dark:bg-white dark:p-3"
-                        src={education[0].logo}
+                        src={items[0].logo}
                         alt="Bina Nusantara University logo"
                     />
                     <p className="mt-5 text-sm leading-6 text-slate-600 dark:text-slate-300">
@@ -16,7 +14,7 @@ function Education({ copy }) {
                     </p>
                 </aside>
                 <div className="relative border-l-2 border-mint/70 pl-7 dark:border-marine">
-                    {education.map((item) => (
+                    {items.map((item) => (
                         <article className="timeline-item" key={item.degree}>
                             <h3 className="text-xl font-black text-ink dark:text-white">{item.degree}</h3>
                             <p className="mt-2 font-bold text-slate-700 dark:text-slate-200">{item.institution}</p>

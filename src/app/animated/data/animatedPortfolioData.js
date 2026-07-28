@@ -4,8 +4,8 @@ export const animatedProfile = {
     ...profile,
     pageTitle: "Animated",
     intro:
-        "A cinematic portfolio view for a software engineer focused on React, PHP, API integration, production features, and maintainable web platforms.",
-    status: "Open to software engineering roles and product collaboration",
+        "A cinematic portfolio view for a senior software engineer focused on React, PHP, high-traffic web platforms, API integration, clean code, and reliable product delivery.",
+    status: "Open to Senior Software Engineer, Technical Lead, and product collaboration roles",
     location: "Jakarta, Indonesia",
     links: [
         {
@@ -30,10 +30,10 @@ export const animatedEducation = education;
 
 export const animatedHighlights = [
     {
-        value: "7",
+        value: "8",
         suffix: "+",
         label: "Years of web engineering experience",
-        detail: "From client websites to enterprise systems and media platforms."
+        detail: "From client websites to enterprise systems and high-traffic media platforms."
     },
     {
         value: String(projects.length),

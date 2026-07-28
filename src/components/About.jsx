@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import Section from "./Section";
-import { profile } from "../data";
+import { getResumeUrl } from "../data";
 
-function About({ copy }) {
+function About({ copy, language }) {
     return (
         <Section
             id="about"
@@ -18,7 +18,7 @@ function About({ copy }) {
                             {paragraph}
                         </p>
                     ))}
-                    <a href={profile.resumeUrl} download className="btn-primary mt-7">
+                    <a href={getResumeUrl(language)} download className="btn-primary mt-7">
                         <FontAwesomeIcon icon={faDownload} />
                         {copy.resumeButton}
                     </a>
