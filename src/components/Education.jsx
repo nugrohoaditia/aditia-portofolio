@@ -19,7 +19,8 @@ function Education({ copy, items }) {
                             <h3 className="text-xl font-black text-ink dark:text-white">{item.degree}</h3>
                             <p className="mt-2 font-bold text-slate-700 dark:text-slate-200">{item.institution}</p>
                             <p className="mt-1 text-slate-600 dark:text-slate-300">
-                                {item.period} | GPA: {item.gpa}
+                                {item.period}
+                                {item.gpa ? ` | GPA: ${item.gpa}` : ""}
                             </p>
                             <p className="mt-1 text-slate-600 dark:text-slate-300">{item.focus}</p>
                         </article>

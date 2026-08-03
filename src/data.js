@@ -216,7 +216,7 @@ export const education = [
         degree: "Bachelor of Computer Science",
         institution: "Bina Nusantara University",
         period: "2013 - 2017",
-        gpa: "2.84",
+        gpa: "",
         focus: "Computer Science and software development foundations",
         logo: "/assets/images/Logo_Binus_University.jpg"
     }

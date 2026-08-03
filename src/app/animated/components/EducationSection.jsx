@@ -26,7 +26,7 @@ function EducationSection() {
                             <span>{item.period}</span>
                             <h3>{item.degree}</h3>
                             <strong>{item.institution}</strong>
-                            <p>GPA: {item.gpa}</p>
+                            {item.gpa ? <p>GPA: {item.gpa}</p> : null}
                             <p>{item.focus}</p>
                         </div>
                     </motion.article>
