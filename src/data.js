@@ -26,6 +26,7 @@ export const experiences = [
     {
         period: "Nov 2021 - Present",
         company: "PT. Trans Digital Media (Detikcom)",
+        logo: "/assets/images/companies/detikcom-logo.jpg",
         title: "Software Engineer (Frontend Web)",
         location: "Jakarta, Indonesia",
         description:
@@ -42,6 +43,7 @@ export const experiences = [
     {
         period: "Jan 2019 - Nov 2021",
         company: "PT. Sigma Cipta Caraka (Telkomsigma)",
+        logo: "/assets/images/companies/telkomsigma-logo.jpg",
         title: "Technical ERP Consultant",
         location: "Jakarta, Indonesia",
         description:
@@ -57,6 +59,7 @@ export const experiences = [
     {
         period: "Nov 2017 - Dec 2018",
         company: "PT. Label Inovasi Indonesia (Label Ideas & Co)",
+        logo: "/assets/images/companies/labelideas-logo.jpg",
         title: "Web Developer (Frontend)",
         location: "Jakarta, Indonesia",
         description:
@@ -71,6 +74,7 @@ export const experiences = [
     {
         period: "May 2017 - Nov 2017",
         company: "PT. IBM Indonesia",
+        logo: "/assets/images/companies/ibm-logo.jpg",
         title: "Application Developer Intern",
         location: "Jakarta, Indonesia",
         description:
@@ -230,6 +234,7 @@ export const localizedPortfolioContent = {
             {
                 period: "Nov 2021 - Sekarang",
                 company: "PT. Trans Digital Media (Detikcom)",
+                logo: "/assets/images/companies/detikcom-logo.jpg",
                 title: "Software Engineer (Frontend Web)",
                 location: "Jakarta, Indonesia",
                 description:
@@ -246,6 +251,7 @@ export const localizedPortfolioContent = {
             {
                 period: "Jan 2019 - Nov 2021",
                 company: "PT. Sigma Cipta Caraka (Telkomsigma)",
+                logo: "/assets/images/companies/telkomsigma-logo.jpg",
                 title: "Technical ERP Consultant",
                 location: "Jakarta, Indonesia",
                 description:
@@ -261,6 +267,7 @@ export const localizedPortfolioContent = {
             {
                 period: "Nov 2017 - Des 2018",
                 company: "PT. Label Inovasi Indonesia (Label Ideas & Co)",
+                logo: "/assets/images/companies/labelideas-logo.jpg",
                 title: "Web Developer (Frontend)",
                 location: "Jakarta, Indonesia",
                 description:
@@ -275,6 +282,7 @@ export const localizedPortfolioContent = {
             {
                 period: "Mei 2017 - Nov 2017",
                 company: "PT. IBM Indonesia",
+                logo: "/assets/images/companies/ibm-logo.jpg",
                 title: "Application Developer Intern",
                 location: "Jakarta, Indonesia",
                 description:

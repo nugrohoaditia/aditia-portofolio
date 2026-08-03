@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import App from "../App";
 import Header from "../components/Header";
 import Projects from "../components/Projects";
-import { getResumeUrl, projects } from "../data";
+import { getResumeUrl, localizedPortfolioContent, projects } from "../data";
 import { translations } from "../i18n";
 
 jest.setTimeout(15000);
@@ -63,6 +63,20 @@ test("renders CV-backed experience and project content", () => {
     expect(screen.getByText("Master of Management Information Systems")).toBeInTheDocument();
     expect(screen.getByText(/460\+ development tickets/i)).toBeInTheDocument();
     expect(screen.getByText(/Vertical Video component/i)).toBeInTheDocument();
+});
+
+test("renders company logos for every work experience", () => {
+    render(<App />);
+
+    Object.values(localizedPortfolioContent).forEach((content) => {
+        content.experiences.forEach((experience) => {
+            expect(experience.logo).toMatch(/^\/assets\/images\/companies\/.+\.(jpg|png|webp|svg)$/);
+        });
+    });
+
+    localizedPortfolioContent.EN.experiences.forEach((experience) => {
+        expect(screen.getByAltText(`${experience.company} logo`)).toHaveAttribute("src", experience.logo);
+    });
 });
 
 test("renders the private app route shell without exposing portfolio sections", async () => {

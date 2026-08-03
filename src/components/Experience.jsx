@@ -4,10 +4,23 @@ function Experience({ copy, items }) {
         <Section id="experience" eyebrow={copy.eyebrow} title={copy.title}>
             <div className="grid gap-5">
                 {items.map((experience) => (
-                    <article className="grid gap-6 rounded-lg border border-slate-200 bg-white p-6 shadow-soft md:grid-cols-[14rem_1fr] dark:border-slate-800 dark:bg-slate-900" key={experience.company}>
-                        <div className="border-b border-slate-200 pb-4 md:border-b-0 md:border-r md:pb-0 md:pr-6 dark:border-slate-800">
-                            <span className="block text-sm font-black text-marine dark:text-mint">{experience.period}</span>
-                            <strong className="mt-2 block text-sm text-slate-500 dark:text-slate-400">{experience.location}</strong>
+                    <article className="grid gap-6 rounded-lg border border-slate-200 bg-white p-6 shadow-soft md:grid-cols-[12rem_1fr] dark:border-slate-800 dark:bg-slate-900" key={experience.company}>
+                        <div className="flex items-center gap-4 border-b border-slate-200 pb-4 md:flex-col md:items-start md:gap-4 md:border-b-0 md:border-r md:pb-0 md:pr-6 dark:border-slate-800">
+                            {experience.logo && (
+                                <div className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-md border border-slate-200 bg-white p-1.5 shadow-sm md:h-20 md:w-20 md:p-2 dark:border-slate-700">
+                                    <img
+                                        src={experience.logo}
+                                        alt={`${experience.company} logo`}
+                                        className="h-full w-full object-contain"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                            )}
+                            <div className="min-w-0">
+                                <span className="block text-sm font-black text-marine dark:text-mint">{experience.period}</span>
+                                <strong className="mt-2 block text-sm text-slate-500 dark:text-slate-400">{experience.location}</strong>
+                            </div>
                         </div>
                         <div>
                             <h3 className="text-xl font-black text-ink dark:text-white">{experience.company}</h3>
