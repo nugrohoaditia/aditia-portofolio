@@ -1,9 +1,12 @@
+import { motion, useReducedMotion } from "framer-motion";
 import AppPreview from "./AppPreview";
 import AppStatusBadge from "./AppStatusBadge";
 
 function AppCard({ app, onNavigate }) {
+    const reducedMotion = useReducedMotion();
+    const href = app.externalUrl || app.route;
     const handleClick = (event) => {
-        if (!onNavigate || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        if (!app.route || !onNavigate || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
             return;
         }
 
@@ -12,13 +15,20 @@ function AppCard({ app, onNavigate }) {
     };
 
     return (
-        <a
+        <motion.a
             className="app-preview-card group"
-            href={app.route}
+            href={href}
+            target={app.externalUrl ? "_blank" : undefined}
+            rel={app.externalUrl ? "noopener noreferrer" : undefined}
             onClick={handleClick}
             aria-label={`Open ${app.title}`}
+            initial={reducedMotion ? false : { opacity: 0, y: 30 }}
+            whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.12 }}
+            whileHover={reducedMotion ? undefined : { y: -5 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-            <AppPreview type={app.previewType} />
+            <AppPreview type={app.previewType} asset={app.previewAsset} title={app.title} />
 
             <div className="flex items-start justify-between gap-4">
                 <div>
@@ -46,7 +56,7 @@ function AppCard({ app, onNavigate }) {
                     -&gt;
                 </span>
             </div>
-        </a>
+        </motion.a>
     );
 }
 

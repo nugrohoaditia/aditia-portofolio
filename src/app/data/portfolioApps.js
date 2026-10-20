@@ -6,6 +6,10 @@ export const APP_ROUTES = {
 };
 
 export const APP_STATUS = {
+    live: {
+        label: "Live",
+        tone: "ready"
+    },
     ready: {
         label: "Ready",
         tone: "ready"
@@ -29,6 +33,7 @@ export const APP_STATUS = {
 };
 
 export const portfolioAppCategories = {
+    independentProducts: "Independent Products",
     portfolioExperience: "Portfolio Experience",
     professionalApplications: "Professional Applications",
     engineeringLabs: "Engineering Labs",
@@ -38,6 +43,77 @@ export const portfolioAppCategories = {
 
 export const portfolioApps = [
     {
+        id: "daso",
+        title: "DASO",
+        externalUrl: "https://daso.web.id/",
+        description: "A short-drama streaming platform for discovering series and continuing episodes across multiple sources.",
+        category: portfolioAppCategories.independentProducts,
+        status: "live",
+        featured: true,
+        technologies: ["Streaming", "Discovery", "Responsive Web"],
+        previewType: "screenshot",
+        previewAsset: "/assets/images/apps/daso.webp",
+        actionLabel: "Explore DASO",
+        releaseLabel: "Live product",
+        enabled: true,
+        order: 1
+    },
+    {
+        id: "sinyalrasa",
+        title: "SinyalRasa",
+        externalUrl: "https://sinyalrasa.me/",
+        description: "An Indonesian food publication with recipes, dining guides, reviews, and stories from culinary businesses.",
+        category: portfolioAppCategories.independentProducts,
+        status: "live",
+        featured: false,
+        technologies: ["Editorial", "Food Media", "Responsive Web"],
+        previewType: "screenshot",
+        previewAsset: "/assets/images/apps/sinyalrasa.webp",
+        actionLabel: "Visit SinyalRasa",
+        enabled: true,
+        order: 2
+    },
+    {
+        id: "dapur-utieira",
+        title: "Dapur Utieira",
+        externalUrl: "https://dapur.sinyalrasa.me/",
+        description: "A frozen-food storefront with a searchable menu, product categories, and a shopping cart.",
+        category: portfolioAppCategories.independentProducts,
+        status: "live",
+        featured: false,
+        technologies: ["Storefront", "Product Catalog", "Responsive Web"],
+        previewType: "screenshot",
+        previewAsset: "/assets/images/apps/dapur-utieira.webp",
+        actionLabel: "Visit Dapur Utieira",
+        enabled: true,
+        order: 3
+    },
+    {
+        id: "super-kid-math",
+        title: "Super Kid Math / Soal SD",
+        externalUrl: "https://soal-sd.aditianugroho.dev/",
+        description: "A playful learning site with arithmetic, word problems, vocabulary, and a group quiz mode.",
+        category: portfolioAppCategories.independentProducts,
+        status: "live",
+        featured: false,
+        technologies: ["Education", "Interactive Games", "Responsive Web"],
+        previewType: "screenshot",
+        previewAsset: "/assets/images/apps/super-kid-math.webp",
+        actionLabel: "Play Super Kid Math",
+        enabled: true,
+        order: 4
+    },
+    {
+        id: "daycare-attendance",
+        title: "Daycare Attendance",
+        description: "Exploring a simpler attendance flow for daycare operations. In development; no public demo yet.",
+        category: portfolioAppCategories.independentProducts,
+        status: "inDevelopment",
+        enabled: false,
+        showInProgress: true,
+        order: 10
+    },
+    {
         id: "animated",
         title: "Animated Portfolio",
         shortTitle: "Animated",
@@ -46,7 +122,7 @@ export const portfolioApps = [
             "A cinematic version of the portfolio with section transitions, project gallery, and focused contact flow.",
         category: portfolioAppCategories.portfolioExperience,
         status: "ready",
-        featured: true,
+        featured: false,
         technologies: ["React", "Framer Motion", "Tailwind CSS"],
         previewType: "cinematic-portfolio",
         previewAsset: null,
@@ -54,7 +130,7 @@ export const portfolioApps = [
         releaseLabel: "Live app",
         accent: "teal",
         enabled: true,
-        order: 1
+        order: 20
     },
     {
         id: "newsroom-dashboard",
@@ -73,7 +149,7 @@ export const portfolioApps = [
         accent: "cyan",
         enabled: true,
         showInRoadmap: false,
-        order: 20
+        order: 21
     },
     {
         id: "performance-lab",
@@ -128,5 +204,11 @@ export function getFeaturedPortfolioApps() {
 export function getRoadmapPortfolioApps() {
     return portfolioApps
         .filter((app) => app.showInRoadmap && !app.enabled)
+        .sort((first, second) => first.order - second.order);
+}
+
+export function getInProgressPortfolioApps() {
+    return portfolioApps
+        .filter((app) => app.showInProgress && !app.enabled)
         .sort((first, second) => first.order - second.order);
 }

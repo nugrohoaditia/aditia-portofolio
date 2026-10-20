@@ -8,8 +8,7 @@ function EducationSection() {
         <section className="animated-section animated-education" id="animated-education" aria-labelledby="animated-education-title">
             <SectionHeading eyebrow="Education" title="Academic foundation in systems and computer science.">
                 <p>
-                    Formal education from Bina Nusantara University, presented as a compact archive instead of a resume
-                    table.
+                    Computer science and management information systems at Bina Nusantara University.
                 </p>
             </SectionHeading>
             <motion.div

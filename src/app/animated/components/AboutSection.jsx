@@ -10,8 +10,8 @@ function AboutSection() {
         <section className="animated-section animated-about" id="animated-about" aria-labelledby="animated-about-title">
             <SectionHeading eyebrow="Profile" title="A practical engineer for real production platforms.">
                 <p>
-                    The page keeps the focus on concrete work: media platforms, enterprise integration, reusable modules,
-                    testing, and collaboration with product, QA, backend, and design teams.
+                    From fast-moving media products to enterprise integration, I work with product, QA, backend, and
+                    design teams to ship dependable features.
                 </p>
             </SectionHeading>
             <div className="animated-about__grid">

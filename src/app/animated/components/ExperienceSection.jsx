@@ -8,8 +8,7 @@ function ExperienceSection() {
         <section className="animated-section animated-experience" id="animated-experience" aria-labelledby="animated-experience-title">
             <SectionHeading eyebrow="Career sequence" title="Experience across media platforms, ERP systems, and web delivery.">
                 <p>
-                    A scroll-friendly career path built from the same professional experience already used by the main
-                    portfolio.
+                    A path through client websites, enterprise systems, and high-traffic media products.
                 </p>
             </SectionHeading>
             <div className="animated-experience__layout">

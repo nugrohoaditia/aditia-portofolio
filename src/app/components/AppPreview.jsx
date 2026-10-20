@@ -1,5 +1,18 @@
-function AppPreview({ type, variant = "standard" }) {
+function AppPreview({ type, asset, title, variant = "standard" }) {
     const className = `app-preview-visual ${variant === "featured" ? "app-preview-visual--featured" : ""}`.trim();
+
+    if (type === "screenshot" && asset) {
+        return (
+            <div className={`${className} app-preview-visual--screenshot`}>
+                <img
+                    src={asset}
+                    alt={`${title} website preview`}
+                    loading={variant === "featured" ? "eager" : "lazy"}
+                    decoding="async"
+                />
+            </div>
+        );
+    }
 
     if (type === "newsroom-dashboard") {
         return (

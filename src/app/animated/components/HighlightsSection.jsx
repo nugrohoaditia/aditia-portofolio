@@ -6,10 +6,9 @@ import { softScale, staggerContainer } from "../utils/animationVariants";
 function HighlightsSection() {
     return (
         <section className="animated-section animated-highlights" id="animated-highlights" aria-labelledby="animated-highlights-title">
-            <SectionHeading eyebrow="Signals" title="Professional highlights without inflated claims.">
+            <SectionHeading eyebrow="Highlights" title="Experience built through delivery and production support.">
                 <p>
-                    These numbers come from the portfolio data itself: roles, selected projects, grouped technologies,
-                    and years of experience.
+                    A few concrete markers from the platforms and teams I have worked with.
                 </p>
             </SectionHeading>
             <motion.div

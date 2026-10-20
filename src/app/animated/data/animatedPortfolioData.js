@@ -4,7 +4,7 @@ export const animatedProfile = {
     ...profile,
     pageTitle: "Animated",
     intro:
-        "A cinematic portfolio view for a senior software engineer focused on React, PHP, high-traffic web platforms, API integration, clean code, and reliable product delivery.",
+        "I build and maintain high-traffic media platforms with React, PHP, and JavaScript, bringing production experience to every release.",
     status: "Open to Senior Software Engineer, Technical Lead, and product collaboration roles",
     location: "Jakarta, Indonesia",
     links: [
@@ -38,14 +38,14 @@ export const animatedHighlights = [
     {
         value: String(projects.length),
         suffix: "",
-        label: "Selected platforms shown",
-        detail: "Based on projects already listed in the portfolio."
+        label: "Selected media platforms",
+        detail: "News and lifestyle products across the Detik network."
     },
     {
-        value: String(skillGroups.reduce((total, group) => total + group.skills.length, 0)),
-        suffix: "",
-        label: "Technologies and tools grouped",
-        detail: "Frontend, backend, integration, testing, and team workflow."
+        value: "45",
+        suffix: "+",
+        label: "Critical production issues resolved",
+        detail: "Supported by monitoring, investigation, and fixes in production."
     },
     {
         value: String(experiences.length),

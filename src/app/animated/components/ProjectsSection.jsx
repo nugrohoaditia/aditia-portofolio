@@ -6,10 +6,10 @@ import { revealUp, staggerContainer } from "../utils/animationVariants";
 function ProjectsSection() {
     return (
         <section className="animated-section animated-projects" id="animated-projects" aria-labelledby="animated-projects-title">
-            <SectionHeading eyebrow="Selected work" title="A cinematic gallery of real platforms from the portfolio.">
+            <SectionHeading eyebrow="Selected work" title="Media platforms shaped by real production needs.">
                 <p>
-                    Each card uses the existing project names, roles, technologies, links, and available local brand
-                    assets.
+                    Frontend delivery, reusable components, and ongoing production support across news and lifestyle
+                    products.
                 </p>
             </SectionHeading>
             <motion.div

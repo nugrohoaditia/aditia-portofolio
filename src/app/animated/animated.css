@@ -28,58 +28,6 @@
     box-sizing: border-box;
 }
 
-.animated-loader {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: grid;
-    place-content: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    background: var(--animated-bg);
-}
-
-.animated-loader__mark {
-    display: grid;
-    width: 7rem;
-    height: 7rem;
-    place-items: center;
-    border: 1px solid rgba(61, 220, 145, 0.46);
-    border-radius: 20px;
-    color: var(--animated-green);
-    background: var(--animated-surface);
-    font-size: 2rem;
-    font-weight: 500;
-    box-shadow: rgba(0, 0, 0, 0.04) 1px 0 9px 2px;
-}
-
-.animated-loader__meta {
-    display: flex;
-    width: min(22rem, 80vw);
-    align-items: center;
-    justify-content: space-between;
-    color: var(--animated-muted);
-    font-size: 0.78rem;
-    font-weight: 400;
-    letter-spacing: 0.45px;
-    text-transform: uppercase;
-}
-
-.animated-loader__track {
-    width: min(22rem, 80vw);
-    height: 0.35rem;
-    overflow: hidden;
-    border-radius: 56px;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.animated-loader__track span {
-    display: block;
-    height: 100%;
-    border-radius: inherit;
-    background: var(--animated-green);
-}
-
 .animated-scroll-progress {
     position: fixed;
     top: 0;

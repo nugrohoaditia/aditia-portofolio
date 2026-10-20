@@ -1,12 +1,15 @@
 import { useEffect } from "react";
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import DarkModeToggle from "../components/DarkModeToggle";
 import AppCard from "./components/AppCard";
 import AppRoadmap from "./components/AppRoadmap";
+import AppStoryCard from "./components/AppStoryCard";
 import FeaturedAppCard from "./components/FeaturedAppCard";
 import {
     getAvailablePortfolioApps,
     getFeaturedPortfolioApps,
+    getInProgressPortfolioApps,
+    portfolioAppCategories,
     getRoadmapPortfolioApps
 } from "./data/portfolioApps";
 
@@ -48,11 +51,11 @@ function AppPlaygroundPage({ theme, onToggleTheme }) {
     const apps = getAvailablePortfolioApps();
     const featuredApps = getFeaturedPortfolioApps();
     const roadmapApps = getRoadmapPortfolioApps();
-    const standardApps = apps.filter((app) => !app.featured);
+    const inProgressApps = getInProgressPortfolioApps();
+    const independentApps = apps.filter((app) => app.category === portfolioAppCategories.independentProducts);
+    const experiments = apps.filter((app) => app.category !== portfolioAppCategories.independentProducts);
     const featuredApp = featuredApps[0];
-    const groupedApps = groupAppsByCategory(standardApps.length > 0 ? standardApps : apps);
-    const availableCount = apps.length;
-    const categoryCount = Object.keys(groupAppsByCategory(apps)).length;
+    const groupedExperiments = groupAppsByCategory(experiments);
 
     useEffect(() => {
         const previousMeta = {
@@ -63,7 +66,7 @@ function AppPlaygroundPage({ theme, onToggleTheme }) {
             themeColor: getMetaContent("theme-color")
         };
         const description =
-            "Explore interactive portfolio experiences, professional simulations, and frontend engineering experiments.";
+            "Explore Aditia Nugroho's independent digital products, interactive portfolio experiences, and work in progress.";
 
         document.title = "App Playground | Aditia Nugroho";
         setMetaTag("description", description);
@@ -100,55 +103,83 @@ function AppPlaygroundPage({ theme, onToggleTheme }) {
                         &lt; Home
                     </a>
                     <div className="hidden min-w-0 items-center gap-3 text-sm font-black text-slate-500 sm:flex dark:text-slate-400">
-                        <span>App Playground</span>
+                        <span>Independent work</span>
                         <span className="h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-600" aria-hidden="true" />
-                        <span>{availableCount} live</span>
+                        <span>{independentApps.length} live products</span>
                     </div>
                     <DarkModeToggle theme={theme} onToggle={onToggleTheme} />
                 </nav>
             </header>
 
             <main className="relative mx-auto max-w-7xl px-5 pb-12 pt-10 lg:px-8 lg:pb-16">
-                <section className="app-hero" aria-labelledby="app-playground-title">
+                <motion.section
+                    className="app-hero"
+                    aria-labelledby="app-playground-title"
+                    initial={reducedMotion ? false : { opacity: 0, y: 24 }}
+                    animate={reducedMotion ? undefined : { opacity: 1, y: 0 }}
+                    transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                >
                     <div>
                         <p className="app-kicker">Digital Product Lab</p>
                         <h1 id="app-playground-title">App Playground</h1>
                         <p>
-                            A curated collection of interactive portfolio experiences, product simulations, and frontend
-                            engineering experiments.
+                            Products I build independently, from streaming and food media to commerce and playful learning.
+                            Explore the live sites and see what is still taking shape.
                         </p>
                     </div>
                     <div className="app-hero-panel" aria-label="Application ecosystem summary">
                         <div>
-                            <strong>{availableCount}</strong>
-                            <span>Live application</span>
+                            <strong>{independentApps.length}</strong>
+                            <span>Live independent products</span>
                         </div>
                         <div>
-                            <strong>{categoryCount}</strong>
-                            <span>Active category</span>
+                            <strong>{experiments.length}</strong>
+                            <span>Interactive experiments</span>
                         </div>
                         <div>
-                            <strong>{roadmapApps.length}</strong>
-                            <span>Concepts planned</span>
+                            <strong>{inProgressApps.length}</strong>
+                            <span>Product in progress</span>
                         </div>
                     </div>
-                </section>
+                </motion.section>
 
                 <section className="mt-10" aria-labelledby="featured-app-title">
                     <div className="app-section-heading">
-                        <span>Featured experience</span>
-                        <h2 id="featured-app-title">Start with the live application</h2>
+                        <span>Featured product</span>
+                        <h2 id="featured-app-title">Start with DASO</h2>
                     </div>
                     <FeaturedAppCard app={featuredApp} onNavigate={navigateWithinApp} reducedMotion={reducedMotion} />
                 </section>
 
+                <section className="mt-12" aria-labelledby="independent-apps-title">
+                    <div className="app-section-heading">
+                        <span>Independent products</span>
+                        <h2 id="independent-apps-title">Explore the live sites</h2>
+                        <p>Each preview comes from the public product. External sites open in a new tab.</p>
+                    </div>
+                    <div className="app-grid" aria-label="Independent products grid">
+                        {independentApps.filter((app) => !app.featured).map((app) => (
+                            <AppCard app={app} key={app.id} onNavigate={navigateWithinApp} />
+                        ))}
+                    </div>
+                </section>
+
+                {inProgressApps.length > 0 && (
+                    <section className="mt-12" aria-labelledby="in-progress-apps-title">
+                        <div className="app-section-heading">
+                            <span>In progress</span>
+                            <h2 id="in-progress-apps-title">A product taking shape</h2>
+                        </div>
+                        {inProgressApps.map((app) => <AppStoryCard app={app} key={app.id} />)}
+                    </section>
+                )}
+
                 <section className="mt-12" aria-labelledby="available-apps-title">
                     <div className="app-section-heading">
-                        <span>Available applications</span>
-                        <h2 id="available-apps-title">Built experiments</h2>
-                        <p>Every visible app is generated from the shared registry and links only to routes that exist.</p>
+                        <span>Portfolio experiments</span>
+                        <h2 id="available-apps-title">Interactive explorations</h2>
                     </div>
-                    {Object.entries(groupedApps).map(([category, categoryApps]) => (
+                    {Object.entries(groupedExperiments).map(([category, categoryApps]) => (
                         <div className="mb-8" key={category}>
                             <h3 className="mb-4 text-sm font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
                                 {category}
@@ -165,7 +196,7 @@ function AppPlaygroundPage({ theme, onToggleTheme }) {
                 <AppRoadmap apps={roadmapApps} />
 
                 <footer className="app-playground-footer">
-                    <p>More experiments will be added when they are useful, working, and worth opening.</p>
+                    <p>Built and explored independently by Aditia Nugroho.</p>
                     <a href="/">Back to portfolio</a>
                 </footer>
             </main>

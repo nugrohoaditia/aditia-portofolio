@@ -213,27 +213,27 @@
     }
 
     .app-preview-card {
-        @apply block rounded-lg border border-slate-200 bg-white p-4 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-marine hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-marine dark:border-white/10 dark:bg-slate-950/70 dark:hover:border-mint dark:focus-visible:outline-mint;
+        @apply block rounded-lg border border-slate-200 bg-white p-4 shadow-soft transition-colors duration-300 hover:border-marine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-marine dark:border-white/10 dark:bg-slate-950/70 dark:hover:border-mint dark:focus-visible:outline-mint;
     }
 
     .app-featured-card {
-        @apply grid overflow-hidden rounded-lg border border-slate-200 bg-slate-950 shadow-soft dark:border-white/10 dark:bg-slate-950 lg:grid-cols-[1.05fr_0.95fr];
+        @apply grid overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft dark:border-white/10 dark:bg-slate-950 lg:grid-cols-[1.05fr_0.95fr];
     }
 
     .app-featured-preview {
-        @apply bg-slate-900 p-4 dark:bg-[#081525] sm:p-6;
+        @apply bg-slate-100 p-4 dark:bg-[#081525] sm:p-6;
     }
 
     .app-featured-content {
-        @apply flex flex-col justify-center p-6 dark:bg-white/[0.03] sm:p-8 lg:p-10;
+        @apply flex flex-col justify-center bg-white p-6 dark:bg-white/[0.03] sm:p-8 lg:p-10;
     }
 
     .app-release-label {
-        @apply rounded-full border border-white/15 px-3 py-1 text-xs font-black text-slate-200;
+        @apply rounded-full border border-slate-300 px-3 py-1 text-xs font-black text-slate-600 dark:border-white/15 dark:text-slate-200;
     }
 
     .app-featured-action {
-        @apply mt-8 inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-mint px-6 py-3 text-sm font-black text-slate-950 transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint sm:w-fit;
+        @apply mt-8 inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-mint px-6 py-3 text-sm font-black text-slate-950 transition hover:-translate-y-0.5 hover:bg-marine hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-marine dark:hover:bg-white dark:hover:text-slate-950 dark:focus-visible:outline-mint sm:w-fit;
     }
 
     .app-featured-action span {
@@ -255,6 +255,38 @@
             radial-gradient(circle at 85% 15%, rgba(45, 212, 191, 0.2), transparent 28%),
             linear-gradient(135deg, #101827, #201821 58%, #111827);
         background-size: 28px 28px, 28px 28px, auto, auto, auto;
+    }
+
+    .app-preview-visual--screenshot {
+        @apply p-0;
+        background: #0b1421;
+    }
+
+    .app-preview-visual--screenshot img {
+        @apply h-full w-full object-cover;
+        transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .app-preview-card:hover .app-preview-visual--screenshot img,
+    .app-preview-card:focus-visible .app-preview-visual--screenshot img,
+    .app-featured-card:hover .app-preview-visual--screenshot img {
+        transform: scale(1.045);
+    }
+
+    .app-story-card {
+        @apply grid gap-6 overflow-hidden rounded-lg border border-amber-300/70 bg-white p-6 shadow-soft dark:border-amber-300/20 dark:bg-slate-950/70 sm:grid-cols-[11rem_1fr] sm:items-center;
+    }
+
+    .app-story-card__mark {
+        @apply flex min-h-32 items-center justify-center rounded-lg border border-dashed border-amber-400/70 bg-amber-50 p-5 text-center text-xl font-black text-amber-800 dark:border-amber-300/30 dark:bg-amber-300/10 dark:text-amber-200;
+    }
+
+    .app-story-card h3 {
+        @apply mt-3 text-2xl font-black text-ink dark:text-white;
+    }
+
+    .app-story-card p {
+        @apply mt-3 max-w-2xl leading-7 text-slate-600 dark:text-slate-300;
     }
 
     .app-featured-preview .app-preview-visual,
@@ -529,6 +561,16 @@
 
     .app-preview-card:hover,
     .app-featured-action:hover {
+        transform: none;
+    }
+
+    .app-preview-visual--screenshot img {
+        transition-duration: 0.01ms !important;
+    }
+
+    .app-preview-card:hover .app-preview-visual--screenshot img,
+    .app-preview-card:focus-visible .app-preview-visual--screenshot img,
+    .app-featured-card:hover .app-preview-visual--screenshot img {
         transform: none;
     }
 

@@ -5,7 +5,7 @@ import AppPreview from "../app/components/AppPreview";
 import AppRoadmap from "../app/components/AppRoadmap";
 import AppStatusBadge from "../app/components/AppStatusBadge";
 import FeaturedAppCard from "../app/components/FeaturedAppCard";
-import { getAvailablePortfolioApps, portfolioApps } from "../app/data/portfolioApps";
+import { getAvailablePortfolioApps, getInProgressPortfolioApps, getRoadmapPortfolioApps, portfolioApps } from "../app/data/portfolioApps";
 
 const sampleApp = {
     id: "sample",
@@ -55,7 +55,9 @@ test("app registry returns only enabled apps sorted by order", () => {
             }
         );
 
-        expect(getAvailablePortfolioApps().map((app) => app.id)).toEqual(["earlier", "animated", "later", "newsroom-dashboard"]);
+        expect(getAvailablePortfolioApps().map((app) => app.id)).toEqual([
+            "earlier", "daso", "sinyalrasa", "dapur-utieira", "later", "super-kid-math", "animated", "newsroom-dashboard"
+        ]);
     } finally {
         portfolioApps.splice(-3, 3);
     }
@@ -65,6 +67,11 @@ test("app preview renders a fallback visual for unknown preview types", () => {
     const { container } = render(<AppPreview type="unknown" />);
 
     expect(container.querySelector(".app-preview-visual--empty")).toBeInTheDocument();
+});
+
+test("app preview renders a public product screenshot", () => {
+    render(<AppPreview type="screenshot" asset="/assets/images/apps/daso.webp" title="DASO" />);
+    expect(screen.getByAltText("DASO website preview")).toHaveAttribute("src", "/assets/images/apps/daso.webp");
 });
 
 test("app preview renders a lightweight newsroom dashboard visual", () => {
@@ -89,6 +96,17 @@ test("app card uses SPA navigation for normal clicks", () => {
     fireEvent.click(screen.getByRole("link", { name: /sample app/i }));
 
     expect(onNavigate).toHaveBeenCalledWith("/app/sample");
+});
+
+test("external product cards open safely without SPA navigation", () => {
+    const onNavigate = jest.fn();
+    render(<AppCard app={portfolioApps[1]} onNavigate={onNavigate} />);
+    const link = screen.getByRole("link", { name: /open sinyalrasa/i });
+    expect(link).toHaveAttribute("href", "https://sinyalrasa.me/");
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    fireEvent.click(link);
+    expect(onNavigate).not.toHaveBeenCalled();
 });
 
 test("app card keeps default link behavior when navigation is unavailable or modified", () => {
@@ -137,6 +155,17 @@ test("featured app card falls back to the default action label", () => {
     expect(screen.getByRole("link", { name: /open app/i })).toHaveAttribute("href", "/app/sample");
 });
 
+test("featured DASO action is a safe external link", () => {
+    const onNavigate = jest.fn();
+    render(<FeaturedAppCard app={portfolioApps[0]} onNavigate={onNavigate} reducedMotion />);
+    const link = screen.getByRole("link", { name: /explore daso/i });
+    expect(link).toHaveAttribute("href", "https://daso.web.id/");
+    expect(link).toHaveAttribute("target", "_blank");
+    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    fireEvent.click(link);
+    expect(onNavigate).not.toHaveBeenCalled();
+});
+
 test("roadmap returns no section when there are no planned apps", () => {
     const { container } = render(<AppRoadmap apps={[]} />);
 
@@ -157,7 +186,7 @@ test("app playground metadata is applied and restored", () => {
     expect(document.title).toBe("App Playground | Aditia Nugroho");
     expect(document.head.querySelector('meta[name="description"]')).toHaveAttribute(
         "content",
-        "Explore interactive portfolio experiences, professional simulations, and frontend engineering experiments."
+        "Explore Aditia Nugroho's independent digital products, interactive portfolio experiences, and work in progress."
     );
 
     unmount();
@@ -211,26 +240,31 @@ test("enabled app registry entries are complete and unique", () => {
     expect(newsroomEntries).toHaveLength(1);
 
     enabledApps.forEach((app) => {
-        expect(app.route).toMatch(/^\/app\//);
+        expect(app.route || app.externalUrl).toMatch(/^(\/app\/|https:\/\/)/);
         expect(app.title).toBeTruthy();
         expect(app.description).toBeTruthy();
-        expect(["ready", "beta", "inDevelopment", "concept", "archived"]).toContain(app.status);
+        expect(["live", "ready", "beta", "inDevelopment", "concept", "archived"]).toContain(app.status);
         expect(app.category).toBeTruthy();
     });
 });
 
-test("app playground falls back to featured apps when no standard apps are enabled", () => {
-    const newsroomApp = portfolioApps.find((app) => app.id === "newsroom-dashboard");
-    const previousEnabled = newsroomApp.enabled;
+test("daycare is only an in-progress story without a link", () => {
+    expect(getInProgressPortfolioApps().map((app) => app.id)).toEqual(["daycare-attendance"]);
+    expect(getRoadmapPortfolioApps().map((app) => app.id)).toEqual(["performance-lab", "tech-stack-galaxy"]);
+    render(<AppPlaygroundPage theme="light" onToggleTheme={jest.fn()} />);
+    const story = screen.getByText("Daycare Attendance").closest("article");
+    expect(story).toHaveTextContent("In development");
+    expect(story.querySelector("a, button")).toBeNull();
+    expect(screen.getByText("4")).toBeInTheDocument();
+    expect(screen.getByText("Live independent products")).toBeInTheDocument();
+});
 
+test("in-progress stories follow their configured order", () => {
     try {
-        newsroomApp.enabled = false;
-        render(<AppPlaygroundPage theme="light" onToggleTheme={jest.fn()} />);
-
-        expect(screen.getByRole("link", { name: /open experience/i })).toHaveAttribute("href", "/app/animated");
-        expect(screen.getByLabelText("Experimental apps grid")).toBeInTheDocument();
+        portfolioApps.push({ ...portfolioApps.find((app) => app.id === "daycare-attendance"), id: "later-story", order: 50 });
+        expect(getInProgressPortfolioApps().map((app) => app.id)).toEqual(["daycare-attendance", "later-story"]);
     } finally {
-        newsroomApp.enabled = previousEnabled;
+        portfolioApps.pop();
     }
 });
 

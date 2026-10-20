@@ -4,11 +4,10 @@ export const pageFade = {
 };
 
 export const revealUp = {
-    hidden: { opacity: 0, y: 34, filter: "blur(12px)" },
+    hidden: { opacity: 0, y: 34 },
     visible: {
         opacity: 1,
         y: 0,
-        filter: "blur(0px)",
         transition: { duration: 0.72, ease: [0.22, 1, 0.36, 1] }
     }
 };

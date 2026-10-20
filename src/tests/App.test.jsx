@@ -87,17 +87,21 @@ test("renders the private app route shell without exposing portfolio sections", 
 
     expect(screen.getByRole("navigation", { name: /app navigation/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "< Home" })).toHaveAttribute("href", "/");
-    expect(screen.getByLabelText("Experimental apps grid")).toHaveClass("app-grid");
+    expect(screen.getAllByLabelText("Experimental apps grid")).toHaveLength(2);
     expect(screen.getByRole("heading", { name: "App Playground" })).toBeInTheDocument();
-    const animatedCard = screen.getByRole("link", { name: /open experience/i });
+    const animatedCard = screen.getByRole("link", { name: /open animated portfolio/i });
     expect(animatedCard).toHaveAttribute("href", "/app/animated");
     expect(screen.getByRole("link", { name: /open newsroom dashboard/i })).toHaveAttribute("href", "/app/newsroom");
     expect(screen.getAllByText("Newsroom Dashboard")).toHaveLength(1);
     expect(screen.queryByText("Newsroom Dashboard Simulator")).not.toBeInTheDocument();
     expect(screen.getAllByText("Portfolio Experience").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("Ready").length).toBeGreaterThan(0);
-    expect(screen.getByRole("heading", { name: /start with the live application/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /future experiments/i })).toBeInTheDocument();
+    expect(screen.getAllByText("Live").length).toBeGreaterThan(0);
+    expect(screen.getByRole("heading", { name: /start with daso/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /interactive explorations/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /explore daso/i })).toHaveAttribute("href", "https://daso.web.id/");
+    expect(screen.getByRole("link", { name: /open sinyalrasa/i })).toHaveAttribute("href", "https://sinyalrasa.me/");
+    expect(screen.getByRole("link", { name: /open dapur utieira/i })).toHaveAttribute("href", "https://dapur.sinyalrasa.me/");
+    expect(screen.getByRole("link", { name: /open super kid math/i })).toHaveAttribute("href", "https://soal-sd.aditianugroho.dev/");
     expect(screen.queryByRole("heading", { name: "Aditia Nugroho" })).not.toBeInTheDocument();
 
     await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
@@ -143,7 +147,7 @@ test("renders the animated portfolio route with metadata and key sections", asyn
     expect(screen.getByRole("main", { name: /animated portfolio experience/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Aditia Nugroho" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /experience across media platforms/i })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /cinematic gallery/i })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /media platforms shaped by real production needs/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /stack shaped by production work/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "< Home" })).toHaveAttribute("href", "/app");
 
@@ -169,6 +173,24 @@ test("animated route supports mobile menu, escape close, and theme switching", a
 
     await user.click(screen.getByRole("button", { name: /toggle dark mode/i }));
     expect(document.documentElement).toHaveClass("dark");
+});
+
+test("animated route skips decorative progress for reduced motion", () => {
+    window.matchMedia = jest.fn().mockImplementation((query) => ({
+        matches: query.includes("prefers-reduced-motion"),
+        media: query,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn()
+    }));
+    window.history.pushState({}, "", "/app/animated");
+
+    const { container } = render(<App />);
+
+    expect(screen.getByRole("main", { name: /animated portfolio experience/i })).toBeInTheDocument();
+    expect(container.querySelector(".animated-scroll-progress")).toBeNull();
+    expect(container.querySelector(".animated-loader")).toBeNull();
 });
 
 test("renders the newsroom dashboard route and supports core workflow", async () => {
@@ -314,12 +336,14 @@ test("opens and closes the mobile navigation menu", async () => {
 
     expect(screen.getByAltText("Aditia Nugroho logo")).toHaveAttribute("src", "/assets/images/logo_trans.png");
     expect(screen.getByRole("button", { name: /switch between english and indonesian/i })).toBeInTheDocument();
+    expect(within(screen.getByRole("navigation", { name: "Main navigation" })).getAllByRole("link", { name: "Independent Projects" })[0]).toHaveAttribute("href", "/app");
 
     const menuButton = screen.getByRole("button", { name: /toggle mobile menu/i });
     await user.click(menuButton);
 
     expect(menuButton).toHaveAttribute("aria-expanded", "true");
     expect(screen.getAllByText("Projects")).toHaveLength(2);
+    expect(screen.getAllByText("Independent Projects")).toHaveLength(3);
     expect(screen.queryByText("Theme")).not.toBeInTheDocument();
 
     await user.click(screen.getAllByRole("button", { name: /switch between english and indonesian/i })[1]);
@@ -353,6 +377,7 @@ test("switches portfolio copy between English and Indonesian", async () => {
     expect(localStorage.getItem("language")).toBe("ID");
     expect(screen.getByRole("heading", { name: /pengalaman web development/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /lihat pengalaman/i })).toBeInTheDocument();
+    expect(screen.getAllByRole("link", { name: /proyek mandiri/i })[0]).toHaveAttribute("href", "/app");
     expect(screen.getByText(/Merampungkan 460\+ tiket development/i)).toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: /unduh cv/i })[0]).toHaveAttribute("href", getResumeUrl("ID"));
 });

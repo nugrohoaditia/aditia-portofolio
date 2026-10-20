@@ -6,16 +6,19 @@ export const translations = {
             experience: "Experience",
             skills: "Skills",
             projects: "Projects",
+            apps: "Independent Projects",
             education: "Education",
             contact: "Contact"
         },
         hero: {
             badge: "Senior Software Engineer at Detikcom",
             subtitle: "Senior Software Engineer | React & PHP | High-Traffic Web Platforms",
+            lead: "I build dependable web products for large audiences and independent ideas of my own.",
             summary:
                 "Senior Software Engineer with 8+ years of experience building, maintaining, and scaling high-traffic web platforms with React, PHP, and JavaScript. I work on reliable product delivery, clean code, system reliability, API integration, and frontend architecture for media and enterprise projects.",
             metrics: ["8+ years experience", "8+ media platforms", "React + PHP"],
             experienceButton: "View Experience",
+            appsButton: "Independent Projects",
             resumeButton: "Download Resume",
             imageAlt: "Aditia Nugroho in a smart casual outfit with Jakarta city skyline",
             imageNote: "Building practical web features with attention to speed, reliability, and maintainability."
@@ -66,16 +69,19 @@ export const translations = {
             experience: "Pengalaman",
             skills: "Keahlian",
             projects: "Proyek",
+            apps: "Proyek Mandiri",
             education: "Pendidikan",
             contact: "Kontak"
         },
         hero: {
             badge: "Senior Software Engineer di Detikcom",
             subtitle: "Senior Software Engineer | React & PHP | Platform Web Bertrafik Tinggi",
+            lead: "Saya membangun produk web yang andal untuk audiens besar dan mengembangkan ide produk mandiri.",
             summary:
                 "Senior Software Engineer dengan pengalaman 8+ tahun dalam membangun, memelihara, dan melakukan scaling pada platform web bertrafik tinggi menggunakan React, PHP, dan JavaScript. Saya terbiasa mengerjakan product delivery yang andal, clean code, system reliability, integrasi API, dan arsitektur frontend untuk proyek media maupun enterprise.",
             metrics: ["8+ tahun pengalaman", "8+ platform media", "React + PHP"],
             experienceButton: "Lihat Pengalaman",
+            appsButton: "Proyek Mandiri",
             resumeButton: "Unduh CV",
             imageAlt: "Aditia Nugroho dengan pakaian smart casual dan latar kota Jakarta",
             imageNote: "Membangun fitur web yang praktis, cepat, andal, dan mudah dipelihara."

@@ -1,7 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { MotionConfig, motion } from "framer-motion";
 import AnimatedNavbar from "./components/AnimatedNavbar";
-import PageLoader from "./components/PageLoader";
 import ScrollProgress from "./components/ScrollProgress";
 import CustomCursor from "./components/CustomCursor";
 import HeroSection from "./components/HeroSection";
@@ -31,8 +30,6 @@ function setMetaTag(name, content, attribute = "name") {
 }
 
 function AnimatedPage({ theme, onToggleTheme }) {
-    const [isLoading, setLoading] = useState(true);
-    const [progress, setProgress] = useState(0);
     const sectionIds = useMemo(() => animatedSections.map((section) => section.id), []);
     const activeSection = useActiveSection(sectionIds);
     const prefersReducedMotion = useReducedMotionPreference();
@@ -53,33 +50,11 @@ function AnimatedPage({ theme, onToggleTheme }) {
         };
     }, []);
 
-    useEffect(() => {
-        if (prefersReducedMotion) {
-            setProgress(100);
-            setLoading(false);
-            return undefined;
-        }
-
-        let currentProgress = 0;
-        const interval = window.setInterval(() => {
-            currentProgress = Math.min(currentProgress + 8, 100);
-            setProgress(currentProgress);
-
-            if (currentProgress >= 100) {
-                window.clearInterval(interval);
-                window.setTimeout(() => setLoading(false), 220);
-            }
-        }, 55);
-
-        return () => window.clearInterval(interval);
-    }, [prefersReducedMotion]);
-
     return (
         <MotionConfig reducedMotion={prefersReducedMotion ? "always" : "user"}>
-            <motion.div className="animated-page" initial="hidden" animate="visible" variants={pageFade}>
-                <PageLoader isLoading={isLoading} progress={progress} />
+            <motion.div className="animated-page" initial={prefersReducedMotion ? false : "hidden"} animate="visible" variants={pageFade}>
                 <CustomCursor disabled={prefersReducedMotion} />
-                <ScrollProgress />
+                {!prefersReducedMotion && <ScrollProgress />}
                 <AnimatedNavbar
                     activeSection={activeSection}
                     sections={animatedSections}

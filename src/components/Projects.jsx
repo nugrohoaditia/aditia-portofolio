@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Section from "./Section";
 import { projects } from "../data";
 
 function Projects({ copy, items = projects }) {
+    const reducedMotion = useReducedMotion();
     return (
         <Section id="projects" eyebrow={copy.eyebrow} title={copy.title} tone="muted">
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -10,7 +11,7 @@ function Projects({ copy, items = projects }) {
                     <motion.article
                         className="flex min-h-[24rem] flex-col gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900"
                         key={project.name}
-                        whileHover={{ y: -8 }}
+                        whileHover={reducedMotion ? undefined : { y: -8 }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     >
                         <div className="project-logo-frame">

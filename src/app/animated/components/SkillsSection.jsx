@@ -10,8 +10,7 @@ function SkillsSection() {
         <section className="animated-section animated-skills" id="animated-skills" aria-labelledby="animated-skills-title">
             <SectionHeading eyebrow="Technology field" title="A stack shaped by production work.">
                 <p>
-                    No arbitrary percentages. The skills are grouped by how they appear in day-to-day delivery:
-                    frontend, backend integration, quality, and workflow.
+                    The tools I use across frontend delivery, backend integration, testing, and production support.
                 </p>
             </SectionHeading>
             <div className="animated-skills__layout">
