@@ -133,6 +133,8 @@ function Header({ copy, language, onToggleLanguage, theme, onToggleTheme }) {
             </header>
 
             <section id="home" className="relative overflow-hidden border-b border-slate-200 bg-white pt-28 dark:border-slate-800 dark:bg-slate-950 sm:pt-32">
+                <div className="pointer-events-none absolute -top-40 right-0 -z-10 h-[500px] w-[500px] rounded-full bg-mint/10 blur-3xl dark:bg-marine/10" aria-hidden="true" />
+                <div className="pointer-events-none absolute top-1/2 -left-40 -z-10 h-[400px] w-[400px] rounded-full bg-marine/5 blur-3xl dark:bg-mint/5" aria-hidden="true" />
                 <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 pb-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-8 lg:pb-24">
                     <motion.div
                         className="order-1"
@@ -140,10 +142,10 @@ function Header({ copy, language, onToggleLanguage, theme, onToggleTheme }) {
                         animate={reducedMotion ? undefined : { opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        <p className="mb-4 inline-flex rounded-full bg-mint/15 px-4 py-2 text-sm font-extrabold text-marine dark:bg-marine/25 dark:text-mint">
+                        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-marine/20 bg-mint/10 px-4 py-2 text-xs font-black uppercase tracking-wider text-marine dark:border-mint/20 dark:bg-marine/20 dark:text-mint">
                             {copy.hero.badge}
                         </p>
-                        <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-normal text-ink sm:text-5xl lg:text-6xl dark:text-white">
+                        <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight text-ink sm:text-5xl lg:text-6xl dark:text-white">
                             {profile.name}
                         </h1>
                         <p className="mt-4 max-w-2xl text-lg font-bold leading-7 text-marine dark:text-mint sm:text-xl">{copy.hero.subtitle}</p>
@@ -155,7 +157,7 @@ function Header({ copy, language, onToggleLanguage, theme, onToggleTheme }) {
                             <a href="#experience" className="btn-secondary">
                                 {copy.hero.experienceButton}
                             </a>
-                            <a href={getResumeUrl(language)} download className="inline-flex min-h-12 items-center gap-2 px-2 font-extrabold text-marine hover:underline dark:text-mint">
+                            <a href={getResumeUrl(language)} download className="inline-flex min-h-12 items-center gap-2 px-3 font-extrabold text-marine transition hover:text-ink hover:underline dark:text-mint dark:hover:text-white">
                                 <FontAwesomeIcon icon={faDownload} />
                                 {copy.hero.resumeButton}
                             </a>
@@ -174,12 +176,14 @@ function Header({ copy, language, onToggleLanguage, theme, onToggleTheme }) {
                         transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <div className="relative mx-auto max-w-md lg:max-w-xl">
-                            <img
-                                src={profile.image}
-                                alt={copy.hero.imageAlt}
-                                className="aspect-[4/3] w-full rounded-lg object-cover object-center shadow-soft"
-                            />
-                            <div className="absolute bottom-4 left-4 right-4 rounded-lg border border-white/40 bg-white/90 px-4 py-3 text-sm font-bold text-ink shadow-soft backdrop-blur dark:border-slate-700/70 dark:bg-slate-950/85 dark:text-white">
+                            <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-2 shadow-soft transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/90">
+                                <img
+                                    src={profile.image}
+                                    alt={copy.hero.imageAlt}
+                                    className="aspect-[4/3] w-full rounded-xl object-cover object-center"
+                                />
+                            </div>
+                            <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/80 bg-white/95 px-4 py-3 text-sm font-bold text-ink shadow-soft backdrop-blur dark:border-slate-700/80 dark:bg-slate-900/95 dark:text-white">
                                 {copy.hero.imageNote}
                             </div>
                         </div>

@@ -9,9 +9,9 @@ function Projects({ copy, items = projects }) {
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {items.map((project) => (
                     <motion.article
-                        className="flex min-h-[24rem] flex-col gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900"
+                        className="flex min-h-[24rem] flex-col gap-4 rounded-xl border border-slate-200/90 bg-white p-7 shadow-sm transition duration-300 hover:border-marine/40 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-mint/40"
                         key={project.name}
-                        whileHover={reducedMotion ? undefined : { y: -8 }}
+                        whileHover={reducedMotion ? undefined : { y: -6 }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
                     >
                         <div className="project-logo-frame">
@@ -35,7 +35,7 @@ function Projects({ copy, items = projects }) {
                                 <span key={technology}>{technology}</span>
                             ))}
                         </div>
-                        <a className="mt-auto font-extrabold text-marine hover:underline dark:text-mint" href={project.url} target="_blank" rel="noreferrer">
+                        <a className="mt-auto inline-flex items-center gap-1.5 font-extrabold text-marine transition hover:text-ink hover:underline dark:text-mint dark:hover:text-white" href={project.url} target="_blank" rel="noreferrer">
                             {copy.visit}
                         </a>
                     </motion.article>

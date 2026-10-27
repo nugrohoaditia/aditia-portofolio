@@ -42,27 +42,27 @@
     .btn-secondary,
     .btn-whatsapp,
     .btn-email {
-        @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 font-extrabold transition hover:-translate-y-0.5;
+        @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 font-extrabold transition duration-200 hover:-translate-y-0.5 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
     }
 
     .btn-primary {
-        @apply bg-ink text-white hover:bg-marine dark:bg-mint dark:text-slate-950 dark:hover:bg-white;
+        @apply bg-ink text-white shadow-sm hover:bg-marine focus-visible:ring-marine dark:bg-mint dark:text-slate-950 dark:hover:bg-white dark:focus-visible:ring-mint dark:focus-visible:ring-offset-slate-950;
     }
 
     .btn-secondary {
-        @apply border border-slate-300 text-ink hover:border-marine hover:text-marine dark:border-slate-700 dark:text-white dark:hover:border-mint dark:hover:text-mint;
+        @apply border border-slate-300 bg-white/90 text-ink shadow-sm hover:border-marine hover:text-marine focus-visible:ring-marine dark:border-slate-700 dark:bg-slate-900/90 dark:text-white dark:hover:border-mint dark:hover:text-mint dark:focus-visible:ring-mint dark:focus-visible:ring-offset-slate-950;
     }
 
     .btn-whatsapp {
-        @apply bg-emerald-600 text-white hover:bg-emerald-700;
+        @apply bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 focus-visible:ring-emerald-500;
     }
 
     .btn-email {
-        @apply bg-ember text-white hover:bg-orange-600;
+        @apply bg-ember text-white shadow-sm hover:bg-orange-600 focus-visible:ring-ember;
     }
 
     .nav-link {
-        @apply relative pb-1 font-bold transition hover:text-marine dark:hover:text-mint;
+        @apply relative pb-1 font-bold transition duration-200 hover:text-marine dark:hover:text-mint;
     }
 
     .nav-link::after {
@@ -79,11 +79,11 @@
     }
 
     .brand-logo-link {
-        @apply inline-flex h-11 min-w-11 items-center justify-center rounded-full px-2 transition hover:-translate-y-0.5;
+        @apply inline-flex h-11 min-w-11 items-center justify-center rounded-full px-2 transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marine dark:focus-visible:ring-mint;
     }
 
     .mobile-link {
-        @apply transition hover:text-marine dark:hover:text-mint;
+        @apply transition duration-150 hover:text-marine dark:hover:text-mint;
     }
 
     .mobile-link.is-active {
@@ -95,7 +95,7 @@
     }
 
     .language-toggle {
-        @apply h-11 items-center rounded-full border border-slate-300 bg-white p-1 text-xs font-black text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-marine dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400;
+        @apply h-11 items-center rounded-full border border-slate-300 bg-white p-1 text-xs font-black text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-marine focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marine dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400 dark:focus-visible:ring-mint;
     }
 
     .language-toggle span {
@@ -107,7 +107,7 @@
     }
 
     .info-tile {
-        @apply rounded-lg border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-900;
+        @apply rounded-xl border border-slate-200/90 bg-white p-6 shadow-sm transition duration-300 hover:border-marine/40 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-mint/40;
     }
 
     .info-tile span {
@@ -115,15 +115,15 @@
     }
 
     .info-tile strong {
-        @apply block leading-7 text-ink dark:text-white;
+        @apply block text-base font-bold leading-relaxed text-ink dark:text-white;
     }
 
     .metric-line {
-        @apply rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900;
+        @apply relative rounded-xl border border-slate-200/90 bg-white px-5 py-4 shadow-sm transition duration-200 hover:border-marine/40 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-mint/40;
     }
 
     .skill-panel {
-        @apply rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900;
+        @apply flex flex-col rounded-xl border border-slate-200/90 bg-white p-7 shadow-sm transition duration-300 hover:border-marine/40 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-mint/40;
     }
 
     .skill-panel h3 {
@@ -131,25 +131,23 @@
     }
 
     .skill-panel p {
-        @apply mt-3 leading-7 text-slate-600 dark:text-slate-300;
+        @apply mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300;
     }
 
     .skill-chip {
-        @apply rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-extrabold text-slate-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200;
+        @apply rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-1.5 text-xs font-bold text-slate-700 transition duration-150 hover:border-marine/50 hover:bg-marine/5 hover:text-marine dark:border-slate-700/80 dark:bg-slate-950/60 dark:text-slate-200 dark:hover:border-mint/50 dark:hover:bg-mint/10 dark:hover:text-mint;
     }
 
     .project-logo-frame {
-        @apply flex h-24 w-full items-center justify-center rounded-lg border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-800 dark:bg-white;
+        @apply flex h-24 w-full items-center justify-center rounded-xl border border-slate-200/80 bg-slate-50/80 px-6 py-4 transition duration-300 dark:border-slate-800 dark:bg-white;
     }
 
     .app-playground-page {
-        @apply min-h-screen overflow-x-hidden bg-[#f7fafc] text-slate-700 antialiased transition-colors duration-300 dark:bg-[#07111f] dark:text-slate-200;
+        @apply min-h-screen overflow-x-hidden bg-[#f8fafc] text-slate-700 antialiased transition-colors duration-300 dark:bg-[#07111f] dark:text-slate-200;
         background-image:
-            linear-gradient(90deg, rgba(23, 107, 135, 0.08) 1px, transparent 1px),
-            linear-gradient(rgba(23, 107, 135, 0.08) 1px, transparent 1px),
-            linear-gradient(135deg, rgba(100, 204, 197, 0.12), transparent 36%),
-            linear-gradient(225deg, rgba(124, 58, 237, 0.08), transparent 34%);
-        background-size: 44px 44px, 44px 44px, auto, auto;
+            radial-gradient(circle at 15% 10%, rgba(23, 107, 135, 0.07), transparent 40%),
+            radial-gradient(circle at 85% 20%, rgba(100, 204, 197, 0.08), transparent 38%),
+            radial-gradient(circle at 50% 80%, rgba(18, 35, 63, 0.04), transparent 45%);
     }
 
     .app-playground-nav {
@@ -161,7 +159,7 @@
     }
 
     .app-hero {
-        @apply grid gap-6 rounded-lg border border-slate-200 bg-white/85 p-6 shadow-soft backdrop-blur dark:border-white/10 dark:bg-slate-950/60 sm:p-8 lg:grid-cols-[1fr_22rem] lg:items-end lg:p-10;
+        @apply grid gap-6 rounded-2xl border border-slate-200/90 bg-white/90 p-6 shadow-sm backdrop-blur transition-all duration-300 dark:border-white/10 dark:bg-slate-900/70 sm:p-8 lg:grid-cols-[1fr_22rem] lg:items-end lg:p-10;
     }
 
     .app-hero h1 {
@@ -177,11 +175,11 @@
     }
 
     .app-hero-panel {
-        @apply grid gap-3 rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/5;
+        @apply grid gap-3 rounded-xl border border-slate-200/90 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-white/5;
     }
 
     .app-hero-panel div {
-        @apply flex items-center justify-between gap-4 rounded-md border border-slate-200 bg-white px-4 py-3 dark:border-white/10 dark:bg-slate-950/70;
+        @apply flex items-center justify-between gap-4 rounded-lg border border-slate-200/80 bg-white px-4 py-3 shadow-sm transition hover:border-marine/30 dark:border-white/10 dark:bg-slate-950/70;
     }
 
     .app-hero-panel strong {
@@ -213,11 +211,11 @@
     }
 
     .app-preview-card {
-        @apply block rounded-lg border border-slate-200 bg-white p-4 shadow-soft transition-colors duration-300 hover:border-marine focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-marine dark:border-white/10 dark:bg-slate-950/70 dark:hover:border-mint dark:focus-visible:outline-mint;
+        @apply block rounded-xl border border-slate-200/90 bg-white p-5 shadow-sm transition-all duration-300 hover:border-marine/50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marine dark:border-white/10 dark:bg-slate-900/80 dark:hover:border-mint dark:focus-visible:ring-mint;
     }
 
     .app-featured-card {
-        @apply grid overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft dark:border-white/10 dark:bg-slate-950 lg:grid-cols-[1.05fr_0.95fr];
+        @apply grid overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-marine/40 hover:shadow-md dark:border-white/10 dark:bg-slate-900/80 dark:hover:border-mint/40 lg:grid-cols-[1.05fr_0.95fr];
     }
 
     .app-featured-preview {
@@ -246,15 +244,12 @@
     }
 
     .app-preview-visual {
-        @apply relative mb-5 overflow-hidden rounded-lg border border-slate-200 bg-slate-950 p-3 dark:border-slate-700;
+        @apply relative mb-5 overflow-hidden rounded-xl border border-slate-200 bg-slate-950 p-3 dark:border-slate-700/80;
         aspect-ratio: 4 / 3;
         background:
-            linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-            linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-            radial-gradient(circle at 20% 20%, rgba(133, 239, 172, 0.24), transparent 28%),
-            radial-gradient(circle at 85% 15%, rgba(45, 212, 191, 0.2), transparent 28%),
-            linear-gradient(135deg, #101827, #201821 58%, #111827);
-        background-size: 28px 28px, 28px 28px, auto, auto, auto;
+            radial-gradient(circle at 20% 20%, rgba(133, 239, 172, 0.16), transparent 32%),
+            radial-gradient(circle at 85% 15%, rgba(45, 212, 191, 0.14), transparent 30%),
+            linear-gradient(135deg, #0b1120, #0f172a 58%, #0b1120);
     }
 
     .app-preview-visual--screenshot {
@@ -274,11 +269,11 @@
     }
 
     .app-story-card {
-        @apply grid gap-6 overflow-hidden rounded-lg border border-amber-300/70 bg-white p-6 shadow-soft dark:border-amber-300/20 dark:bg-slate-950/70 sm:grid-cols-[11rem_1fr] sm:items-center;
+        @apply grid gap-6 overflow-hidden rounded-xl border border-amber-300/70 bg-white p-7 shadow-sm transition duration-300 hover:shadow-md dark:border-amber-300/25 dark:bg-slate-900/80 sm:grid-cols-[11rem_1fr] sm:items-center;
     }
 
     .app-story-card__mark {
-        @apply flex min-h-32 items-center justify-center rounded-lg border border-dashed border-amber-400/70 bg-amber-50 p-5 text-center text-xl font-black text-amber-800 dark:border-amber-300/30 dark:bg-amber-300/10 dark:text-amber-200;
+        @apply flex min-h-32 items-center justify-center rounded-xl border border-dashed border-amber-400/70 bg-amber-50 p-5 text-center text-xl font-black text-amber-800 dark:border-amber-300/30 dark:bg-amber-300/10 dark:text-amber-200;
     }
 
     .app-story-card h3 {
@@ -369,11 +364,9 @@
 
     .app-preview-visual--newsroom {
         background:
-            linear-gradient(90deg, rgba(100, 204, 197, 0.1) 1px, transparent 1px),
-            linear-gradient(rgba(100, 204, 197, 0.08) 1px, transparent 1px),
-            radial-gradient(circle at 72% 18%, rgba(56, 189, 248, 0.26), transparent 30%),
+            radial-gradient(circle at 72% 18%, rgba(56, 189, 248, 0.2), transparent 35%),
+            radial-gradient(circle at 20% 80%, rgba(100, 204, 197, 0.12), transparent 30%),
             linear-gradient(135deg, #07111f, #0f172a 54%, #111827);
-        background-size: 24px 24px, 24px 24px, auto, auto;
     }
 
     .app-newsroom-preview-shell {
@@ -501,11 +494,11 @@
     }
 
     .app-roadmap {
-        @apply mt-12 rounded-lg border border-slate-200 bg-white/80 p-5 shadow-soft backdrop-blur dark:border-white/10 dark:bg-slate-950/60 sm:p-6;
+        @apply mt-12 rounded-2xl border border-slate-200/90 bg-white/90 p-6 shadow-sm backdrop-blur transition-all duration-300 dark:border-white/10 dark:bg-slate-900/70 sm:p-8;
     }
 
     .app-roadmap-card {
-        @apply rounded-lg border border-slate-200 bg-slate-50 p-4 dark:border-white/10 dark:bg-white/[0.04];
+        @apply rounded-xl border border-slate-200/90 bg-slate-50/80 p-5 shadow-xs transition duration-200 hover:border-marine/30 hover:shadow-sm dark:border-white/10 dark:bg-white/[0.04];
     }
 
     .app-roadmap-category {

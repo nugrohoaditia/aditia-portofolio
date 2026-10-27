@@ -3,7 +3,7 @@ function Education({ copy, items }) {
     return (
         <Section id="education" eyebrow={copy.eyebrow} title={copy.title}>
             <div className="grid gap-6 lg:grid-cols-[18rem_1fr]">
-                <aside className="rounded-lg border border-slate-200 bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+                <aside className="rounded-xl border border-slate-200/90 bg-white p-7 shadow-sm transition duration-300 hover:border-marine/30 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-mint/30">
                     <img
                         className="mx-auto h-auto w-full max-w-[14rem] dark:rounded-md dark:bg-white dark:p-3"
                         src={items[0].logo}
@@ -13,7 +13,7 @@ function Education({ copy, items }) {
                         {copy.note}
                     </p>
                 </aside>
-                <div className="relative border-l-2 border-mint/70 pl-7 dark:border-marine">
+                <div className="relative border-l-2 border-mint/70 pl-8 dark:border-marine">
                     {items.map((item) => (
                         <article className="timeline-item" key={item.degree}>
                             <h3 className="text-xl font-black text-ink dark:text-white">{item.degree}</h3>

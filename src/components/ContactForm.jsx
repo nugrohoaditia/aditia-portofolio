@@ -7,7 +7,7 @@ import { profile } from "../data";
 function ContactForm({ copy }) {
     return (
         <Section id="contact" eyebrow={copy.eyebrow} title={copy.title}>
-            <div className="grid gap-8 rounded-lg border border-slate-200 bg-white p-6 shadow-soft md:grid-cols-[1fr_auto] md:items-center lg:p-8 dark:border-slate-800 dark:bg-slate-900">
+            <div className="grid gap-8 rounded-xl border border-slate-200/90 bg-white p-7 shadow-sm transition duration-300 hover:border-marine/30 hover:shadow-md md:grid-cols-[1fr_auto] md:items-center lg:p-10 dark:border-slate-800 dark:bg-slate-900/90 dark:hover:border-mint/30">
                 <div>
                     <p className="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
                         {copy.intro}
