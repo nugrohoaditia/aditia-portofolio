@@ -498,7 +498,7 @@
     }
 
     .app-roadmap-card {
-        @apply rounded-xl border border-slate-200/90 bg-slate-50/80 p-5 shadow-xs transition duration-200 hover:border-marine/30 hover:shadow-sm dark:border-white/10 dark:bg-white/[0.04];
+        @apply rounded-xl border border-slate-200/90 bg-slate-50/80 p-5 shadow-sm transition duration-200 hover:border-marine/30 hover:shadow-md dark:border-white/10 dark:bg-white/[0.04];
     }
 
     .app-roadmap-category {
